@@ -1,0 +1,115 @@
+
+
+
+<include file="Public/_header" />
+<form action=""  method="post" class="form form-horizontal" id="abc">
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><span style="color: red;">*</span> 登陆帐号：</label>
+        <div class="formControls col-xs-8 col-sm-6">
+            <input  type="text" name="name" required  value="{$list.name}"  class="input-text" autocomplete="off" placeholder="帐号">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><span style="color: red;">*</span> 名称：</label>
+        <div class="formControls col-xs-8 col-sm-6">
+            <input type="text" name="admin_name"  value="{$list.admin_name}" required class="input-text" autocomplete="off" placeholder="名称">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><span style="color: red;">*</span> 手机号：</label>
+        <div class="formControls col-xs-8 col-sm-6">
+            <input type="tel" name="phone" value="{$list.phone}"  class="input-text" autocomplete="off" placeholder="手机号">
+        </div>
+    </div>
+
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><span style="color: red;"></span> 登陆密码：</label>
+        <div class="formControls col-xs-8 col-sm-6">
+            <input type="password" class="input-text"  maxlength="16" name="password"  autocomplete="off" placeholder="不填则为不修改">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><span style="color: red;"></span> 确认密码：</label>
+        <div class="formControls col-xs-8 col-sm-6">
+            <input type="password" class="input-text"  maxlength="16" name="password2" autocomplete="off" placeholder="确认密码">
+        </div>
+    </div>
+
+    <div class="row cl">
+        <label id="a" class="form-label col-xs-4 col-sm-3"><span style="color: red;">*</span>  角色：</label>
+        <div class="formControls col-xs-8 col-sm-6"> <span class="select-box">
+							<select class="select "  size="1" name="role_id">
+                                <foreach name="role" item="vo">
+                                    <option  <eq name="list['role_id']" value="$vo['role_id']"> selected </eq> value="{$vo.role_id}">{$vo.role_name}</option>
+                                </foreach>
+                            </select>
+							</span>
+        </div>
+    </div>
+    <!--<div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">文本域：</label>
+        <div class="formControls col-xs-8 col-sm-9">
+            <textarea class="textarea" placeholder="说点什么..." rows="" cols="" name=""></textarea>
+        </div>
+    </div>-->
+    <input name="admin_id" type="hidden" value="{$list.admin_id}" />
+    <input name="id_key" type="hidden" value="admin_id" />
+    <div class="row cl">
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <input class="btn btn-primary radius" id="ab" type="button" value="提交">
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+
+    $(function() {
+        $('input[type=radio]').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#ab").click(function(){
+            var pwd1 = $("input[name=password]").val();
+            var pwd2 = $("input[name=password2]").val();
+            var phone = $("input[name=phone]").val();
+            var admin_name = $("input[name=admin_name]").val();
+            var name = $("input[name=name]").val();
+            if(!phone||!admin_name||!name){
+                layer.msg('管理员信息不能为空', {icon: 2, time: 2000});
+                return false;
+            }
+            if (pwd1 != pwd2) {
+                layer.msg('两次密码输入不一致', {icon: 2, time: 2000});
+                return false;
+            }
+            else{
+                $.ajax({
+                    cache: true,
+                    type: "POST",
+                    url:"__CONTROLLER__/update",
+                    data:$('form').serialize(),// 你的formid
+                    async: false,
+                    success: function(data) {
+                        if(data == 1){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.location.reload();
+                            layer.msg("修改成功", {icon: 1, time: 2000});
+                            setTimeout(function(){
+                                parent.layer.close(index);
+                            },1200);
+                        }
+                        else{
+                            layer.msg(data, {icon: 2, time: 2000});
+                        }
+                    },
+                    error: function(request) {
+                        layer.msg('服务器异常', {icon: 2, time: 2000});
+                    }
+                });
+            }
+        })
+    })
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

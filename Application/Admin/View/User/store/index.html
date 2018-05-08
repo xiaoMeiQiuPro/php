@@ -1,0 +1,128 @@
+<include file="Public/_header" />
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 会员中心 <span class="c-gray en">&gt;</span> 店铺管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <div class="pd-20">
+            <form method="get" action="__CONTROLLER__/store">
+            <div class="text-c">
+                <input type="text" class="input-text" style="width:250px" placeholder="输入店铺名称关键字" id="" name="key">
+                <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20">
+                <span class="l">
+                    <!--<a href="javascript:;" onclick="del()"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a>-->
+                    <a href="javascript:;" onclick="layer_show('添加','__CONTROLLER__/add_store',800,600)" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加店铺</a> </span>
+                <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+            </div>
+            <table class="table table-border table-bordered table-bg table-hover">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="12">店铺列表</th>
+                </tr>
+                <tr class="text-c">
+                    <!--<th width="25"><input class="checkAll" type="checkbox" name="" value="0"></th>-->
+                    <th width="">ID</th>
+                    <th width="">店铺名</th>
+                    <th width="">店铺图片</th>
+                    <th width="">店主名字</th>
+                    <th>店主电话</th>
+                    <th >添加时间</th>
+                    <!--<th width="">是否启用</th>-->
+                    <th width="">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="list" item="vo" >
+                <tr class="text-c">
+                    <!--<td><input <eq name="vo.admin_id" value="1" >disabled</eq> type="checkbox" class="box" value="{$vo.admin_id}" name="box"></td>-->
+                    <td>{$vo.store_id}</td>
+                    <td>{$vo.store_name}</td>
+                    <td  data-lightbox="gallery"><img class="img" src="{$vo.store_pic} " width="40px" height="35px" /></td>
+                    <td>{$vo.admin_name}</td>
+                    <td>{$vo.phone}</td>
+                    <td>{$vo.add_time}</td>
+                    <!--<td><eq name="vo['store_status']" value="1" ><span onclick="status('{$vo.store_id}',0,'__CONTROLLER__/store_status','store_id','store_status')" style="color: #1BBC9D;font-size: 14px;cursor:pointer"><i  class="Hui-iconfont
+">&#xe615;</i> 是</span><else/><span onclick="status('{$vo.store_id}',1,'__CONTROLLER__/store_status','store_id','store_status')" style="color: #999;font-size: 14px;cursor:pointer"><i  class="Hui-iconfont
+">&#xe706;</i> 否</span></eq></td>-->
+                    <td class="td-manage"><a title="编辑"  onclick="admin_update('{$vo.store_id}','__CONTROLLER__/store_update','store_id')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a> <!--<a title="删除"  onclick="admin_del('{$vo.admin_id}','__CONTROLLER__/del','admin_id')" class="ml-5" style="text-decoration:none;color: red;"><i class="Hui-iconfont">&#xe6e2;</i>删除</a>--></td>
+                </tr>
+                </foreach>
+                </tbody>
+            </table>
+      {$page}
+    </div>
+<script>
+
+    $(function(){
+        $(".img").hover(function(){
+            $(this).attr('height','400px');
+            $(this).attr('width','');
+        },function(){
+            $(this).attr('height','35px');
+            $(this).attr('width','40px');
+        });
+    });
+
+    //管理员删除
+    function  admin_del(id,url,id_key){
+        if(id == 1){
+            layer.msg('超级管理员禁止删除!',{icon: 2,time:2000});
+            return false;
+        }
+        if(!id_key){
+            id_key = "id";
+        }
+            layer.confirm('确定要删除吗?删除之后不可恢复!', {
+                btn: ['確定','取消'] //按钮
+            }, function(){
+                $.ajax({
+                    type: 'post',
+                    url: url,
+                    data : {id:id,id_key:id_key},
+                    dataType: 'json',
+                    async: true,
+                    success: function (data) {
+                        if (data == 1) {
+                            layer.msg('已删除!',{icon: 1,time:2000});
+                            location.reload();
+                        } else {
+                            layer.msg('异常,删除失败', {icon: 2});
+                        }
+                    }
+                })
+            }, function(){
+
+            });
+    }
+    //管理员修改
+    function  admin_update(id,url,id_key){
+        var admin_id = "{$Think.session.adminId}";
+        if(id == 1 &&  admin_id!=1){
+            layer.msg('自营只有超级管理员才能修改!',{icon: 2,time:2000});
+            return false;
+        }
+        else{
+            layer_show('编辑',url+"?id="+id+"&id_key="+id_key,800,600);
+        }
+
+        /*if(!id_key){
+            id_key = "id";
+        }
+            $.ajax({
+                type: 'post',
+                url: url,
+                data : {id:id,id_key:id_key},
+                dataType: 'json',
+                async: true,
+                success: function (data) {
+                    if (data == 1) {
+                        layer.msg('已删除!',{icon: 1,time:2000});
+                        location.reload();
+                    } else {
+                        layer.msg('异常,删除失败', {icon: 2});
+                    }
+                }
+            })*/
+    }
+</script>
+
+<include file="Public/_footer"  />

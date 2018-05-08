@@ -1,0 +1,122 @@
+<include file="Public/_header" />
+<article class="cl pd-20">
+    <div class="skin-minimal">
+    <form action="__MODULE__/Role/add" method="post" class="form form-horizontal" id="form-admin-role-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$data.role_name}" placeholder="" id="roleName" name="role_name" required >
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">描述：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$data.desc}" placeholder="" id="" name="role_desc">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">选择权限：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <dl class="permission-list">
+                            <foreach name="list" item="vo" >
+                                <dl class="cl permission-list2">
+                                <dt>
+                                        <input type="checkbox" id="{$vo.mod_id}" value="{$vo.mod_id}" name="act_list[]" >
+                                        <label for="{$vo.mod_id}">{$vo.title}</label>
+                                </dt>
+                                    <br/>
+                                <dd>
+                                <foreach name="vo[child]" item="v2">
+                                        <input type="checkbox" id="{$v2.mod_id}" value="{$v2.mod_id}" name="act_list[]" >
+                                         <label for="{$v2.mod_id}">    {$v2.title} </label>
+                                </foreach>
+                                </dd>
+                                </dl>
+                                <hr/>
+                            </foreach>
+                    </dl>
+            </div>
+        </div>
+
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <button type="button" class="btn btn-success radius" id="ab" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</article>
+
+
+<script type="text/javascript">
+
+
+    $(function() {
+        $(".permission-list dt input:checkbox").click(function(){
+            $(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+        });
+        $(".permission-list2 dd input:checkbox").click(function(){
+            var l =$(this).parent().parent().find("input:checked").length;
+            var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
+            if($(this).prop("checked")){
+                $(this).closest("dl").find("dt input:checkbox").prop("checked",true);
+                $(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
+            }
+            else{
+                if(l==0){
+                    $(this).closest("dl").find("dt input:checkbox").prop("checked",false);
+                }
+                if(l2==0){
+                    $(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
+                }
+            }
+        });
+
+
+        $(function() {
+
+            $("#ab").click(function(){
+                var num = $("input[type=checkbox]:checked").length;
+                var role_name = $("input[name=role_name]").val();
+                if(num<1){
+                    layer.msg('请至少选择一项权限', {icon: 2, time: 2000});
+                    return false;
+                }
+                if(!role_name){
+                    layer.msg('信息不能为空', {icon: 2, time: 2000});
+                    return false;
+                }
+                else{
+                    $.ajax({
+                        cache: true,
+                        type: "POST",
+                        url:"__CONTROLLER__/add",
+                        data:$('form').serialize(),// 你的formid
+                        async: false,
+                        success: function(data) {
+                            if(data == 1){
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.location.reload();
+                                layer.msg("添加成功", {icon: 1, time: 2000});
+                                //  parent.location.href="__CONTROLLER__";
+                                setTimeout(function(){
+
+                                    parent.layer.close(index);
+                                },2000);
+                            }
+                            else{
+                                layer.msg(data, {icon: 2, time: 2000});
+                            }
+                        },
+                        error: function(request) {
+                            layer.msg('服务器异常', {icon: 2, time: 2000});
+                        }
+                    });
+                }
+            })
+        })
+    });
+</script>
+
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

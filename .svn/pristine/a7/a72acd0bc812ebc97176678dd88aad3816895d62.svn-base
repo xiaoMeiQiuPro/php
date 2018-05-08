@@ -1,0 +1,297 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="好运行" />
+	<meta name="description" content="好运行" />
+	<title>好运行</title>
+	<link href="/agent/Public/css/style.css" rel="stylesheet" type="text/css" />
+	<script language="javascript" type="text/javascript" src="/agent/Public/js/jquery.js"></script>
+</head>
+
+<body>
+<div class="top">
+	<div class="top1">
+		<p class="top1_txt">欢迎光临好运行官方网站</p>
+		<p class="top1_tel">028-85163999&nbsp;&nbsp;028-85163777</p>
+	</div>
+	<div class="tmenubox">
+		<a href="./" class="logo"><img src="/agent/Public/images/logo.jpg" /></a>
+		<div class="tmenu" id="tmenu">
+			<ul>
+				<li style="width:70px;"><a href="/agent/index.php/Index/index" class="one">首页</a></li>
+				<li><a href="/agent/index.php/Index/single/id/14" class="one">关于我们</a>
+					<p>
+						<?php if(is_array($about)): $i = 0; $__LIST__ = $about;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><a href="/agent/index.php/Index/single/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+					</p>
+				</li>
+				<li><a href="single.html" class="one">租车服务</a>
+					<p>
+						<a href="#">会议接待</a><a href="#">商务租车</a><a href="#">自驾租车</a>
+					</p>
+				</li>
+				<li><a href="/agent/index.php/Index/carAll" class="one">车型展示</a>
+					<p>
+						<!--<a href="#">轿车系列</a><a href="#">跑车系列</a><a href="#">商务系列</a><a href="#">越野系列</a><a href="#">客车系列</a><a href="#">特价优惠车</a>-->
+						<?php if(is_array($carN)): $i = 0; $__LIST__ = $carN;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><a href="/agent/index.php/Index/car/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+					</p>
+				</li>
+				<li><a href="list.html" class="one">新闻动态</a>
+					<p>
+						<a href="#">公司动态</a><a href="#">最新优惠</a>
+					</p>
+				</li>
+				<li><a href="single.html" class="one">租车须知</a></li>
+				<li><a href="single.html" class="one">在线预订</a></li>
+				<li><a href="single.html" class="one">联系我们</a></li>
+			</ul>
+		</div>
+		<script>
+			$("#tmenu ul li").mousemove(function(){
+				$(this).find('p').addClass('hover');
+				$(this).addClass('hover');
+			}).mouseleave(function(){
+				$(this).find('p').removeClass('hover');
+				$(this).removeClass('hover');
+			})
+		</script>
+
+	</div>
+</div>
+
+<div class="islide">
+    <div class="islideimg" id="slideimg">
+        <p id="s_1" ><a href="javascript:;"  ><img src="/agent/Public/images/img1.jpg"/></a></p>
+        <p id="s_2" ><a href="javascript:;"  ><img src="/agent/Public/images/img2.jpg"/></a></p>
+        <p id="s_3" ><a href="javascript:;"  ><img src="/agent/Public/images/img3.jpg"/></a></p>
+        <p id="s_4" ><a href="javascript:;"  ><img src="/agent/Public/images/img4.jpg"/></a></p>
+    </div>
+    <div class="islidebtn">
+        <p id="slidenum">
+            <a href="#" id="n_1" rel="1"></a><a href="#" id="n_2" rel="2"></a><a href="#" id="n_3" rel="3"></a><a href="#" id="n_4" rel="4"></a>
+        </p>
+    </div>
+    <script>
+        var winW=$(window).width();
+        var nmenuW=$("#slidenum").width();
+        var nmenuMarLeft=(winW-nmenuW)/2-10;
+        $("#slidenum").css('left',nmenuMarLeft);
+
+        var total=4;
+        var delay=4000;
+        var n=2;
+        var t=null;
+
+        function exImg(){
+            $("#slideimg").find(".hover").fadeOut();
+            $("#s_"+n).fadeIn();
+            $("#s_"+n).addClass('hover');
+            $("#slidenum a").removeClass('hover');
+            $("#n_"+n).addClass('hover');
+            n=parseInt(n)+1;
+            if(n>total) n=1;
+        }
+
+        $("#s_1").addClass("hover");
+        $("#n_1").addClass("hover");
+
+        $("#slidenum a").mouseover(function(){
+            n=parseInt($(this).attr('rel'));
+            exImg();
+            clearInterval(t);
+        }).mouseout(function(){
+            t=setInterval('exImg()',delay);
+        }).click(function(){
+            return false;
+        })
+        t=setInterval('exImg()',delay);
+    </script>
+</div>
+
+<div style="width:100%; height:250px; background:#f5f5f5;">
+    <div style="width:1200px; height:250px; margin:0 auto;">
+        <img src="images/tb3.jpg" width="1200" height="250" alt="" />
+    </div>
+</div>
+
+<p class="jg40"></p>
+<div class="icar_t">
+    <p><span>车型大杂烩</span><br />每日更新，优质车型天天推荐，值得您关注</p>
+</div>
+<p class="jg30"></p>
+<div class="icar_sort">
+    <p id="icarSortW">
+        <a href="#">轿车系列</a><a href="#">跑车系列</a><a href="#">商务系列</a><a href="#">越野系列</a><a href="#">客车系列</a><a href="#">特价优惠车</a>
+        <?php if(is_array($carN)): $i = 0; $__LIST__ = $carN;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><a href="/agent/index.php/Index/car/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+    </p>
+</div>
+<script>
+    var winW=$(window).width();
+    var icarSortW=$("#icarSortW").width();
+    var icarSortLeft=(winW-icarSortW)/2-10;
+    $("#icarSortW").css('left',icarSortLeft);
+</script>
+<p class="jg10"></p>
+<div class="icarlist">
+    <ul>
+        <?php if(is_array($car)): $i = 0; $__LIST__ = $car;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><li class="nomar">
+            <a href="/agent/index.php/Index/single/id/<?php echo ($v["id"]); ?>" class="img"><img src="/agent/Public/<?php echo ($v["img"]); ?>" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="/agent/index.php/Index/single/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a></span><span class="pr"><?php if(($v["price"]) != "价格面议"): ?>￥<?php echo ($v["price"]); ?>元/天<?php else: echo ($v["price"]); endif; ?></span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="/agent/index.php/Index/single/id/<?php echo ($v["id"]); ?>" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li><?php endforeach; endif; else: echo "" ;endif; ?>
+        <!--<li>
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+        <li>
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+        <li>
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+        <li>
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+        <li class="nomar">
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+        <li>
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+        <li>
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+        <li>
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+        <li>
+            <a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>-->
+        <div style="clear:both;"></div>
+    </ul>
+</div>
+<p class="jg20"></p>
+<a href="#" class="icarmore">查看更多</a>
+<p class="jg30"></p>
+
+
+<div class="iabbox">
+    <div class="iabboxm">
+        <div class="iab">
+            <p class="jg30"></p>
+            <p class="iblo_t"><span>About Us</span><br />关于我们</p>
+            <p class="jg30"></p>
+            <p class="iabcon">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成都好运行会务服务有限公司 成立于1999年，主营租车业务，是成都汽车租
+                赁协会会长单位！成都租车、行政租车、商务租车、公务租车、婚礼租车、会议接
+                待租车、机场接送租车  旅游租车、活动租车 、上下班接送 成都好运行汽车租赁
+                公司为一间通过成都汽车租赁行业资质认证的专业汽车租赁公司。现公司注册资金
+                为500多万元，资产总值达2000万元，是一间实力雄  厚的专业租车公司。为千千
+                万万的租车用户提供了更为方便快捷的租车服务，公司为外资企业、合资企业、国
+                内政府机关、企事业单位、中外宾客、商务人员提供长期或短期的 成都租车、行
+                政租车、商务租车、公务租车、婚礼租车、会议接待租车、机场接送租车旅游租车
+            </p>
+            <p class="jg25"></p>
+            <p style=" text-align:center"><a href="#"><img src="images/tb7.jpg" /></a></p>
+        </div>
+
+        <p style="float:left; width:1px; height:205px; background:#000; margin-left:65px; margin-top:115px;"></p>
+
+        <div class="inews">
+            <p class="jg30"></p>
+            <p class="iblo_t"><span>News Info</span><br />新闻动态</p>
+            <p class="jg30"></p>
+            <ul>
+                <li style="background:url(images/in1.jpg) no-repeat 0px 0px; ">
+                    <p class="tit"><a href="#">租车市场出黑马 全新配驾租车百姓得实惠</a></p>
+                    <p class="date">2016-03-24</p>
+                </li>
+                <li style="background:url(images/in2.jpg) no-repeat 0px 0px; ">
+                    <p class="tit"><a href="#">十年磨一剑：MCT技术力克近视合并高眼压难题</a></p>
+                    <p class="date">2016-03-24</p>
+                </li>
+                <li style="background:url(images/in3.jpg) no-repeat 0px 0px; ">
+                    <p class="tit"><a href="#">广东湖南春运订票电话统一 省内可通订通取</a></p>
+                    <p class="date">2016-03-24</p>
+                </li>
+            </ul>
+            <p class="jg25"></p>
+            <p style=" text-align:center"><a href="#"><img src="images/tb7.jpg" /></a></p>
+        </div>
+    </div>
+</div>
+<div class="bottom">
+    <div class="bottom1">
+        <div class="bfastlink">
+            <p><img src="images/tb8.jpg" /></p>
+            <p class="jg10"></p>
+            <ul>
+                <li>
+                    <a href="#" class="one">关于我们</a><br />
+                    <a href="#">企业介绍</a><br />
+                    <a href="#">资质荣誉</a><br />
+                    <a href="#">联系我们</a>
+                </li>
+                <li>
+                    <a href="#" class="one">租车服务</a><br />
+                    <a href="#">会议租车</a><br />
+                    <a href="#">商务租车</a><br />
+                    <a href="#">自驾租车</a>
+                </li>
+                <li>
+                    <a href="#" class="one">车型展示</a><br />
+                    <a href="#">轿车系列</a><br />
+                    <a href="#">商务系列</a><br />
+                    <a href="#">越野系列</a>
+                </li>
+                <li>
+                    <a href="#" class="one">新闻动态</a><br />
+                    <a href="#">公司新闻</a><br />
+                    <a href="#">最新优惠</a><br />
+                </li>
+            </ul>
+        </div>
+        <div class="ftelbox">
+            <p style="float:right"><img src="images/tb10.jpg" /></p>
+            <p class="ftel">
+                <span class="tel">028-85163999<br />028-85163777</span>
+                <span class="txt">7x24小时全国客服热线，全年无休</span>
+            </p>
+        </div>
+        <div style="clear:both;"></div>
+        <p class="jg10"></p>
+        <div class="flink">
+            <strong>友情链接：</strong><a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;
+        </div>
+        <p class="copyr">Copyright © cdhyx.cn Inc.All Rights Reserved.    地址:成都市二环路南四段19号檀香山4栋3单元903室    蜀ICP备08008591号-1  技术支持：成都网站建设</p>
+    </div>
+</div>
+</body>
+</html>

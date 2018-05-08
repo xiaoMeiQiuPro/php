@@ -1,0 +1,1130 @@
+<?php
+//                                                              _ooOoo_
+//                                                             o8888888o
+//                                                             88" . "88
+//                                                             (| -_- |)
+//                                                              O\ = /O                                     鹏
+//                                                          ____/`---'\____
+//                                                          . ' \\| |// `.                                  仔
+//                                                         / \\||| : |||// \
+//                                                       / _||||| -:- |||||- \                              在
+//                                                         | | \\\ - /// | |
+//                                                       | \_| ''\---/'' |_/  |                             此
+//                                                        \ .-\__ `-` ___/-. /
+//                                                     ___`. .' /--.--\ `. . __                             拜
+//                                                  ."" '< `.___\_<|>_/___.' >'"".
+//                                                 | | : `- \`.;`\ _ /`;.`/ - ` : | |                       上
+//                                                   \ \ `-. \_ __\ /__ _/ .-` / /
+//                                           ======`-.____`-.___\_____/___.-`____.-'======                  ！
+//                                                              `=---='
+//
+//                                           .............................................
+//                                                    佛祖保佑             永无BUG
+//                                            佛曰:
+//                                                    写字楼里写字间，写字间里程序员；
+//                                                    程序人员写程序，又拿程序换酒钱。
+//                                                    酒醒只在网上坐，酒醉还来网下眠；
+//                                                    酒醉酒醒日复日，网上网下年复年。
+//                                                    但愿老死电脑间，不愿鞠躬老板前；
+//                                                    奔驰宝马贵者趣，公交自行程序员。
+//                                                    别人笑我忒疯癫，我笑自己命太贱；
+//                                                    不见满街漂亮妹，哪个归得程序员？
+namespace Home\Controller;
+use Think\Controller;
+use Org\Util;
+header("Content-type:text/html;charset=utf-8");
+class IndexController extends BaseController
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    //用户注册
+    function register()
+    {
+        if (empty($_POST['phone'])) {
+            json(405, '手機號不能為空', '');
+        }
+        $end = M('user')->where(array('phone' => $_POST['phone']))->find();
+        if ($end) {
+            json(406, '手機號已註冊', '');
+        }
+        if ($_POST['status'] == 1) {
+            //發送驗證碼給手機
+            json(200, 'success', '');
+        } elseif ($_POST['status'] == 2) {
+            if ($_POST['code'] != 6666) {
+                json(407, '驗證碼不正確', '');
+            } else {
+                json(200, '驗證碼正確', '');
+            }
+        } elseif ($_POST['status'] == 3) {
+            if (empty($_POST['phone']) || empty($_POST['password'])) {
+                json(405, '手機號和密碼不能為空', '');
+            } else {
+                //註冊獲得積分
+                $jf = M('config')->where(['name' => 'register'])->find()['value'];
+                $user = M('user')->add(array(
+                    'phone' => $_POST['phone'],
+                    'password' => md5($_POST['password']),
+                    'register_time' => get_date(),
+                    'out_time' => get_date(),
+                    'integral' => $jf,
+                    'china_name' => $_POST['phone'],
+                    'english_name' => $_POST['phone'],
+                ));
+                if ($user) {
+                    json(200, $jf, '');
+                } else {
+                    json(400, '網絡異常,請稍後在試', '');
+                }
+            }
+
+        }
+
+
+        /*if(M('user')->where(array('email'=>$_POST['email']))->find()){
+            $this->json(407,'此郵箱号已注册','');
+        }*/
+        /*if(!empty($_FILES['image']['tmp_name'])){
+         $upload = new \Think\Upload();// 实例化上传类
+         $upload->maxSize   =     3145728 ;// 设置附件上传大小
+         $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+         $upload->rootPath  =     './Uploads/'; // 设置附件上传根目录
+         $upload->savePath  =     '/touxiang/'; // 设置附件上传（子）目录
+         // 上传文件
+         $info   =   $upload->upload();
+         if(!$info) {// 上传错误提示错误信息
+                 json(404,$upload->getError(),'');
+                 // $this->error($upload->getError());
+         }else{// 上传成功
+                 // $this->success('上传成功！');
+                 foreach($info as $file){
+                     // echo json_encode($file);die;
+                 $touxiang = $file['savepath'].$file['savename'];//头像路径
+             }
+         }
+     }else{
+         // json(403,'没有上传头像','');
+       $touxiang = '';
+     }*/
+        /*$integral = M('config')->where(array('name'=>'reg_integral'))->find();
+        if(!$integral){
+          $jifen = 0;
+        }else{
+          $jifen = $integral['value'];
+        }*/
+        /* if($_POST['email']!=""){
+             think_send_mail($_POST['email'],'','恭喜注册','恭喜注册成功!');
+         }*/
+    }
+    function test2(){
+        $re = M('appointment')->add('user_id = 123');
+        echo $re;
+       echo getId('appointment');
+       }
+    //登录
+    function login()
+    {
+        /*$_POST['account'] = 18048798935;
+        $_POST['password'] = 123456;*/
+        //    $res = M('user')->where("  email = '" . $_POST['account'] . "' AND password = '" . md5($_POST['password']) . "' OR phone = '" . $_POST['account'] . "' AND password = '" . md5($_POST['password']) . "'  ")->find();
+        $jf = 0;
+        $res = M('user')->where(['password' => md5($_POST['password']), 'phone' => $_POST['account']])->find();
+        if (!$res) {
+            json(201, '帳號或密碼錯誤', '');
+        } else {
+            if ($res['status'] == 0) {
+                json(409, '帳號被管理員凍結', '');
+            } else {
+                if ($res['type'] == 2) {
+                    $day = date('Y-m-d'); //今天
+                    $yesterday = date("Y-m-d", strtotime($day . '-1 day')); //昨天
+                    $last_day = date("Y-m-d", strtotime($res['last_time'])); //上次登陸
+
+                    //连续登陆
+                    $map['login_day'] = $res['login_day'];
+                    if ($yesterday == $last_day) {
+                        $map['login_day'] = $res['login_day'] + 1;
+                        if ($map['login_day'] >= 6) {
+                            $map['login_day'] = 1;
+                        };
+                        $jf = M('config')->where(['name' => "login_" . $map['login_day']])->find()['value'];
+                        $map['integral'] = $jf + $res['integral'];
+
+                    } //断续登陆
+                    elseif ($day != $last_day && $day != $yesterday) {
+                        $map['login_day'] = 1;
+                        $jf = M('config')->where(['name' => "login_" . $map['login_day']])->find()['value'];
+                        $map['integral'] = $jf + $res['integral'];
+                    }
+                    $res['login_jf'] = $jf;
+                }
+                session("userId", $res['user_id']);
+                session("phone", $res['phone']);
+                session("userName", $res['china_name']);
+                session("type", $res['type']);
+                //修改登陆天数 登陆时间 积分
+                $map['last_time'] = date("Y-m-d H:i:s");
+                $re1 = M('user')->where(["user_id" => $res['user_id']])->save($map);
+                $res = M('user')->where(['password' => md5($_POST['password']), 'phone' => $_POST['account']])->
+                field('password', true)->find();
+                $res['login_jf'] = $jf;
+                addLog(session("userName") . " 登錄agent O2O", session("userId"), 'user_log');
+                json(200, '登錄成功', $res);
+            }
+        }
+    }
+
+//退出登陸
+    function  login_out()
+    {
+        if(!$_POST['user_id']){
+            json('409','上傳參數錯誤');
+        }
+        M('user')->where(["user_id" => $_POST['user_id']])->save(['out_time' => date("Y-m-d H:i:s")]);
+        addLog(session("userName") . " 退出agent O2O", $_POST['user_id'], 'user_log');
+        session(null);
+        json('200');
+    }
+
+    //地圖介面
+    function map()
+    {
+        /*比如：点A的经度为11695400，纬度为3995400。点B的经度为11695300，纬度为3995300。
+        公式:两点间距离 = [ (A点经度 - B点经度)^2 + (A点纬度 - B点纬度)^2 ] ^ (1/2) = [ (11695400 - 11695300)^2
+        + (3995400 - 3995300)^2 ] ^(1/2) =(10000+10000) ^ (1/2) =141米
+        公式说明:加法 + ，减法 - ，乘法 *，除法 /，幂运算 ^(1/2)表示平方根 ^2表示平方。*/
+        /* 比如：点A的经度为11695400，纬度为3995400。点B的经度为11695300，纬度为3995300。
+        公式:两点间距离 = [ (A点经度 - B点经度)^2 + (A点纬度 - B点纬度)^2 ] ^ (1/2) = [ (11695400 - 11695300)^2
+        + (3995400 - 3995300)^2 ] ^(1/2) =(10000+10000) ^ (1/2) =141米
+        公式说明:加法 + ，减法 - ，乘法 *，除法 /，幂运算 ^(1/2)表示平方根 ^2表示平方。
+        */
+      //  $_POST['lon'] =114.187828;  $_POST['lat'] =22.324512;
+        if(!$_POST['lon']||!$_POST['lat']){
+            json(409);
+        }
+        else{
+            $range = $_POST['range']?$_POST['range']:0.5;
+            $re = M('project')->field('china_name,project_id,address,lon,lat')->select();
+            foreach($re as $vo){
+                $a[] = sqrt(pow($_POST['lon'] - $vo['lon'],2)
+                    + pow($_POST['lat'] - $vo['lat'],2));
+            }
+        }
+        foreach($a as $k=>$v){
+            if($v<$range){
+                $arr[] = $re[$k];
+            }
+        }
+
+        if($arr){
+            json(200,'success',$arr);
+        }
+        else{
+            json(201,'無符合條件的項目');
+
+        }
+    }
+
+    //首页
+    function index()
+    {
+        //轮播图
+        $arr['ad'] = M('ad')->where(array('type' => 2, 'status' => 1))->select();
+        //置顶消息
+        $arr['notice'] = M('admin_notice')->order("is_top desc")->limit(1)->find();
+        // $arr['notice']['comment_num'] = M('admin_notice_comment')->where(['notice_id'=>$arr['notice']['admin_notice_id']])->count();
+        $arr['notice']['comment_number'] = M('admin_notice')->where(array('id' => $arr['notice']['admin_notice_id']))->count();
+        //预约消息
+        $map['pid'] = 0;
+        $arr['appointment'] = M('appointment')->
+        join('user a ON appointment.agent_user_id=a.user_id', 'LEFT')->
+        join('user c ON appointment.user_id=c.user_id', 'LEFT')->
+        join('project b ON appointment.project_id=b.project_id', 'LEFT')->
+        field("appointment.status,appointment.user_id,a.china_name agent_name,a.img_url,b.china_name project_name,c.china_name user_name")->
+        where($map)->limit(10)->order('appointment_id desc')->
+        select();
+
+        //新盘
+        $new['is_new'] = 1;
+        $new['status'] = 1;
+        $arr['new_project'] = M('project')->where($new)->select();
+        //热搜
+        $hot['status'] = 1;
+        $arr['hot_project'] = M('project')->where($hot)->order(' hot_num')->limit(6)->select();;
+        json('200', 'success', $arr);
+    }
+
+    //系统消息
+    function admin_notice()
+    {
+        //每页的页数
+        $num = 15;
+        //当前第几页
+        $page = $_POST['page'] ? $_POST['page'] : 1;
+        //总条数
+        $count = M('admin_notice')->count();// 查询满足要求的总记录数
+        $pageCount = ceil($count / $num);
+        $arr['notice'] = M('admin_notice')->limit(($page - 1) * $num . ',' . $num)->
+        join('admin ON admin.admin_id=admin_notice.admin_id', 'LEFT')->
+        order("is_top desc,admin_notice_id desc")->
+        field('admin_notice.*,admin.china_name,admin.english_name,admin.img_url
+             headImg')->select();
+        foreach ($arr['notice'] as $k => $v) {
+            $arr['notice'][$k]['comment_count'] = M('admin_notice_comment')->where(['notice_id' => $v['admin_notice_id']])->count();
+            $arr['notice'][$k]['is_zan'] = M('admin_notice_zan')->where(['admin_notice_id'=>$_POST['notice_id'],'user_id'=>$_POST['user_id']])->count();
+        }
+        $arr['pageCount'] = $pageCount;
+        json('200', 'success', $arr);
+    }
+
+    //系统消息 评论详情
+    function admin_notice_info()
+    {
+        $num = 15;
+        //当前第几页
+        $page = $_POST['page'] ? $_POST['page'] : 1;
+        //总条数
+        $count = M('admin_notice_comment')->where(['notice_id'=>$_POST['notice_id']])->count();// 查询满足要求的总记录数
+        $pageCount = ceil($count / $num);
+        $arr['comment'] = M('admin_notice_comment')->
+        join('user ON user.user_id=admin_notice_comment.user_id', 'LEFT')->
+        where(['notice_id' => $_POST['notice_id']])->limit(($page - 1) * $num . ',' . $num)->
+        field('admin_notice_comment.*,user.china_name,user.english_name,user.img_url')->select();
+        $arr['pageCount'] = $pageCount;
+        $arr['is_zan'] =M('admin_notice_zan')->where(['admin_notice_id'=>$_POST['notice_id'],'user_id'=>$_POST['user_id']])->count();
+        json('200', 'success', $arr);
+    }
+
+    //代理动态
+    function agent_notice()
+    {
+        //每页的页数
+        $num = 15;
+        //当前第几页
+        $page = $_POST['page'] ? $_POST['page'] : 1;
+        $map = '';
+        //我的動態
+        if ($_POST['user_id']) {
+            $map['user_notice.user_id'] = I("post.user_id");
+        }
+        //总条数
+        $count = M('user_notice')->where($map)->count();// 查询满足要求的总记录数
+        $pageCount = ceil($count / $num);
+        $arr['notice'] = M('user_notice')->limit(($page - 1) * $num . ',' . $num)->
+        join('user ON user.user_id=user_notice.user_id', 'LEFT')->
+        where($map)->
+        order("is_top desc,user_notice_id desc")->
+        field('user_notice.*,user.china_name,user.english_name,user.img_url
+             headImg')->select();
+        foreach ($arr['notice'] as $k => $v) {
+            $arr['notice'][$k]['comment_count'] = M('user_notice_comment')->where(['notice_id' => $v['user_notice_id']])->count();
+            $arr['notice'][$k]['is_zan'] = M('user_notice_zan')->where(['user_notice_id'=>$_POST['notice_id'],'user_id'=>$_POST['user_id']])->count();
+        }
+        $arr['pageCount'] = $pageCount;
+
+        json('200', 'success', $arr);
+    }
+
+    //系统消息 评论详情
+    function agent_notice_info()
+    {
+        //  $_POST['notice_id'] = 1;
+        $num = 15;
+        //当前第几页
+        $page = $_POST['page'] ? $_POST['page'] : 1;
+        //总条数
+        $count = M('user_notice_comment')->where(['notice_id'=>$_POST['notice_id']])->count();// 查询满足要求的总记录数
+        $pageCount = ceil($count / $num);
+        $arr['comment'] = M('user_notice_comment')->
+        join('user ON user.user_id=user_notice_comment.user_id', 'LEFT')->
+        where(['notice_id' => $_POST['notice_id']])->limit(($page - 1) * $num . ',' . $num)->
+        field('user_notice_comment.*,user.china_name,user.english_name,user.img_url')->select();
+        $arr['pageCount'] = $pageCount;
+        $arr['is_zan'] =M('user_notice_zan')->where(['notice_id'=>$_POST['notice_id'],'user_id'=>$_POST['user_id']])->count();
+        json('200', 'success', $arr);
+    }
+
+    //新盘
+    function new_project()
+    {
+        $new['is_new'] = 1;
+        $new['status'] = 1;
+        if ($_POST['cat_id']) {
+            $new['cat_id'] = $_POST['cat_id'];
+        }
+        if ($_POST['area_id']) {
+            $new['area_id2'] = $_POST['area_id'];
+        }
+        $area1 = M('area')->select();
+        $arr['cat'] = M('cat')->field('cat_id,name')->select();
+        foreach ($area1 as $v) {
+            if ($v['pid'] == 0) {
+                $arr['area'][][$v['name']] = M('area')->where(['pid' => $v['area_id']])->field('area_id,name')->select();
+            }
+        }
+        $arr['count'] = M('project')->where($new)->count();
+        $arr['new_project'] = M('project')->where($new)->join('area on project.area_id2 = area.area_id',"LEFT")->field("project.*,area.name")->select();
+        json('200', 'success', $arr);
+    }
+//修改密码
+    function save_password()
+    {
+        //驗收手機號發送驗證碼
+        /*$_POST['type'] = 1;
+        $_POST['phone'] = */
+        if ($_POST['type'] == 1) {
+            $user = M('user')->where(['phone' => $_POST['phone']])->find();
+            if (!$user) {
+                json('201', '手機號不存在', '');
+            } else {
+                session(array('name' => 'code', 'expire' => 60));
+                session('code', 6666);
+                json('200', 'success', '');
+            }
+        } //驗證code
+        elseif ($_POST['type'] == 2) {
+            if ($_POST['code'] !=6666) {
+                json('201', '驗證碼輸入不正確', '');
+            } else {
+                json('200', 'success', '');
+            }
+        } //修改密碼
+        elseif ($_POST['type'] == 3) {
+            $re = M('user')->where(['phone' => $_POST['phone']])->save(['password' => md5($_POST['password'])]);
+            if ($re) {
+                $user = M('user')->where(['phone' => $_POST['phone']])->find();
+                addLog($user['china_name'] . " 修改密碼", $user['user_id'], 'user_log');
+                json('200', '密碼修改成功', '');
+            } else {
+                json('500', '網絡異常,請重試', '');
+            }
+        }
+    }
+
+    //修改信息
+
+    function save_user()
+    {
+        //獲取用戶信息
+        // dd($_POST);
+        if ($_POST['type'] == 1) {
+            $re = M('user')->where(['user_id' => $_POST['user_id']])->field('password', true)->find();
+            $re['user']['score'] = round($re['user']['score']/$re['user']['score_num']);
+            json(200, 'success', $re);
+        } elseif ($_POST['type'] == 2) {
+            if (!empty($_FILES['img']['tmp_name'])) {
+                $upload = new \Think\Upload();// 实例化上传类
+                $upload->maxSize = 4145728;// 设置附件上传大小
+                $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+                $upload->rootPath = './Uploads/'; // 设置附件上传根目录
+                $upload->savePath = '/user_img/'; // 设置附件上传（子）目录
+                // 上传文件
+                $info = $upload->upload();
+                if (!$info) {// 上传错误提示错误信息
+                    json(404, $upload->getError(), '');
+                    // $this->error($upload->getError());
+                } else {// 上传成功
+                    // $this->success('上传成功！');
+                    foreach ($info as $file) {
+                        $_POST['img_url'] = __ROOT__ . '/Uploads' . $file['savepath'] . $file['savename'];//头像路径
+                    }
+                }
+            }
+            $re = M('user')->where(['user_id' => $_POST['user_id']])->save($_POST);
+            addLog(session("userName") . " 修改用戶資料", session("userId"), 'user_log');
+            json(200, '修改成功', $re);
+        }
+    }
+    //代理商认证
+    function agent_examine()
+    {
+        //獲取代理等級
+        if ($_POST['type'] == 1) {
+            json(200, 'success', M('vip')->select());
+        } //上傳審核
+        elseif($_POST['type'] == 2) {
+            //  dd($_FILES);
+            $upload = new \Think\Upload();// 实例化上传类
+            $upload->maxSize = 6145728;// 设置附件上传大小
+            $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->rootPath = './Uploads/'; // 设置附件上传根目录
+            $upload->savePath = '/agent/'; // 设置附件上传（子）目录
+            if (!empty($_FILES['business_card'])||!empty($_FILES['license_plate'])) {
+                // 上传文件
+                // dd($_FILES);
+                $info = $upload->upload();
+                if (!$info) {// 上传错误提示错误信息
+                    json(405, $upload->getError(), '');
+                    // $this->error($upload->getError());
+                } else {// 上传成功
+                    // $this->success('上传成功！');
+                    foreach ($info as $k=>$file) {
+                        $_POST[$k] = __ROOT__ . '/Uploads' . $file['savepath'] . $file['savename'];//路径
+                    }
+                }
+            } else {
+                json(403, '請上傳完整的圖片信息', '');
+            }
+            $_POST['time'] = get_date();
+            if (M('agent_examine')->add($_POST)) {
+                addLog(session("userName") . " 提交代理認證", session("userId"), 'user_log');
+                json(200, '提交成功,請等待審核', '');
+            } else {
+                json(500, '網絡異常', '');
+            }
+        }
+    }
+
+    //奖项认证
+    function prize_examine()
+    {
+
+        if (!empty($_FILES['image']['tmp_name'])) {
+            $upload = new \Think\Upload();// 实例化上传类
+            $upload->maxSize = 4145728;// 设置附件上传大小
+            $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->rootPath = './Uploads/'; // 设置附件上传根目录
+            $upload->savePath = '/prize/'; // 设置附件上传（子）目录
+            // 上传文件
+            $info = $upload->upload();
+            if (!$info) {// 上传错误提示错误信息
+                json(405, $upload->getError(), '');
+                // $this->error($upload->getError());
+            } else {// 上传成功
+                // $this->success('上传成功！');
+                foreach ($info as $file) {
+                    $_POST['img'] = __ROOT__ . '/Uploads' . $file['savepath'] . $file['savename'];//头像路径
+                }
+            }
+        } else {
+            json(403, '請上傳獎項圖片', '');
+        }
+
+        $_POST['time'] = get_date();
+        if (M('prize_examine')->add($_POST)) {
+            addLog(session("userName") . " 提交獎項認證", session("userId"), 'user_log');
+            json(200, '提交成功,請等待審核', '');
+        } else {
+            json(500, '網絡異常', '');
+        }
+    }
+
+    //我的預約單管理
+    function my_appointment()
+    {
+        //為用戶
+        /* $_POST['status'] = 1;
+         $_POST['user_id'] = 1;*/
+        if ($_POST['status'] == 1) {
+            $map['appointment.user_id'] = $_POST['user_id'];
+        } //為代理
+        elseif ($_POST['status'] == 2) {
+            $map['appointment.agent_user_id'] = $_POST['user_id'];
+        }
+        $arr['appointment'] = M('appointment')->
+        join('user a ON appointment.agent_user_id=a.user_id', 'LEFT')->
+        join('user c ON appointment.user_id=c.user_id', 'LEFT')->
+        join('project b ON appointment.project_id=b.project_id', 'LEFT')->
+        field("appointment.status,a.china_name agent_name,b.china_name project_name,c.china_name user_name")->
+        where($map)->order('appointment_id desc')->
+        select();
+        if($arr['appointment']){
+            json(200, 'success', $arr['appointment']);
+        }
+        else{
+            json(201, '暫無預約單記錄');
+        }
+    }
+
+    //我的任务
+    function my_task()
+    {
+        $re = M("task")->where(['agent_id' => $_POST['user_id']])->
+        join('user  ON task.user_id=user.user_id', 'LEFT')->
+        field('task.*,user.china_name')->order('task_id DESC')->
+        select();
+        if ($re) {
+            json(200, 'success', $re);
+        } else {
+            json(201, '暫無任務記錄');
+        }
+    }
+
+    //项目详情
+    function project_info(){
+        $_POST['project_id'] = 3;
+        if(!$_POST['project_id']){
+            json('401','參數錯誤');
+        }
+        else{
+            $arr['project']=M('project')->where(['project_id'=>$_POST['project_id']])->
+            field('cat_id,area_id1,is_new,hot_num',true)->
+            find();
+            $arr['project']['notice_num'] = M('user_notice')->where(['project_id'=>$_POST['project_id']])->count();
+            $arr['agent'] = M('user')->where(['user_id'=>['in',$arr['project']['agent_id']]])
+                ->field('china_name,english_name,user_id,img_url,integral,score,score_num')
+                ->select();
+            $arr['project']['score'] = round( $arr['project']['score']/ $arr['project']['score_num']);
+            foreach( $arr['agent'] as $k=>$v ){
+                $arr['agent'][$k]['score'] = round($v['score']/$v['score_num']);
+            }
+            $arr['comment'] = M('project_comment')->
+            join('user ON user.user_id=project_comment.user_id', 'LEFT')->
+            where(['project_id' => $_POST['project_id']])->/*limit(($page - 1) * $num . ',' . $num)->*/
+            field('project_comment.*,user.china_name,user.english_name,user.img_url')->select();
+
+            $arr['nearby'] =  M('project')->where(['project_id'=>['not in',$arr['project']['project_id']],'area_id2'=>$arr['project']['area_id2']])->
+                join('area ON area.area_id2=project.area_id2')->
+                field("area.name,project.*")->
+                select();
+            json('200','success',$arr);
+        }
+    }
+    function  test(){
+         $user= array('alias'=>array(25,2,20));
+         $this->push($user,'别名推送','小煤球V587');
+    }
+
+    function push($receive="all",$title="agent",$content='',$extras=["type" => '1', "user_id" => '1'],$m_time=86400)
+        // JPush(['alias'=>20],'','小煤球专用推送测试');
+    {
+        //  think_send_mail('997344384@qq.com', '', '恭喜注册', '恭喜注册成功!');
+        $pushObj =  new \Org\Util\Jpush();
+        $result = $pushObj->push($receive,$title,$content,$extras,$m_time);
+        //组装需要的参数
+        // $receive = 'all';     //全部
+        //$receive = array('tag'=>array('1','2','3'));      //标签
+        /*        $receive = array('alias' => array('20'));    //别名
+                $title = "这是别名推送";
+                $content = "这是一条测试推送";
+                $m_time = '86400';        //离线保留时间
+                $extras = array("versionname" => 'agentO2O', "versioncode" => 'agentO2O');   //自定义数组
+             */   //调用推送,并处理
+        if ($result) {
+            $res_arr = json_decode($result, true);
+            if (isset($res_arr['error'])) {   //如果返回了error则证明失败
+                //错误信息 错误码
+                  json($res_arr['error']['code'], $res_arr['error']['message'], '');
+            } else {
+                //处理成功的推送......
+               //   json(200,'success',$res_arr);
+            }
+        } else {      //接口调用失败或无响应
+              json(500, "网络错误");
+        }
+    }
+    //動態 評論/點贊
+    function agent_notice_operation(){
+
+        if(!$_POST['type']||!$_POST['user_id']||!$_POST['notice_id']){
+            json('401','參數錯誤');
+        }
+        //評論
+        elseif($_POST['type']==1){
+            $_POST['time'] = get_date();
+            if(M('user_notice_comment')->add($_POST)){
+                addLog(session("userName") . " 評論代理消息", session("userId"), 'user_log');
+                json('200','評論成功');
+            }
+            else{
+                json('500','網絡異常');
+            }
+
+        }
+        //點贊
+        elseif($_POST['type']==2){
+            //取消點贊
+            if($_POST['is_zan']==1){
+                if(M('user_notice_zan')->where(['user_notice_id'=>$_POST['notice_id'],'user_id'=>$_POST['user_id']])->delete())
+                {
+                    M('user_notice')->where(['user_notice_id'=>$_POST['notice_id']])->setDec('zan'); // 點咱數量減1
+                    json('200','取消點贊');
+                }
+                else{
+                    json('500','網絡異常');
+                }
+            }
+            if($_POST['is_zan']==0){
+                if(M('user_notice_zan')->add(['user_notice_id'=>$_POST['notice_id'],'user_id'=>$_POST['user_id']]))
+                {
+                    M('user_notice')->where(['user_notice_id'=>$_POST['notice_id']])->setInc('zan'); // 點咱數量減1
+                    json('200','點贊');
+                }
+                else{
+                    json('500','網絡異常');
+                }
+            }
+        }
+    }
+
+    //系統消息 評論點贊
+    function admin_notice_operation(){
+        if(!$_POST['type']||!$_POST['user_id']||!$_POST['notice_id']){
+            json('401','參數錯誤');
+
+        }
+        //評論
+
+        else{
+            // dd($_POST);
+            if($_POST['type']==1){
+                $_POST['time'] = get_date();
+                if(M('admin_notice_comment')->add($_POST)){
+                    addLog(session("userName") . " 評論系統消息", session("userId"), 'user_log');
+                    json('200','評論成功');
+                }
+                else{
+                    json('500','網絡異常');
+                }
+            }
+            //點贊
+            elseif($_POST['type']==2){
+                //取消點贊
+                if($_POST['is_zan']==1){
+                    if(M('admin_notice_zan')->where(['admin_notice_id'=>$_POST['notice_id'],'user_id'=>$_POST['user_id']])->delete())
+                    {
+                        M('admin_notice')->where(['admin_notice_id'=>$_POST['notice_id']])->setDec('zan'); // 點咱數量減1
+                        json('200','取消點贊');
+                    }
+                    else{
+                        json('500','網絡異常');
+                    }
+                }
+                //dianzan
+                elseif($_POST['is_zan']==0){
+                    if(M('admin_notice_zan')->add(['admin_notice_id'=>$_POST['notice_id'],'user_id'=>$_POST['user_id']]))
+                    {
+                        M('admin_notice')->where(['admin_notice_id'=>$_POST['notice_id']])->setInc('zan'); // 點咱數量減1
+                        json('200','點贊');
+                    }
+                    else{
+                        json('500','網絡異常');
+                    }
+                }
+            }
+        }
+    }
+    //发布动态代理
+    function up_agent_notice(){
+
+        if(!$_POST['user_id']||!$_FILES['img_url']||!$_POST['content']){
+            json('409','參數傳遞錯誤');
+        }
+        else{
+            $_POST['img'] = '';
+            if (!empty($_FILES['img_url'])) {
+                $upload = new \Think\Upload();// 实例化上传类
+                $upload->maxSize = 4145728;// 设置附件上传大小
+                $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+                $upload->rootPath = './Uploads/'; // 设置附件上传根目录
+                $upload->savePath = '/agent_notice/'; // 设置附件上传（子）目录
+                // 上传文件
+                $info = $upload->upload();
+                if (!$info) {// 上传错误提示错误信息
+                    json(405, $upload->getError(), '');
+                    // $this->error($upload->getError());
+                } else {// 上传成功
+                    // $this->success('上传成功！');
+                    foreach ($info as $file) {
+                        $_POST['img_url'].= __ROOT__ . '/Uploads' . $file['savepath'] . $file['savename'].",";//头像路径
+                    }
+                }
+            }
+            $_POST['img_url'] =  substr($_POST['img_url'],0,-1);
+        }
+        $_POST['date'] = get_date();
+        $re =  M('user_notice')->add($_POST);
+        if($re){
+            addLog(session("userName") . " 動態發佈", session("userId"), 'user_log');
+            json(200,'動態發佈成功');
+        }
+        else{
+            json(500,'網絡異常');
+        }
+    }
+//发布预约单
+    function add_appointment(){
+
+        if(!$_POST['user_id']||!$_POST['project_id']||!$_POST['time']||!$_POST['liaison']||!$_POST['look_type']){
+            json('409');
+        }
+        /*$_POST['project_id'] = 3;
+        if($_POST){
+             $re =  M('project')->where(['project_id'=>$_POST['project_id']])->find();
+             $agent_id = explode(",",$re['agent_id']);
+             $this->push(array('alias'=>$agent_id),"親~有新的預約單",$re['china_name']."有新的預約單,快去搶單吧!",array('type'=>"get_appointment",'message'=>'搶單'));
+
+        }*/
+        else{
+            $_POST['add_time'] = get_date();
+            if(M('appointment')->add(($_POST))){
+                //查询专属代理 , 发起推送
+                $re =  M('project')->where(['project_id'=>$_POST['project_id']])->find();
+                $agent_id = explode(",",$re['agent_id']);
+                addLog(session("userName") . " 發佈預約單", session("userId"), 'user_log');
+                $this->push(array('alias'=>$agent_id),"親~有新的預約單",$re['china_name']."有新的預約單,快去搶單吧!",array('type'=>"get_appointment",'message'=>'搶單'));
+                json('200','發起預約成功',getId('appointment'));
+            }
+            else{
+                json('500','網絡異常');
+            }
+        }
+    }
+    //搶單
+    function get_appointment(){
+        if(!$_POST['agent_id']||!$_POST['appointment_id']||!$_POST['user_id']){
+            json('409');
+        }
+
+        if(M('appointment')->where(['appointment_id'=>I('post.appointment_id')])->find()['status']!==0){
+            json('401','搶單失敗,此單已被取消或已被安排');
+        }
+        else{
+            //創建客戶關係 //如果沒有客戶關係 則創建
+            if(!M('customer')->where(['agent_id'=>$_POST['agent_id'],'user_id'=>$_POST['user_id']])->find()){
+                M('customer')->add(['agent_id'=>$_POST['agent_id'],'user_id'=>$_POST['user_id']]);
+            }
+            $_POST['status'] = 1;
+            $_POST['get_time'] = get_date();
+            M('appointment')->where(['appointment_id'=>I('post.appointment_id')])->save($_POST);
+            addLog(session("userName") . " 搶單成功", session("userId"), 'user_log');
+            json('200','搶單成功');
+        }
+    }
+    //預約單 取消 完成
+    function operation_appointment(){
+        if(!$_POST['type']||!$_POST['appointment_id']){
+            json('409');
+        }
+        //取消
+        if(I('type')==1){
+            if(M('appointment')->where(['appointment_id'=>I('post.appointment_id')])->save(['status'=>3])){
+                addLog(session("userName") . " 取消預約單", session("userId"), 'user_log');
+                json('200','取消預約單成功');
+            }else{ json('500','網絡異常'); }
+
+        }
+        //完成
+        elseif(I('type')==2){
+            if(M('appointment')->where(['appointment_id'=>I('post.appointment_id')])->save(['status'=>2])){
+                addLog(session("userName") . " 完成預約單", session("userId"), 'user_log');
+                json('200','操作成功,預約單已完成');
+            }else{ json('500','網絡異常'); }
+        }
+    }
+    //預約單協助分享
+    function share_appointment()
+    {
+        //  $_POST['user_id'] = 2;
+        // $_POST['appointment_id'] = 17;
+        if (!$_POST['agent_id'] || !$_POST['appointment_id']) {
+            json('409');
+        }
+        $re = M('appointment')->where(['appointment_id' => I('post.appointment_id')])->find();
+        //判斷此用戶是否已經邀請
+        if (in_array($_POST['agent_id'], explode(',', $re['union_user_id']))) {
+            json('401', '此代理已在系統名單中');
+        } else {
+            $map['union_user_id'] = $re['union_user_id'].",".$_POST['agent_id'];
+            $map['is_union'] = 1;
+            $appointment = M('appointment');
+            //TP事务回滚
+            $appointment->startTrans();
+            //處理協同數據
+            $re['union_user_id'] =0;
+            $re['agent_user_id'] = $_POST['user_id'];
+            $re['pid'] = $re['appointment_id'];
+            $re['get_time'] = get_date();
+            unset($re['appointment_id']);
+            // 进行相关的业务逻辑操作
+            $re1= $appointment->where(['appointment_id' => I('post.appointment_id')])->save($map); // 保存用户信息
+            $re2 = $appointment->add($re);
+
+            if ($re1&&$re2) {
+                // 提交事务
+                $appointment->commit();
+                //創建客戶關係 //如果沒有客戶關係 則創建協同
+                if(!M('customer')->where(['agent_id'=>$_POST['agent_id'],'user_id'=>$_POST['user_id']])->find()){
+                    M('customer')->add(['agent_id'=>$_POST['agent_id'],'user_id'=>$_POST['user_id'],'user_source'=>3]);
+                }
+                addLog(session("userName") . " 邀請協同", session("userId"), 'user_log');
+                json(200,'邀請協同成功');
+            } else {
+                // 事务回滚
+                $appointment->rollback();
+                json(500,"網絡異常");
+            };
+
+        }
+    }
+    //添加客戶溝通記錄
+    function add_customer_record(){
+        if (!$_POST['customer_id'] || !$_POST['content']||!$_POST['user_group']||!$_POST['user_status']) {
+            json('409');
+        }
+        if(M("customer_record")->add($_POST)){
+            M("customer_record")->where(['customer_id'=>$_POST['customer_id']])->save(['user_group'=>$_POST['user_group'],"user_status"=>$_POST['user_status']]);
+            addLog(session("userName") . " 添加溝通記錄", session("userId"), 'user_log');
+            json(200,'添加溝通記錄成功');
+        }
+        else{
+            json(500,"網絡異常");
+        }
+    }
+    //添加定時任務
+    function add_task(){
+        if ( !$_POST['content']||!$_POST['user_id']||!$_POST['agent_id']||!$_POST['time']) {
+            json('409');
+        }
+        $_POST['add_time'] = get_date();
+        if(M('task') ->add($_POST)){
+            json(200,'添加定時任務成功');
+        }
+        else{
+            json(500,"網絡異常");
+        }
+    }
+    //客戶管理頁
+    function customer_index(){
+        /*$_POST['agent_id'] = 2;
+        $_POST['user_source'] = 1;*/
+        if(!$_POST['agent_id']){
+            json(409);
+        }
+        $map['agent_id'] = $_POST['agent_id'];
+        if($_POST['user_source']){
+            $map['user_source'] = $_POST['user_source'];
+        }
+        if($_POST['user_group']){
+            $map['user_group'] = $_POST['user_group'];
+        }
+        if($_POST['user_status']){
+            $map['user_status'] = $_POST['user_status'];
+        }
+        $re = M("customer")->
+        join("user on customer.user_id = user.user_id")->
+        field("customer.*,user.china_name,user.img_url,user.english_name,email,phone,phone2,address")->
+        where($map)->select();
+        if($re){
+            json(200,'success',$re);
+        }
+        else{
+            json(201,'暫無客戶信息');
+        }
+
+    }
+    //溝通記錄
+    function customer_record(){
+
+        if(!$_POST['customer_id']){
+            json(409);
+        }
+        $re = M("customer_record")->where(['customer_id'=>$_POST['customer_id']])->order('id desc')->select();
+        if($re){
+            json(200,'success',$re);
+        }
+        else{
+            json(201,'暫無溝通記錄');
+        }
+    }
+    //代理頁面
+    function  agent_info(){
+
+        if(!$_POST['user_id']){
+            json(409);
+        }
+        $arr['user'] = M('user')->where(['user_id'=>$_POST['user_id']])
+            ->field('password,register_time,last_time,out_time,is_check,type')
+            ->find();
+        $arr['user']['score'] = round($arr['user']['score']/$arr['user']['score_num']);
+        $map['user_id']  =  $_POST['user_id'];
+        $map['prize_status'] = 1;
+        $arr['prize'] =  M('prize_examine')->where($map)->select();
+        $arr['comment'] = M('user_comment')->
+        join('user ON user.user_id=user_comment.user_id', 'LEFT')->
+        where(['user.user_id' => $_POST['user_id']])->
+        field('user_comment.*,user.china_name,user.english_name,user.img_url')->select();
+        // $arr['comment'] =  M('prize_examine')->where($map)->select();
+        if($arr){
+            json(200,'success',$arr);
+        }
+        else{
+            json(500,'網絡異常');
+        }
+    }
+    //代理評論/評星
+    function agent_comment(){
+        if(!$_POST['user_id']||!$_POST['score']||!$_POST['content']||!$_POST['agent_id']){
+            json(409);
+        }
+        M("user")->where(['user_id'=>$_POST['user_id']])->setInc('score',$_POST['score']); // 用户的积分加
+        M("user")->where(['user_id'=>$_POST['user_id']])->setInc('score_num'); // 用户的評論次數加
+        M("user_comment")->add($_POST);
+        json("200",'評論成功');
+    }
+    //掃描二維碼添加客户
+    function add_customer(){
+        if(!$_POST['user_id']||!$_POST['agent_id']){
+            json(409);
+        }
+        if(M('customer')->where(['agent_id'=>$_POST['agent_id'],'user_id'=>$_POST['user_id']])->find()){
+            json(201,'客户關係已存在');
+        }
+        else{
+            if(M('customer')->add(['agent_id'=>$_POST['agent_id'],'user_id'=>$_POST['user_id'],'user_source'=>4])){
+                addLog(session("userName") . " 添加客户", session("userId"), 'user_log');
+                json(200,'添加成功');
+            } else{
+                json(500,'網絡異常');
+            }
+        }
+    }
+    //手動添加客户
+    function add_customer2(){
+            if(M('hk')->add($_POST)){
+                $map['user_source']=2;
+                $map['user_group'] = $_POST['user_group'];
+                $map['user_status'] = $_POST['user_status'];
+                $map['kh_id'] = getId();
+                M('customer')->add($map);
+                addLog(session("userName") . " 添加客户", session("userId"), 'user_log');
+                json(200,'添加成功');
+            } else{
+                json(500,'網絡異常');
+            }
+    }
+    //添加好友
+    function add_friend(){
+        if(!$_POST['user_id']||!$_POST['friend_user_id']){
+            json(409);
+        }
+        if(M('friend')->where(['user_id'=>$_POST['user_id'],'friend_user_id'=>$_POST['friend_user_id']])->find()){
+            json(201,'好友關係已存在');
+        }
+        else{
+            if(M('friend')->add(['user_id'=>$_POST['user_id'],'friend_user_id'=>$_POST['friend_user_id']])){
+                addLog(session("userName") . " 添加好友", session("userId"), 'user_log');
+                json(200,'添加成功');
+            } else{
+                json(500,'網絡異常');
+            }
+        }
+    }
+
+    //好友關係
+    function get_friend(){
+        if(!$_POST['user_id']){
+            json(409);
+        }
+        else{
+         //   $arr['group'] = M('friend_group')->where(['user_id'=>$_POST['user_id']])->select();
+            $map['friend.user_id'] = $_POST['user_id'];
+            $map['is_agree'] = 1 ;
+            $re =   M('friend')->where($map)->
+          //  join('user a ON friend.user_id=a.user_id', 'LEFT')->
+            join('user c ON friend.friend_user_id=c.user_id', 'LEFT')->
+                field("c.china_name,c.url_img,friend.friend_user_id")->
+            select();
+            json(200,'success',$re);
+        }
+    }
+    //客戶關係
+    function get_customer(){
+        if(!$_POST['agent_id']){
+            json(409);
+        }
+        else{
+            $re =  M('customer')->where(['agent_id'=>$_POST['agent_id']])->
+            join('user c ON customer.user_id=c.user_id', 'LEFT')->
+            field("c.china_name,c.url_img,customer.user_id")->
+            select();
+            json(200,'success',$re);
+        }
+    }
+    //查询获取用户资料
+    function get_user(){
+        $map['phone|english_name|china_name'] = array('like', "%".$_POST['where']."%");
+        $re =  M('user')->where($map)->field('user_id','type','url_img','china_name','english_name')->select();
+        if($re){
+            json(200,'success',$re);
+        }
+        else{
+            json(200,'無數據',$re);
+        }
+    }
+   //扫描获取用户资料
+    function get_user2(){
+        if(!$_POST['user_id']){
+            json(409);
+        }
+        $arr['user'] = M('user')->where(['user_id'=>$_POST['user_id']])
+            ->field('password,register_time,last_time,out_time,is_check,type',true)
+            ->find();
+        $arr['user']['score'] = round($arr['user']['score']/$arr['user']['score_num']);
+        $arr['comment'] = M('user_comment')->
+        join('user ON user.user_id=user_comment.user_id', 'LEFT')->
+        where(['user.user_id' => $_POST['user_id']])->
+        field('user_comment.*,user.china_name,user.english_name,user.img_url')->select();
+        if($arr){
+            json(200,'success',$arr);
+        }
+        else{
+            json(500,'網絡異常');
+        }
+    }
+    //发送消息
+    function toMsg(){
+        $result = $this->ry->message()->publishPrivate('2', [25], 'RC:VcMsg',"{\"content\":\"hello\",\"extra\":\"helloExtra\",\"duration\":20}", 'thisisapush', '{\"pushData\":\"hello\"}', '4', '0', '0', '0', '0');
+        echo "publishPrivate    ";
+        print_r($result);
+        echo "\n";
+    }
+    //創建群組
+    function add_group(){
+        if(!$_POST['user_id']||!$_POST['group_name']){
+            json(409);
+        }
+        $_POST['add_time'] = get_date();
+        $re = M('group')->add($_POST);
+        $result = $this->ry->group()->create( $_POST['user_id'], getId(),$_POST['group_name']);
+       if($result){
+           json(200,'創建群組成功',getId());
+       }
+        else{
+            json(500,'網絡異常');
+        }
+    }
+    //解散群主
+    function dismiss_group(){
+        if(!$_POST['user_id']||!$_POST['group_id']){
+            json(409);
+        }
+        $map["user_id"] = $_POST['user_id'];
+        $map["group_id"] = $_POST['group_id'];
+        if(M('group')->where($map)->find()){
+            // 解散群组方法。（将该群解散，所有用户都无法再接收该群的消息。）
+            $result = $this->ry->group()->dismiss($_POST['user_id'],$_POST['group_id']);
+            $re = M('group')->where(['group_id'=>$_POST['group_id']])->delect();
+            if($re){
+                json(200,'解散群组成功');
+            }
+            else{
+                json(500,'網絡異常');
+            }
+        }
+        else{
+            json(201,'你不是群主,不能解散');
+        }
+
+    }
+
+
+
+
+
+}
+
+
+

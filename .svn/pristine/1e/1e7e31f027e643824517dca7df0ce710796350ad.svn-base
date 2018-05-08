@@ -1,0 +1,149 @@
+<include file="Public/_header" title="系統消息-編輯"/>
+
+
+
+<!--<div class="container">
+    <h2 class="title"><a href="http://www.sucaihuo.com/js/3.html/">PHP+jQuery+Ajax多图片上传</a></h2>
+    <div class="demo">
+        <a class="btn" id="btn">上传图片</a> 最大500KB，支持jpg，gif，png格式。
+        <ul id="ul_pics" class="ul_pics clearfix"></ul>
+    </div>
+</div>-->
+<style>
+    .ul_pics li{
+        float: left;
+        margin-left: 30px;
+    }
+
+    .ul_pics li p {
+        -display: none;
+    }
+    .img img{
+        width: 100px;
+        height:100px;
+    }
+    .close{
+        text-decoration:none;font-size: 16px;font-weight:300!important;color: #fff!important;opacity: 1;
+        z-index: 99;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 5px;
+        right:17px;
+        display: block;
+    }
+
+
+</style>
+<script type="text/javascript" src="http://www.sucaihuo.com/Public/js/other/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/plupload/plupload.full.min.js"></script>
+<script type="text/javascript" src="http://www.sucaihuo.com/Public/js/sucaihuo.js"></script>
+
+<article class="cl pd-20">
+    <form action="__CONTROLLER__/system_update" method="post"  enctype="multipart/form-data" class="form form-horizontal" id="form-admin-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>標題名字：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$list.title}" required placeholder="" id="title" name="title">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>消息內容：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <textarea required class="textarea radius" name="content" >{$list.content}</textarea>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>消息配圖：</label>
+            <div class="formControls col-xs-8 col-sm-9">&nbsp;&nbsp;&nbsp;
+       <span class="btn-upload form-group">
+      <input id="btn" class="input-text upload-url radius" type="button" value="上傳圖片"   readonly>
+
+</span>
+                <ul id="ul_pics" class="ul_pics clearfix">
+
+                    <foreach name="img" item="vo" key="k">
+                       <li> <div class='img'><a class='close Hui-iconfont' style='' onclick='del_img(this)'>&#xe60b;</a> <img src="{$vo}" /> <input value='{$vo}'   name='img_url[]' type='hidden' /></div></li>
+                    </foreach>
+                </ul>
+            </div>
+        </div>
+        <!--圖片顯示-->
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius"  type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+        <input name="admin_notice_id"  type="hidden" value="{$list.admin_notice_id}" />
+    </form>
+</article>
+
+
+<script type="text/javascript">
+
+    //创建实例的构造方法
+    var uploader = new plupload.Uploader({
+        runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+        browse_button: 'btn', // 上传按钮
+        url: "__MODULE__/Message/upload", //远程上传地址
+        flash_swf_url: '__PUBLIC__/plupload/Moxie.swf', //flash文件地址
+        silverlight_xap_url: '__PUBLIC__/plupload/Moxie.xap', //silverlight文件地址
+        filters: {
+            max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+            mime_types:[{
+                title: "files", extensions: "jpg,png,gif"
+            }]
+            //允许文件上传类型
+
+        },
+        multi_selection: true, //true:ctrl多文件上传, false 单文件上传
+        init:{
+            //文件上传前
+            FilesAdded: function(up, files) {
+                if ($("#ul_pics").children("li").length > 20) {
+                    alert("您上传的图片太多了！");
+                    uploader.destroy();
+                } else {
+                    var li = '';
+                    //遍历文件
+                    plupload.each(files, function(file) {
+                        li += "<li class='close_pic' id='" + file['id'] + "'>   <div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+                    });
+                    $("#ul_pics").append(li);
+                    uploader.start();
+                }
+            },
+            //上传中，显示进度条
+            UploadProgress: function(up, file) {
+                var percent = file.percent;
+                $("#" + file.id).find('.bar').css({"width": percent + "%"});
+                $("#" + file.id).find(".percent").text(percent + "%");
+            },
+            //文件上传成功的时候触发
+            FileUploaded: function(up, file, info) {
+                console.log(info);
+                // var data = eval( info.response );
+                $("#" + file.id).html("<div class='img'><a class='close Hui-iconfont' style='text-decoration:none;font-size: 16px;font-weight:300!important;color: #fff!important;opacity: 1' onclick='del_img(this)'>&#xe60b;</a> <img src='" + info.response + "'/><input value='" + info.response + "'  name='img_url[]' type='hidden' /></div>" );
+            },
+            //上传出错的时候触发
+            /*Error: function(up, err) {
+             alert(err.message);
+             }*/
+        }
+    });
+    function del_img(data){
+        //alert(data);
+        $(data).parent('div').remove();
+
+    }
+    uploader.init();
+    $(function() {
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

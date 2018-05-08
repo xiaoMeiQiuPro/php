@@ -1,0 +1,48 @@
+<ul class="nav navbar-nav side-nav">
+    <li><a href="{:U('index/index')}"><i class="fa fa-dashboard"></i> 仪表盘</a></li>
+    <li class="dropdown">
+        <a href="{:U('category/index')}"><i class="fa fa-reorder"></i> 分类管理</a>
+    </li>
+    <li class="dropdown">
+        <a href="{:U('post/index')}"><i class="fa fa-edit"></i> 文章管理</a>
+    </li>
+    <li class="dropdown">
+        <a href="{:U('page/index')}"><i class="fa fa-file-text-o"></i> 单页管理 </a>
+    </li>
+    <li class="dropdown">
+        <a href="{:U('member/index')}"><i class="fa fa-users"></i> 用户管理</a>  
+    </li>
+    <li class="dropdown">
+        <a href="{:U('message/index')}"><i class="fa  fa-comment"></i> 留言管理</a>
+    </li>
+
+     <li class="dropdown">
+        <a href="{:U('links/index')}"><i class="fa fa-link"></i> 链接管理</a>
+    </li>
+    <!--<li class="dropdown">
+        <a href="{:U('cat/index')}"><i class="icon-th-list"></i> 商品分类</a>
+    </li>-->
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa icon-picture"></i> 图片管理 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{:U('LogoImg/index')}">Logo图片</a></li>
+            <li><a href="{:U('Himg/index')}">幻灯片图片</a></li>
+            <li><a href="#">其他</a></li>
+        </ul>
+    </li>
+<!--    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa icon-github-alt"></i> 商品管理 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{:U('goods/index')}">商品列表</a></li>
+            <li><a href="{:U('brand/index')}">品牌管理</a></li>
+        </ul>
+    </li>-->
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> 系统设置 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{:U('site/index')}">网站设置</a></li>
+           <!-- <li><a href="#">系统优化</a></li>
+            <li><a href="#">缓存管理</a></li>-->
+        </ul>
+    </li>
+</ul>

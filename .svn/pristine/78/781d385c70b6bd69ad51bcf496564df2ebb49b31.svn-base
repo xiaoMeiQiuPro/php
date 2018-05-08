@@ -1,0 +1,219 @@
+<?php
+namespace Admin\Controller;
+use Admin\Controller;
+/**
+ * 管理員管理
+ */
+class AdminController extends BaseController
+{
+    /**管理員列表*/
+    public $tab ='admin';
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    public function index($key="")
+    {
+        if($key !== ""){
+            $where['name'] = array('like', "%$key%");
+        }
+        else{
+            $where=array();
+        }
+        $count  = M($this->tab)->where($where)->count();// 查询满足要求的总记录数
+        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show = $Page->show();// 分页显示输出
+        $list = M($this->tab)->limit($Page->firstRow.','.$Page->listRows)->where($where)->
+        join('admin_role ON admin.role_id=admin_role.role_id','INNER')->select();
+        $index=$Page->firstRow;//显示序号
+        $this->assign('index', $index);
+        $this->assign('list', $list);
+        $this->assign('page',$show);
+        $this->assign('count',$count);
+        $this->display('admin/index');
+    }
+
+    /**
+     * 添加管理员
+     */
+    public function add()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+            $this->assign('role',M('admin_role')->select());
+            $this->display();
+        }
+        if (IS_POST) {
+            //如果用户提交数据则添加到表
+            if(M($this->tab)->where(array('name'=>I('post.name')))->find()){
+                echo "<script>alert('此帳號已經存在');history.go(-1)</script>";
+                exit;
+            }
+            if(I('post.password')!==I('post.password2')){
+                echo "<script>alert('兩次密碼不一致');history.go(-1)</script>";
+                exit;
+            }
+            else{
+                if(!empty($_FILES['file-1']['name'])){
+                    $upload = new \Think\Upload();// 实例化上传类
+                    $upload->maxSize   =     6145728 ;// 设置附件上传大小
+                    $upload->exts      =     array('jpg',  'png', 'jpeg');// 设置附件上传类型
+                    $upload->rootPath  =     './Uploads/'; // 设置附件上传根目录
+                    $upload->savePath  =     '/admin/'; // 设置附件上传（子）目录
+                    // 上传文件
+                    $info   =   $upload->upload();
+                    if(!$info) {// 上传错误提示错误信息
+                        //return $upload->getError();
+                         $this->error($upload->getError());
+                    }else{// 上传成功
+                        // $this->success('上传成功！');
+                        foreach($info as $file){
+                            // echo json_encode($file);die;
+                             	$_POST['img_url'] = __ROOT__.'/Uploads'.$file['savepath'].$file['savename'];//头像路径
+                        }
+                    }
+                }
+                $_POST['add_time'] = date("Y-m-d H:i:s",time());
+                $_POST['password'] = md5(I('post.password'));
+                $model = M($this->tab)->add(I('post.'));
+            }
+
+            if ($model) {
+                addLog(session('name').'添加管理員',session('adminId'));
+              $this->success("添加成功", __CONTROLLER__."/index",1);
+            }
+            else {
+                $this->error("数据异常,添加失败",__CONTROLLER__."/index",2);
+                exit;
+            }
+
+
+        }
+    }
+    /**
+     * 更新
+     *
+     */
+    public function update()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+            if(session('adminId')==1){
+            }
+            else if(I("get.id")==1){
+                $this->error("超級管理員禁止修改", __CONTROLLER__."/index",2);
+            }
+            $this->assign('role',M('admin_role')->select());
+            $map['admin_id'] = I("get.id");
+            $model = M($this->tab)->join('admin_role ON admin.role_id = admin_role.role_id')->where($map)->find();
+            $this->assign('list',$model);
+            $this->display();
+        }
+        //修改信息
+        if (IS_POST) {
+          //  dd($_FILES);
+            $name=M($this->tab)->where(array('admin_id'=>array('not in',I("post.admin_id")),'name'=>I("post.name")))->find();
+            if($name) {
+                echo "<script>alert('此帳號已經存在');history.go(-1)</script>";
+                exit;
+            }
+            //密碼為空則不修改
+            if(I("post.password") == ''){
+                unset($_POST['password']);
+            }
+            else{
+                $_POST['password'] = md5(I("post.password"));
+            }
+                if(!empty($_FILES['file-1']['name'])){
+
+                    $upload = new \Think\Upload();// 实例化上传类
+                    $upload->maxSize   =     6145728 ;// 设置附件上传大小
+                    $upload->exts      =     array('jpg',  'png', 'jpeg');// 设置附件上传类型
+                    $upload->rootPath  =     './Uploads/'; // 设置附件上传根目录
+                    $upload->savePath  =     '/admin/'; // 设置附件上传（子）目录
+                    // 上传文件
+                    $info   =   $upload->upload();
+
+                    if(!$info) {// 上传错误提示错误信息
+                        //return $upload->getError();
+                        $this->error($upload->getError(),'',3);
+                    }else{// 上传成功
+                        // $this->success('上传成功！');
+                        foreach($info as $file){
+                            // echo json_encode($file);die;
+                            $_POST['img_url'] = __ROOT__.'/Uploads'.$file['savepath'].$file['savename'];//头像路径
+                        }
+                    }
+                }
+
+            $map['admin_id'] = I("post.admin_id");
+            $re=M($this->tab)->where($map)->save($_POST);
+            // print_r($_POST);
+
+            if ($re) {
+                addLog(session('name').'修改管理員',session('adminId'));
+                $this->success("更新成功",  __CONTROLLER__."/index",1);
+            }
+            else {
+                $this->error("更新失败", __CONTROLLER__."/index",2);
+            }
+        }
+
+    }
+    /**
+     * 删除
+     */
+    public function del()
+    {
+        $id = $_GET['id'];
+        if($id == 1){
+            $this->error("超級管理員禁止刪除", __CONTROLLER__."/index",2);
+        }
+        $map['admin_id']  = array('in',$id);
+        $result = M($this->tab)->where($map)->delete();
+        if($result){
+            addLog(session('name').'删除管理員',session('adminId'));
+            $this->success("删除成功", __CONTROLLER__."/index",2);
+        }else{
+            $this->error("删除失败");
+        }
+    }
+    //ajax修改状态
+    function ajax_status(){
+    //$map['admin_id'] = $_POST['id'];
+        $map['status'] = $_POST['status'];
+        $re=M($this->tab)->where('admin_id = '.$_POST['id'])->save($map);
+        if($re){
+            echo  1;
+        }
+        else{
+            echo 0;
+        }
+    }
+    //-----------管理員日誌---------------//
+    public function log_index($key='',$key2='')
+    {
+
+        if($_POST['start'] && $_POST['end']){
+            $where['date'] = array(array('egt',$_POST['start']),array('elt',$_POST['end'])) ;
+        }
+        else{
+            $where=array();
+        }
+        $count  = M('admin_log')->where($where)->count();// 查询满足要求的总记录数
+        $Page = new \Extend\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show = $Page->show();// 分页显示输出
+
+        $list = M('admin_log')->limit($Page->firstRow.','.$Page->listRows)->order('admin_log_id desc')->where($where)->select();
+        $index=$Page->firstRow;//显示序号
+
+        $this->assign('index', $index);
+        $this->assign('list', $list);
+        $this->assign('page',$show);
+        $this->assign('count',$count);
+        $this->display('admin/admin_log/index');
+    }
+
+}
+
+

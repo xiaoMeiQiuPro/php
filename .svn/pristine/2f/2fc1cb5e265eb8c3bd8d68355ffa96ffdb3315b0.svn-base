@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>管理員登錄</title>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.4.2.min.js"></script>
+    <link href="__PUBLIC__/resources/style/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="loginbody">
+<div class="dataEye">
+    <div class="loginbox">
+        <div class="logo-a">
+            <a href="#" title="">
+
+            </a>
+        </div>
+        <div class="login-content">
+            <div class="loginbox-title">
+                <h3>管理員登錄</h3>
+            </div>
+            <form method="post" action="__CONTROLLER__/login">
+                <div style="display: block;" class="login-error"></div>
+                <div class="row">
+
+                    <input type="text" placeholder="電話號碼" class="input-text-user input-click" name="name" id="username">
+                </div>
+                <div class="row">
+
+                    <input type="password"  placeholder="密碼" class="input-text-password input-click" name="password" id="password">
+                </div>
+                <div class="row btnArea">
+                    <button class="login-btn" type="submit">登錄</button>
+                </div>
+                <!--			<div class="row tips">
+                                <a href="forget.jsp" class="link">忘记密码</a>
+                            </div>-->
+            </form>
+        </div>
+        <!--<div class="go-regist">
+            还没有账号？请
+            <a href="regist.jsp">立即注册</a>
+        </div>-->
+    </div>
+
+    <div id="footer">
+        <div class="dblock">
+            <div class="inline-block"><img src="resources/images/logo-gray.png"></div>
+    		<div class="inline-block copyright">
+                <!--<p><a href="#">关于我们</a> | <a href="#">微博</a> | <a href="#">隐私政策</a> | <a href="#">人员招聘</a></p>-->
+                <p> Copyright © 2017 疯耶科技</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function(){
+        $("form").submit(function(){
+
+            var username = $("#username").val();
+            var password = $("#password").val();
+            if(username=='' || password==""){
+                $(".login-error").show();
+                $(".login-error").html("登陆信息不能为空哟!");
+                setTimeout(function(){
+                    $(".login-error").hide();
+                },2000);//
+                return false;
+            }
+
+        })
+    })
+</script>
+</html>

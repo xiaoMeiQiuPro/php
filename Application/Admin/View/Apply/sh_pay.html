@@ -1,0 +1,77 @@
+<include file="Public/_header" title=""/>
+<article class="cl pd-20">
+    <form action="__CONTROLLER__/add_pay" method="post"  enctype="multipart/form-data" class="form form-horizontal" id="form-admin-add">
+        <div class="row cl">
+            <input name="id" value="{$id}" type="hidden"  >
+            <input name="store_id" value="{$store_id}" type="hidden"  >
+            <input name="price" value="{$price}" type="hidden"  >
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>审核状态：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="status" value="1" type="radio" id="sex-1" checked>
+                    <label for="sex-1">通过</label>
+                </div>
+                <div class="radio-box">
+                    <input name="status" type="radio" value="2" id="sex-2" >
+                    <label for="sex-2">拒绝</label>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">审核备注：</label>
+            <div class="formControls col-xs-8 col-sm-6">
+                <textarea name="desc" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" ></textarea>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" id="ab" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+
+<script type="text/javascript">
+
+
+    $(function() {
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#ab").click(function(){
+
+
+            $.ajax({
+                // cache: true,
+                type: "POST",
+                url:"__CONTROLLER__/sh_pay",
+                data:$('form').serialize(),// 你的formid
+                async: false,
+                success: function(data) {
+                    if(data == 1){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.location.reload();
+                        layer.msg("审核成功", {icon: 1, time: 2000});
+                        //  parent.location.href="__CONTROLLER__";
+                        setTimeout(function(){
+                            parent.layer.close(index);
+                        },2000);
+                    }
+                    else{
+                        layer.msg(data, {icon: 2, time: 2000});
+                    }
+                },
+                error: function(request) {
+                    layer.msg('服务器异常', {icon: 2, time: 2000});
+                }
+            });
+        })
+    });
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

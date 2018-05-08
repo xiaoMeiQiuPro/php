@@ -1,0 +1,77 @@
+/**
+ * Created by Administrator on 2016/11/16.
+ */
+
+
+/*多选删除说明
+ * 选择框的class必须为box
+ * 全选按钮的class必须为checkAll
+ * 全选按钮前面图标的ID为img
+ * 删除按钮的ID为del
+ * */
+/*
+$(function() {
+    //----------全选开始-------------------//
+    var boxLeng;
+
+    var trueLeng;
+    trueLeng = $('input[type=checkbox]:checked').length;
+   /!* //获得选择框全部的个数
+    boxLeng = $('input[name=box]').length;
+
+    //box 是除了全选之外的选择框. checkAll 是全选按钮;
+    $('input[type=checkbox],.checkAll,#del').click(function(){
+        //获得选择框选中的个数
+        trueLeng = $('input[type=checkbox]:checked').length;
+        //获得选择框全部的个数
+        boxLeng = $('input[type=checkbox]').length;
+        //单独选择时  判断是否全部选中
+        if($(this).attr("class")=="box"){
+            var flag = 1;
+            $('input[type=checkbox]').each(function () {
+                if ($(this).prop('checked')) {
+                    flag++;
+                }
+            });
+            if (flag > boxLeng) {
+                $("#img").attr('class','icon-check')
+            }
+            else {
+                $("#img").attr('class','icon-check-empty');
+            }
+        }
+
+    });
+    $(".checkAll").click(function(){
+        /!*alert(trueLeng);
+         alert(boxLeng);*!/
+        if (trueLeng!= boxLeng) {
+            $("input[type='checkbox']").prop('checked', true);
+            $("#img").attr('class','icon-check')
+        }
+        else {
+            $("input[type='checkbox']").prop('checked', false);
+            $("#img").attr('class','icon-check-empty');
+        }
+    });*!/
+    //----多项删除---------//
+
+    $("#del").click(function(){
+        var trueLeng;
+        trueLeng = $('input[type=checkbox]:checked').length;
+        if(1>trueLeng){
+            layer.msg('请至少选中一项进行删除',{icon:1,time:1000})
+        }
+        else{
+            if(confirm("你确定要删除吗?删除之后不可恢复!")) {
+                var id='';
+                //循环选中的选择框,获取里面的ID
+                $('input[type=checkbox]:checked').each(function(){
+                    id+=$(this).val()+",";
+                });
+                id=id.slice(0,-1);
+                window.location.href=con+"/delete/id/"+id;
+            }
+        }
+    })
+});*/

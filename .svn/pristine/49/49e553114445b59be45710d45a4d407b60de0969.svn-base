@@ -1,0 +1,94 @@
+[ 2017-09-27T15:47:00+08:00 ] 127.0.0.1 /agent/index/project_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002200s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002597s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0224s ]
+SQL: SELECT `project_id`,`china_name`,`english_name`,`address`,`agent_id`,`status`,`area_id2`,`url`,`des`,`lon`,`lat`,`address_info`,`head_img`,`score_num`,`score_rank` FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0039s ]
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0145s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0032s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0156s ]
+SQL: SELECT `china_name`,`english_name`,`user_id`,`img_url`,`integral`,`score`,`score_num` FROM `user` WHERE `user_id` IN ('17','2','18','25')  [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: score D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+NOTIC: [2] Division by zero D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+SQL: SHOW COLUMNS FROM `project_comment` [ RunTime:0.0115s ]
+SQL: SELECT project_comment.*,user.china_name,user.english_name,user.img_url FROM `project_comment` LEFT JOIN user ON user.user_id=project_comment.user_id  WHERE `project_id` = 3  [ RunTime:0.0011s ]
+
+[ 2017-09-27T15:47:23+08:00 ] 127.0.0.1 /agent/index/project_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000770s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000826s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000904s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0105s ]
+SQL: SELECT `project_id`,`china_name`,`english_name`,`address`,`agent_id`,`status`,`area_id2`,`url`,`des`,`lon`,`lat`,`address_info`,`head_img`,`score_num`,`score_rank` FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0076s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0079s ]
+SQL: SELECT `china_name`,`english_name`,`user_id`,`img_url`,`integral`,`score`,`score_num` FROM `user` WHERE `user_id` IN ('17','2','18','25')  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: score D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+NOTIC: [2] Division by zero D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+SQL: SHOW COLUMNS FROM `project_comment` [ RunTime:0.0077s ]
+SQL: SELECT project_comment.*,user.china_name,user.english_name,user.img_url FROM `project_comment` LEFT JOIN user ON user.user_id=project_comment.user_id  WHERE `project_id` = 3  [ RunTime:0.0005s ]
+ERR: 表达式错误:not in 
+
+[ 2017-09-27T15:48:14+08:00 ] 127.0.0.1 /agent/index/project_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000724s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001453s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0082s ]
+SQL: SELECT `project_id`,`china_name`,`english_name`,`address`,`agent_id`,`status`,`area_id2`,`url`,`des`,`lon`,`lat`,`address_info`,`head_img`,`score_num`,`score_rank` FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0092s ]
+SQL: SELECT `china_name`,`english_name`,`user_id`,`img_url`,`integral`,`score`,`score_num` FROM `user` WHERE `user_id` IN ('17','2','18','25')  [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: score D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+NOTIC: [2] Division by zero D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+SQL: SHOW COLUMNS FROM `project_comment` [ RunTime:0.0085s ]
+SQL: SELECT project_comment.*,user.china_name,user.english_name,user.img_url FROM `project_comment` LEFT JOIN user ON user.user_id=project_comment.user_id  WHERE `project_id` = 3  [ RunTime:0.0005s ]
+SQL: SELECT `project_id`,`china_name`,`english_name`,`address`,`agent_id`,`status`,`area_id2`,`url`,`des`,`lon`,`lat`,`address_info`,`head_img`,`score_num`,`score_rank` FROM `project` WHERE `project_id` NOT IN ('3') AND `area_id2` = 4  [ RunTime:0.0018s ]
+
+[ 2017-09-27T15:48:51+08:00 ] 127.0.0.1 /agent/index/project_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000700s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001326s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0093s ]
+SQL: SELECT `project_id`,`china_name`,`english_name`,`address`,`agent_id`,`status`,`area_id2`,`url`,`des`,`lon`,`lat`,`address_info`,`head_img`,`score_num`,`score_rank` FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0071s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0083s ]
+SQL: SELECT `china_name`,`english_name`,`user_id`,`img_url`,`integral`,`score`,`score_num` FROM `user` WHERE `user_id` IN ('17','2','18','25')  [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: score D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+NOTIC: [2] Division by zero D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+SQL: SHOW COLUMNS FROM `project_comment` [ RunTime:0.0068s ]
+SQL: SELECT project_comment.*,user.china_name,user.english_name,user.img_url FROM `project_comment` LEFT JOIN user ON user.user_id=project_comment.user_id  WHERE `project_id` = 3  [ RunTime:0.0004s ]
+SQL: SELECT `project_id`,`china_name`,`english_name`,`address`,`agent_id`,`status`,`area_id2`,`url`,`des`,`lon`,`lat`,`address_info`,`head_img`,`score_num`,`score_rank` FROM `project` WHERE `project_id` NOT IN ('3') AND `area_id2` = 4  [ RunTime:0.0007s ]
+
+[ 2017-09-27T15:50:11+08:00 ] 127.0.0.1 /agent/index/project_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000953s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001207s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001290s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0125s ]
+SQL: SELECT `project_id`,`china_name`,`english_name`,`address`,`agent_id`,`status`,`area_id2`,`url`,`des`,`lon`,`lat`,`address_info`,`head_img`,`score_num`,`score_rank` FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0097s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0093s ]
+SQL: SELECT `china_name`,`english_name`,`user_id`,`img_url`,`integral`,`score`,`score_num` FROM `user` WHERE `user_id` IN ('17','2','18','25')  [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: score D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+NOTIC: [2] Division by zero D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 575 行.
+SQL: SHOW COLUMNS FROM `project_comment` [ RunTime:0.0082s ]
+SQL: SELECT project_comment.*,user.china_name,user.english_name,user.img_url FROM `project_comment` LEFT JOIN user ON user.user_id=project_comment.user_id  WHERE `project_id` = 3  [ RunTime:0.0007s ]
+SQL: SELECT `project_id`,`china_name`,`english_name`,`address`,`agent_id`,`status`,`area_id2`,`url`,`des`,`lon`,`lat`,`address_info`,`head_img`,`score_num`,`score_rank` FROM `project` WHERE `project_id` NOT IN ('3') AND `area_id2` = 3  [ RunTime:0.0004s ]
+

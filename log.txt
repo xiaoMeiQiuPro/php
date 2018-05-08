@@ -1,0 +1,576 @@
+Array
+(
+    [children] => {
+    "children_birthday" = 1503331200;
+    "children_name" = "\U5b69\U5b50";
+    "children_sex" = 1;
+    id = 13;
+    "user_id" = 25;
+},{
+    "children_birthday" = 1503331200;
+    "children_name" = "\U5475\U5475";
+    "children_sex" = 1;
+    id = 12;
+    "user_id" = 25;
+},{
+    "children_birthday" = "";
+    "children_name" = "";
+    "children_sex" = 0;
+    id = 109;
+    "user_id" = 25;
+},{
+    "children_birthday" = "";
+    "children_name" = "";
+    "children_sex" = 1;
+    id = 108;
+    "user_id" = 25;
+},{
+    "children_birthday" = "";
+    "children_name" = "\U5475\U5475";
+    "children_sex" = 0;
+    id = 107;
+    "user_id" = 25;
+},{
+    "children_birthday" = 1503331200;
+    "children_name" = "";
+    "children_sex" = 0;
+    id = 106;
+    "user_id" = 25;
+},{
+    "children_birthday" = "";
+    "children_name" = "";
+    "children_sex" = 0;
+    id = 105;
+    "user_id" = 25;
+},{
+    "children_birthday" = "";
+    "children_name" = "";
+    "children_sex" = 1;
+    id = 104;
+    "user_id" = 25;
+},{
+    "children_birthday" = "";
+    "children_name" = "\U5b69\U5b50";
+    "children_sex" = 0;
+    id = 103;
+    "user_id" = 25;
+},{
+    "children_birthday" = 1503331200;
+    "children_name" = "";
+    "children_sex" = 0;
+    id = 102;
+    "user_id" = 25;
+}
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+)
+
+2017-11-10 17:18:21
+Array
+2017-11-10 17:18:21
+Array
+(
+    [children] => Array
+        (
+            [0] => {
+    "children_birthday" = 1503331200;
+    "children_name" = "\U5b69\U5b50";
+    "children_sex" = 1;
+    id = 13;
+    "user_id" = 25;
+},{
+    "children_birthday" = 1503331200;
+    "children_name" = "\U5475\U5475";
+    "children_sex" = 1;
+    id = 12;
+    "user_id" = 25;
+}
+        )
+
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 17:39:35
+Array
+2017-11-10 17:39:35
+Array
+(
+    [children] => [{
+    "children_birthday" = 1503331200;
+    "children_name" = "\U5b69\U5b50";
+    "children_sex" = 1;
+    id = 13;
+    "user_id" = 25;
+},{
+    "children_birthday" = 1503331200;
+    "children_name" = "\U5475\U5475";
+    "children_sex" = 1;
+    id = 12;
+    "user_id" = 25;
+}]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 17:42:06
+Array
+2017-11-10 17:42:06
+Array
+(
+    [children] => [{
+    "children_birthday" : 1503331200;
+    "children_name" : "\U5b69\U5b50";
+    "children_sex" : 1;
+    id : 13;
+    "user_id" : 25;
+},{
+    "children_birthday" : 1503331200;
+    "children_name" : "\U5475\U5475";
+    "children_sex" : 1;
+    id : 12;
+    "user_id" : 25;
+}]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 17:50:57
+Array
+2017-11-10 17:50:57
+Array
+(
+    [children] => [{
+    "children_birthday" : 1503331200;
+    "children_name" : "\U5b69\U5b50";
+    "children_sex" : 1;
+    id : 13;
+    "user_id" : 25;
+},{
+    "children_birthday" : 1503331200;
+    "children_name" : "\U5475\U5475";
+    "children_sex" : 1;
+    id : 12;
+    "user_id" : 25;
+}]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 18:06:23
+Array
+2017-11-10 18:06:23
+Array
+(
+    [children] => [{
+    "children_birthday" : 1503331200;
+    "children_name" : "\U5b69\U5b50";
+    "children_sex" : 1;
+    id : 13;
+    "user_id" : 25;
+},{
+    "children_birthday" : 1503331200;
+    "children_name" : "\U5475\U5475";
+    "children_sex" : 1;
+    id : 12;
+    "user_id" : 25;
+}]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 18:26:27
+Array
+2017-11-10 18:26:27
+Array
+(
+    [children] => [{
+    "children_birthday" : 1503331200,
+    "children_name" : "\U5b69\U5b50",
+    "children_sex" : 1,
+    id : 13,
+    "user_id" : 25,
+},{
+    "children_birthday" : 1503331200,
+    "children_name" : "\U5475\U5475",
+    "children_sex" : 1,
+    id : 12,
+    "user_id" : 25,
+}]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 18:34:53
+Array
+2017-11-10 18:34:53
+Array
+(
+    [children] => [
+  {
+    "children_sex" : "1",
+    "id" : "13",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "孩子"
+  },
+  {
+    "children_sex" : "1",
+    "id" : "12",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "呵呵"
+  }
+]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 18:49:35
+Array
+2017-11-10 18:49:35
+Array
+(
+    [children] => [
+  {
+    "children_sex" : "1",
+    "id" : "13",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "孩子"
+  },
+  {
+    "children_sex" : "1",
+    "id" : "12",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "呵呵"
+  }
+]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 18:50:18
+Array
+2017-11-10 18:50:18
+Array
+(
+    [children] => [
+  {
+    "children_sex" : "1",
+    "id" : "13",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "孩gggg"
+  },
+  {
+    "children_sex" : "1",
+    "id" : "12",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "呵呵"
+  }
+]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => 334666
+            [user_id] => 25
+        )
+
+)
+
+2017-11-10 18:59:54
+Array
+2017-11-10 18:59:54
+25
+Array
+Array
+(
+    [children] => [
+  {
+    "children_sex" : "1",
+    "id" : "13",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "孩gggg"
+  },
+  {
+    "children_sex" : "1",
+    "id" : "12",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "呵呵"
+  }
+]
+    [user] => Array
+        (
+            [birthday] => 2017
+            [city] => 上海
+            [mobile] => 15983804766
+            [name] => Hhhhh
+            [user_id] => 25
+        )
+
+)
+2017-11-10 19:02:20
+Array
+2017-11-10 19:02:20
+25
+Array
+Array
+(
+    [mobile] => 18381685663
+    [user_id] => 20
+    [name] => 18381685663
+    [sex] => 2
+    [json] => [{"children_birthday":"2017-11-13","children_name":"魔女","children_sex":"1","id":"0"}]
+)
+
+2017-11-13 18:09:17
+Array
+2017-11-13 18:09:17
+
+
+Array
+(
+    [mobile] => 18381685663
+    [user_id] => 20
+    [name] => 18381685663
+    [sex] => 2
+    [children] => [{"children_birthday":"2017-11-13","children_name":"魔偶","children_sex":"1","id":"0"}]
+)
+
+2017-11-13 18:11:36
+Array
+2017-11-13 18:11:36
+
+
+Array
+(
+    [user] => {"birthday":"2017-11-14","city":"北京市","mobile":"18381685663","name":"娃哈哈","sex":"2","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-22","children_name":"么了","children_sex":"1","id":"0"},{"children_birthday":"2017-11-14","children_name":"嗯啦","children_sex":"1","id":"0"}]
+)
+
+2017-11-14 09:32:48
+Array
+2017-11-14 09:32:48
+{
+{"birthday":"2017-11-14","city":"北京市","mobile":"18381685663","name":"娃哈哈","sex":"2","user_id":"20"}
+Array
+(
+    [user] => {"mobile":"18381685663","name":"哇卡","sex":"2","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"来来来","children_sex":"1","id":"0"}]
+)
+
+2017-11-14 09:36:26
+Array
+2017-11-14 09:36:26
+{
+{"mobile":"18381685663","name":"哇卡","sex":"2","user_id":"20"}
+Array
+(
+    [user] => {"birthday":"2017-11-14","city":"北京市","mobile":"18381685663","name":"蜗居","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"6路","children_sex":"1","id":"0"},{"children_birthday":"2017-11-14","children_name":"豆浆","children_sex":"1","id":"0"}]
+)
+
+2017-11-14 09:41:13
+Array
+2017-11-14 09:41:13
+{
+{"birthday":"2017-11-14","city":"北京市","mobile":"18381685663","name":"蜗居","sex":"1","user_id":"20"}
+Array
+(
+    [user] => {"birthday":"2017-11-14","city":"北京市","mobile":"18381685663","name":"蜗居","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"6路","children_sex":"1","id":"0"},{"children_birthday":"2017-11-14","children_name":"豆浆","children_sex":"1","id":"0"},{"children_birthday":"2017-11-14","children_name":"6路","children_sex":"1","id":"0"},{"children_birthday":"2017-11-14","children_name":"豆浆","children_sex":"1","id":"0"}]
+)
+
+2017-11-14 09:42:15
+Array
+2017-11-14 09:42:15
+{
+{"birthday":"2017-11-14","city":"北京市","mobile":"18381685663","name":"蜗居","sex":"1","user_id":"20"}
+
+
+Array
+(
+    [user] => {"birthday":"2017-11-14","city":"邢台市","mobile":"18381685663","name":"哇卡","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"佛祖","children_sex":"1","id":"0"}]
+)
+
+2017-11-14 09:50:54
+Array
+2017-11-14 09:50:54
+{
+{"birthday":"2017-11-14","city":"邢台市","mobile":"18381685663","name":"哇卡","sex":"1","user_id":"20"}
+Array
+(
+    [user] => {"birthday":"2017-11-14","city":"邢台市","mobile":"18381685663","name":"哇卡","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"佛祖","children_sex":"1","id":"0"},{"children_birthday":"2017-11-14","children_name":"佛祖","children_sex":"1","id":"0"}]
+)
+2017-11-14 10:10:31
+Array
+2017-11-14 10:10:31
+Array
+(
+    [children] => [
+  {
+    "children_sex" : "1",
+    "id" : "13",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "孩gggg"
+  },
+  {
+    "children_sex" : "1",
+    "id" : "12",
+    "children_birthday" : "1503331200",
+    "user_id" : "25",
+    "children_name" : "呵呵"
+  }
+]
+    [user] => {
+  "mobile" : "15983804766",
+  "user_id" : "25",
+  "name" : "公共",
+  "birthday" : "2017",
+  "city" : "上海"
+}
+)
+
+2017-11-14 10:29:04
+Array
+2017-11-14 10:29:04
+Array
+(
+    [user] => {"birthday":"1970-01-01","city":"邢台市","mobile":"18381685663","name":"哇卡","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"哈哈","children_sex":"2","id":"0"}]
+)
+
+2017-11-14 10:38:04
+Array
+2017-11-14 10:38:04
+Array
+(
+    [user] => {"birthday":"1970-01-01","city":"邢台市","mobile":"18381685663","name":"哇卡","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"哈哈","children_sex":"2","id":"110"},{"children_birthday":"2017-11-14","children_name":"瓜娃子","children_sex":"2","id":"0"}]
+)
+
+2017-11-14 10:40:16
+Array
+2017-11-14 10:40:16
+Array
+(
+    [user] => {"birthday":"1970-01-01","city":"邢台市","mobile":"18381685663","name":"哇卡","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"哈皮","children_sex":"2","id":"111"},{"children_birthday":"2017-11-14","children_name":"哈哈","children_sex":"2","id":"110"}]
+)
+
+2017-11-14 11:11:15
+Array
+2017-11-14 11:11:15
+Array
+(
+    [user] => {"birthday":"1970-01-01","city":"邢台市","mobile":"18381685663","name":"哇卡","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"哈皮","children_sex":"2","id":"111"},{"children_birthday":"2017-11-14","children_name":"瓜皮","children_sex":"2","id":"110"},{"children_birthday":"2017-11-14","children_name":"宋词","children_sex":"1","id":"0"}]
+)
+
+2017-11-14 11:11:55
+Array
+2017-11-14 11:11:55
+Array
+(
+    [user] => {"birthday":"1970-01-01","city":"邢台市","mobile":"18381685663","name":"哇卡","sex":"1","user_id":"20"}
+    [children] => [{"children_birthday":"2017-11-14","children_name":"哈皮","children_sex":"2","id":"111"},{"children_birthday":"2017-11-14","children_name":"瓜皮","children_sex":"2","id":"110"},{"children_birthday":"2017-11-14","children_name":"宋词","children_sex":"1","id":"112"}]
+)
+
+2017-11-14 11:12:28
+Array
+2017-11-14 11:12:28
+Array
+(
+    [children] => [
+  {
+    "children_sex" : "1",
+    "id" : "0",
+    "children_birthday" : "1284442860",
+    "user_id" : "25",
+    "children_name" : "工"
+  }
+]
+    [user] => {
+  "mobile" : "15983804766",
+  "user_id" : "25",
+  "name" : "公共",
+  "birthday" : "1980-08-14",
+  "city" : "上海"
+}
+)
+
+2017-11-14 13:41:39
+Array
+2017-11-14 13:41:39

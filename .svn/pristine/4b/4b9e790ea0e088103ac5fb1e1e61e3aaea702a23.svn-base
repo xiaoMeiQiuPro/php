@@ -1,0 +1,528 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Administrator
+ * Date: 2017/8/10
+ * Time: 17:48
+ * Module: 會員管理
+ */
+namespace Admin\Controller;
+use Admin\Controller;
+
+class UserController extends BaseController
+{
+
+    public $tab ='user';
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    //-------------------------普通會員管理---------------------------------------
+    public function index1($key="")
+    {
+        if($key !== ""){
+            $where['email'] = array('like',"%$key%");
+            $where['phone'] = array('like',"%$key%");
+            $where['nickname'] = array('like',"%$key%");
+            $where['_logic'] = 'OR';
+            $map["_complex"] = $where;
+        }
+        $map['type']=1;
+        $count  = M($this->tab)->where($map)->count();// 查询满足要求的总记录数
+        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show = $Page->show();// 分页显示输出
+        $list = M($this->tab)->limit($Page->firstRow.','.$Page->listRows)->where($map)->
+        /*join('admin_role ON admin.role_id=admin_role.role_id','INNER')->*/select();
+        $index=$Page->firstRow;//显示序号
+        $this->assign('index', $index);
+        $this->assign('list', $list);
+        $this->assign('page',$show);
+        $this->assign('count',$count);
+        $this->display('user/User1/index');
+    }
+
+    /**
+     * 添加管理员
+     */
+    public function add_user1()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+            $this->display('User/User1/add');
+        }
+        if (IS_POST) {
+           // dd($_POST);exit;
+            if(I('post.email')!=''){
+              if(M($this->tab)->where(array('email'=>I('post.email')))->find()){
+                  echo "<script>alert('此郵箱已經存在');history.go(-1)</script>";
+                  exit;
+              }
+            }
+            //如果用户提交数据则添加到表
+            if(M($this->tab)->where(array('phone'=>I('post.phone')))->find()){
+                echo "<script>alert('手機號已经存在');history.go(-1)</script>";
+                exit;
+            }
+            else{
+                $_POST['register_time'] = date("Y-m-d H:i:s",time());
+                $_POST['password'] = md5(I('post.password'));
+                $model = M($this->tab)->add(I('post.'));
+            }
+            if ($model) {
+                addLog(session('name').'添加普通會員',session('adminId'));
+                $this->success("添加成功", __CONTROLLER__."/index1",1);
+            }
+            else {
+                $this->error("数据异常,添加失败",__CONTROLLER__."/index1",2);
+                exit;
+            }
+        }
+    }
+    /**
+     * 更新
+     *
+     */
+    public function update_user1()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+            $map['user_id'] = I("get.id");
+            $model = M($this->tab)->/*join('admin_role ON admin.role_id = admin_role.role_id')->*/where($map)->find();
+           // dd($model);exit;
+            $this->assign('list',$model);
+            $this->display('User/User1/update');
+        }
+        //修改信息
+        if (IS_POST) {
+            //密碼為空則不修改
+            if(I("post.password") == ''){
+                unset($_POST['password']);
+            }
+            else{
+                $_POST['password'] = md5(I("post.password"));
+            }
+            $map['user_id'] = I("post.user_id");
+            //$map['user_id']  = array('not in',I("post.user_id"));
+
+            $phone=M($this->tab)->where(array('user_id'=>array('not in',I("post.user_id")),'phone'=>I("post.phone")))->find();
+            if($phone) {
+                echo "<script>alert('手機號已经存在');history.go(-1)</script>";
+                exit;
+            }
+            $email=M($this->tab)->where(array('user_id'=>array('not in',I("post.user_id")),'email'=>I("post.email")))->find();
+            if($email){
+                echo "<script>alert('邮箱已经存在');history.go(-1)</script>";
+                exit;
+            }
+            $re = M($this->tab)->where($map)->save($_POST);
+
+            if ($re){
+                addLog(session('name').'修改普通会员',session('adminId'));
+                $this->success("更新成功",  __CONTROLLER__."/index1",1);
+            }
+            else {
+                $this->error("更新失败", __CONTROLLER__."/index1",2);
+            }
+        }
+    }
+    /**
+     * 删除
+     */
+    public function del_user1()
+    {
+        $id = $_GET['id'];
+        $map['user_id']  = array('in',$id);
+        $result = M($this->tab)->where($map)->delete();
+        if($result){
+            addLog(session('name').'删除普通会员',session('adminId'));
+            $this->success("删除成功", __CONTROLLER__."/index1",2);
+        }else{
+            $this->error("删除失败");
+        }
+    }
+    //ajax修改状态
+    function ajax_status(){
+        //$map['admin_id'] = $_POST['id'];
+        $map['status'] = $_POST['status'];
+        $re=M($this->tab)->where('user_id = '.$_POST['id'])->save($map);
+        if($re){
+            echo  1;
+        }
+        else{
+            echo 0;
+        }
+    }
+    //-----------代理会员.---------------//
+    public function index2($key="")
+    {
+        if($key !== ""){
+            $where['china_name'] = array('like',"%$key%");
+            $where['english_name'] = array('like',"%$key%");
+            $where['email'] = array('like',"%$key%");
+            $where['phone'] = array('like',"%$key%");
+            $where['_logic'] = 'OR';
+            $map["_complex"] = $where;
+        }
+
+        $map['type']=2;
+
+        $count  = M($this->tab)->where($map)->count();// 查询满足要求的总记录数
+
+        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show = $Page->show();// 分页显示输出
+        $list = M($this->tab)->limit($Page->firstRow.','.$Page->listRows)->where($map)->
+        join('vip ON vip.vip_id=user.vip_id','LEFT')->select();
+       // dd($list);exit;
+        $index=$Page->firstRow;//显示序号
+        $this->assign('index', $index);
+        $this->assign('list', $list);
+        $this->assign('page',$show);
+        $this->assign('count',$count);
+        $this->display('user/User2/index');
+    }
+
+    /**
+     * 添加代理會員
+     */
+    public function add_user2()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+            $data = M('vip')->select();
+            $this->assign('list',$data);
+            $this->display('User/User2/add');
+        }
+        if (IS_POST) {
+            // dd($_POST);exit;
+            if(I('post.email')!=''){
+                if(M($this->tab)->where(array('email'=>I('post.email')))->find()){
+                    echo "<script>alert('此郵箱已經存在');history.go(-1)</script>";
+                    exit;
+                }
+            }
+            //如果用户提交数据则添加到表
+            if(M($this->tab)->where(array('phone'=>I('post.phone')))->find()){
+                echo "<script>alert('手機號已经存在');history.go(-1)</script>";
+                exit;
+            }
+            else{
+                $_POST['register_time'] = date("Y-m-d H:i:s",time());
+                $_POST['password'] = md5(I('post.password'));
+                $_POST['type'] = 2;
+                $model = M($this->tab)->add(I('post.'));
+            }
+            if ($model) {
+                addLog(session('name').'添加代理會員',session('adminId'));
+                $this->success("添加成功", __CONTROLLER__."/index2",1);
+            }
+            else {
+                $this->error("数据异常,添加失败",__CONTROLLER__."/index2",2);
+                exit;
+            }
+        }
+    }
+    /**
+     * 更新
+     *
+     */
+    public function update_user2()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+            $map['user_id'] = I("get.id");
+            $data = M('vip')->select();
+            $this->assign('vip',$data);
+            $model = M($this->tab)->/*join('admin_role ON admin.role_id = admin_role.role_id')->*/where($map)->find();
+            // dd($model);exit;
+            $this->assign('list',$model);
+            $this->display('User/User2/update');
+        }
+        //修改信息
+        if (IS_POST) {
+            //密碼為空則不修改
+            if(I("post.password") == ''){
+                unset($_POST['password']);
+            }
+            else{
+                $_POST['password'] = md5(I("post.password"));
+            }
+            $map['user_id'] = I("post.user_id");
+            //$map['user_id']  = array('not in',I("post.user_id"));
+
+            $phone=M($this->tab)->where(array('user_id'=>array('not in',I("post.user_id")),'phone'=>I("post.phone")))->find();
+            if($phone){
+                echo "<script>alert('手機號已经存在');history.go(-1)</script>";
+                exit;
+            }
+            $email=M($this->tab)->where(array('user_id'=>array('not in',I("post.user_id")),'email'=>I("post.email")))->find();
+            if($email){
+                echo "<script>alert('邮箱已经存在');history.go(-1)</script>";
+                exit;
+            }
+            $re = M($this->tab)->where($map)->save($_POST);
+
+            if ($re){
+                addLog(session('name').'修改代理会员',session('adminId'));
+                $this->success("更新成功",  __CONTROLLER__."/index2",1);
+            }
+            else {
+                $this->error("更新失败", __CONTROLLER__."/index1",2);
+            }
+        }
+    }
+    /**
+     * 删除
+     */
+    public function del_user2()
+    {
+        $id = $_GET['id'];
+        $map['user_id']  = array('in',$id);
+        $result = M($this->tab)->where($map)->delete();
+        if($result){
+            addLog(session('name').'删除代理会员',session('adminId'));
+            $this->success("删除成功", __CONTROLLER__."/index2",2);
+        }else{
+            $this->error("删除失败");
+        }
+    }
+    //-----------用戶操作日誌---------------//
+    public function log_index($key='',$key2='')
+    {
+        if($_POST['start'] && $_POST['end']){
+            $where['date'] = array(array('egt',$_POST['start']),array('elt',$_POST['end'])) ;
+        }
+        else{
+            $where=array();
+        }
+        $count  = M('user_log')->where($where)->count();// 查询满足要求的总记录数
+        $Page = new \Extend\Page($count,25);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show = $Page->show();// 分页显示输出
+        $list = M('user_log')->limit($Page->firstRow.','.$Page->listRows)->order('user_log_id desc')->where($where)->select();
+        $index=$Page->firstRow;//显示序号
+        $this->assign('index', $index);
+        $this->assign('list', $list);
+        $this->assign('page',$show);
+        $this->assign('count',$count);
+        $this->display('User/User_log/index');
+    }
+    //-------------------------普通會員管理---------------------------------------
+    public function vip_index($key="")
+    {
+        if($key !== ""){
+            $map['name'] = array('like',"%$key%");
+        }
+        $count  = M('vip')->where($map)->count();// 查询满足要求的总记录数
+        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show = $Page->show();// 分页显示输出
+        $list = M('vip')->limit($Page->firstRow.','.$Page->listRows)->where($map)->
+        /*join('admin_role ON admin.role_id=admin_role.role_id','INNER')->*/select();
+        $index=$Page->firstRow;//显示序号
+        $this->assign('index', $index);
+        $this->assign('list', $list);
+        $this->assign('page',$show);
+        $this->assign('count',$count);
+        $this->display('user/vip/index');
+    }
+    /**
+     * 添加管理员
+     */
+    public function vip_add()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+            $this->display('User/vip/add');
+        }
+        if (IS_POST) {
+
+            //如果用户提交数据则添加到表
+            if(M('vip')->where(array('name'=>I('post.name')))->find()){
+                echo "<script>alert('代理名稱已經存在');history.go(-1)</script>";
+                exit;
+            }
+            else{
+                $model = M('vip')->add(I('post.'));
+            }
+            if ($model) {
+                addLog(session('name').'添加代理等級',session('adminId'));
+                $this->success("添加成功", __CONTROLLER__."/vip_index",1);
+            }
+            else {
+                $this->error("数据异常,添加失败",__CONTROLLER__."/vip_index",2);
+                exit;
+            }
+        }
+    }
+    /**
+     * 更新
+     *
+     */
+    public function vip_update()
+    {
+        //默认显示添加表单
+        if (!IS_POST) {
+            $map['vip_id'] = I("get.id");
+            $model = M('vip')->/*join('admin_role ON admin.role_id = admin_role.role_id')->*/where($map)->find();
+            // dd($model);exit;
+            $this->assign('list',$model);
+            $this->display('User/vip/update');
+        }
+        //修改信息
+        if (IS_POST) {
+            $map['vip_id'] = I("post.vip_id");
+            $name=M('vip')->where(array('vip_id'=>array('not in',I("post.vip_id")),'name'=>I("post.name")))->find();
+            if($name) {
+                echo "<script>alert('代理名字已经存在');history.go(-1)</script>";
+                exit;
+            }
+            $re = M('vip')->where($map)->save($_POST);
+
+            if ($re){
+                addLog(session('name').'修改代理會員等級',session('adminId'));
+                $this->success("更新成功",  __CONTROLLER__."/vip_index",1);
+            }
+            else {
+                $this->error("更新失败", __CONTROLLER__."/vip_index",2);
+            }
+        }
+    }
+    /**
+     * 删除
+     */
+    public function vip_del()
+    {
+        $id = $_GET['id'];
+        $map['vip_id']  = array('in',$id);
+        if(M('user')->where($map)->find()){
+            echo "<script>alert('此代理等級下還有會員!請先刪除會員');history.go(-1)</script>";
+            exit;
+        }
+        $result = M('vip')->where($map)->delete();
+        if($result){
+            addLog(session('name').'删除代理等級',session('adminId'));
+            $this->success("删除成功", __CONTROLLER__."/vip_index",2);
+        }else{
+            $this->error("删除失败");
+        }
+    }
+    //代理審核~~~~~~~~~~~~/////
+    function check_user($key =''){
+        if($key !== ""){
+            $map['name'] = array('like',"%$key%");
+        }
+        //未審核
+        $map['agent_examine.type'] = 0;
+        $count  = M('agent_examine')->where($map)->count();// 查询满足要求的总记录数
+        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show = $Page->show();// 分页显示输出
+        $list = M('agent_examine')->limit($Page->firstRow.','.$Page->listRows)->where($map)
+            ->join('user ON agent_examine.user_id=user.user_id','LEFT')->
+        join('vip ON agent_examine.vip_id=vip.vip_id','LEFT')->select();
+        $index=$Page->firstRow;//显示序号
+        $this->assign('index', $index);
+        $this->assign('list', $list);
+        $this->assign('page',$show);
+        $this->assign('count',$count);
+        //已審核~
+        $map1['agent_examine.type'] = 1;
+        $count1  = M('agent_examine')->where($map1)->count();// 查询满足要求的总记录数
+        $Page1 = new \Extend\Page($count1,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show1 = $Page->show();// 分页显示输出
+        $list1 = M('agent_examine')->limit($Page->firstRow.','.$Page->listRows)->where($map1)
+            ->join('user ON agent_examine.user_id=user.user_id','LEFT')->
+        join('vip ON agent_examine.vip_id=vip.vip_id','LEFT')->select();
+        $index1=$Page1->firstRow;//显示序号
+        $this->assign('index1', $index1);
+        $this->assign('list1', $list1);
+        $this->assign('page1',$show1);
+        $this->assign('count1',$count1);
+        $this->display('User/Check_user/index');
+    }
+    //審核
+    function user_sh(){
+        if(!IS_POST){
+            $map['id'] = I("get.id");
+            $list = M('agent_examine')->where($map)
+                ->join('user ON agent_examine.user_id=user.user_id','LEFT')->
+                join('vip ON agent_examine.vip_id=vip.vip_id','LEFT')->find();
+            $this->assign('list',$list);
+            $this->display('User/Check_user/update');
+        }
+        //提交審核
+        else{
+            $map['id'] = I('post.id');
+            if(I('post.yes')){
+              $re = M('agent_examine')->where($map)->save(array('remark'=>I("post.remark"),'agent_status'=>1,'type'=>1));
+            }
+            else{
+                $re = M('agent_examine')->where($map)->save(array('remark'=>I("post.remark"),'agent_status'=>0,'type'=>1));
+            }
+            if($re){
+                $this->success("審核成功",  __CONTROLLER__."/check_user",2);
+            }
+
+        }
+
+
+    }
+    //獎項審核~~~~~~~~~~~~/////
+    function check_prize($key =''){
+        if($key !== ""){
+            $map['name'] = array('like',"%$key%");
+        }
+        //未審核
+        $map['prize_examine.type'] = 0;
+        $count  = M('prize_examine')->where($map)->count();// 查询满足要求的总记录数
+        $Page = new \Extend\Page($count,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show = $Page->show();// 分页显示输出
+        $list = M('prize_examine')->limit($Page->firstRow.','.$Page->listRows)->where($map)
+            ->join('user ON prize_examine.user_id=user.user_id','LEFT')->
+            select();
+        $index=$Page->firstRow;//显示序号
+        $this->assign('index', $index);
+        $this->assign('list', $list);
+        $this->assign('page',$show);
+        $this->assign('count',$count);
+        //已審核~
+        $map1['prize_examine.type'] = 1;
+        $count1  = M('prize_examine')->where($map1)->count();// 查询满足要求的总记录数
+        $Page1 = new \Extend\Page($count1,15);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $show1 = $Page->show();// 分页显示输出
+        $list1 = M('prize_examine')->limit($Page->firstRow.','.$Page->listRows)->where($map1)
+            ->join('user ON prize_examine.user_id=user.user_id','LEFT')->
+            select();
+        $index1=$Page1->firstRow;//显示序号
+        $this->assign('index1', $index1);
+        $this->assign('list1', $list1);
+        $this->assign('page1',$show1);
+        $this->assign('count1',$count1);
+        $this->display('User/Check_prize/index');
+    }
+    //審核
+    function prize_sh(){
+        if(!IS_POST){
+            $map['id'] = I("get.id");
+            $list = M('prize_examine')->where($map)->find();
+            $this->assign('list',$list);
+            $this->display('User/Check_prize/update');
+        }
+        //提交審核
+        else{
+            $map['id'] = I('post.id');
+            if(I('post.yes')){
+                $re = M('prize_examine')->where($map)->save(array('remark'=>I("post.remark"),'prize_status'=>1,'type'=>1));
+            }
+            else{
+                $re = M('prize_examine')->where($map)->save(array('remark'=>I("post.remark"),'prize_status'=>0,'type'=>1));
+            }
+            if($re){
+                $this->success("審核成功",  __CONTROLLER__."/check_prize",2);
+            }
+
+        }
+
+
+    }
+
+}
+
+

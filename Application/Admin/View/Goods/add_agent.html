@@ -1,0 +1,81 @@
+<include file="Public/header"/>
+
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> <a href="__MODULE__/index" class="maincolor">首頁</a>
+        <span class="c-gray en">&gt;</span>
+
+        <span class="c-gray en">&gt;</span>
+        代理會員列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+    <div class="Hui-article" >
+        <article class="cl pd-20">
+            <form method="post" action="__CONTROLLER__/add_agent">
+                <div class="text-c">
+                    <input type="text" class="input-text" style="width:250px" placeholder="輸入手機號丶郵箱丶暱稱關鍵字" id="" name="key">
+                    <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+                </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20">
+               <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+            </div>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="12">代理會員列表</th>
+                </tr>
+                <tr class="text-c">
+                    <th width="25"><input class="checkAll" type="checkbox" name="" value="0"></th>
+                    <th>ID</th>
+                    <th >手機號</th>
+                    <th>郵箱</th>
+                    <th>中文名</th>
+                    <th>英文名</th>
+                    <th>代理級別</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="list" item="vo" >
+                    <tr class="text-c">
+                        <td><input  type="checkbox" class="box" value="{$vo.user_id}" name="box" /></td>
+                        <td>{$vo.user_id}</td>
+                        <td>{$vo.phone}</td>
+                        <td>{$vo.email}</td>
+                        <td>{$vo.china_name}</td>
+                        <td>{$vo.english_name}</td>
+                        <td>{$vo.name}</td>
+            </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </article>
+        {$page}
+
+        <div style="text-align: center">
+            <input id="button" type="button" class="btn btn-secondary" value="確定"/>
+        </div>
+    </div>
+<script>
+  $(function(){
+      $("#button").click(function(){
+          var id ='' ;
+          var  trueLeng;
+          trueLeng = $('input[name=box]:checked').length;
+          if(0==trueLeng){
+              layer.msg("請至少選擇一個代理",{icon:2,time:2000});
+              return false;
+          }else{
+              $('input[name=box]:checked').each(function(){
+                  id+=$(this).val()+",";
+              });
+              id=id.slice(0,-1);
+          }
+
+          parent.$("#agent_id").val(id);
+
+
+          var index = parent.layer.getFrameIndex(window.name);
+          parent.layer.close(index);
+      })
+  })
+</script>
+
+
+<include file="Public/_footer"  />

@@ -1,0 +1,19 @@
+<aside class="Hui-aside">
+	<div class="menu_dropdown bk_2">
+		<foreach name="list" item="vo" key="mk">
+			<dl id="menu-admin">
+				<dt><i class="{$vo.icon}">&#xe62d;</i> {$vo.title}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+
+				<dd>
+					<ul>
+						<foreach name="vo[child]" item="v2">
+						<li><a href='__MODULE__/{$v2.act}'  title="{$v2.title}">{$v2.title}</a></li>
+						</foreach>
+					</ul>
+				</dd>
+
+			</dl>
+		</foreach>
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

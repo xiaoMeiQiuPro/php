@@ -1,0 +1,168 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="好运行" />
+	<meta name="description" content="好运行" />
+	<title>好运行</title>
+	<link href="/agent/Public/css/style.css" rel="stylesheet" type="text/css" />
+	<script language="javascript" type="text/javascript" src="/agent/Public/js/jquery.js"></script>
+</head>
+
+<body>
+<div class="top">
+	<div class="top1">
+		<p class="top1_txt">欢迎光临好运行官方网站</p>
+		<p class="top1_tel">028-85163999&nbsp;&nbsp;028-85163777</p>
+	</div>
+	<div class="tmenubox">
+		<a href="./" class="logo"><img src="/agent/Public/images/logo.jpg" /></a>
+		<div class="tmenu" id="tmenu">
+			<ul>
+				<li style="width:70px;"><a href="/agent/index.php/Index/index" class="one">首页</a></li>
+				<li><a href="/agent/index.php/Index/single/id/14" class="one">关于我们</a>
+					<p>
+						<?php if(is_array($about)): $i = 0; $__LIST__ = $about;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><a href="/agent/index.php/Index/single/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+					</p>
+				</li>
+				<li><a href="single.html" class="one">租车服务</a>
+					<p>
+						<a href="#">会议接待</a><a href="#">商务租车</a><a href="#">自驾租车</a>
+					</p>
+				</li>
+				<li><a href="/agent/index.php/Index/carAll" class="one">车型展示</a>
+					<p>
+						<!--<a href="#">轿车系列</a><a href="#">跑车系列</a><a href="#">商务系列</a><a href="#">越野系列</a><a href="#">客车系列</a><a href="#">特价优惠车</a>-->
+						<?php if(is_array($carN)): $i = 0; $__LIST__ = $carN;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><a href="/agent/index.php/Index/car/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+					</p>
+				</li>
+				<li><a href="list.html" class="one">新闻动态</a>
+					<p>
+						<a href="#">公司动态</a><a href="#">最新优惠</a>
+					</p>
+				</li>
+				<li><a href="single.html" class="one">租车须知</a></li>
+				<li><a href="single.html" class="one">在线预订</a></li>
+				<li><a href="single.html" class="one">联系我们</a></li>
+			</ul>
+		</div>
+		<script>
+			$("#tmenu ul li").mousemove(function(){
+				$(this).find('p').addClass('hover');
+				$(this).addClass('hover');
+			}).mouseleave(function(){
+				$(this).find('p').removeClass('hover');
+				$(this).removeClass('hover');
+			})
+		</script>
+
+	</div>
+</div>
+
+
+<p class="jg20"></p>
+<div class="ncen">
+	<div class="nleft">
+    	<div class="nlt">
+            <?php echo ($nve); ?>
+        </div>
+        <div class="nlmenu">
+        	<ul>
+                <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><li><a href="/agent/index.php/Index/single/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+            </ul>
+        </div>
+        <p class="jg25"></p>
+        <p><img src="images/tb13.jpg" /></p>
+        <p class="nlcont">
+        	电话：028-85163999   028-85163777 <br />
+传真:028-85057788 <br />
+网址：WWW.CDHYX.CN<br />
+地址：<br />
+成都市二环路南四段19号檀香山4栋3单元903室<br />
+成都市高新区益州大道与天府一街交汇处两江国际B座2302 
+
+
+        </p>
+      	<div class="nlqq">
+            <p><a href="#"><img src="images/tb15.jpg" /></a>&nbsp;&nbsp;<a href="#"><img src="images/tb15.jpg" /></a></p>
+        </div>  
+    </div>
+    
+    <div class="nright">
+    	<div class="nrt">
+        	<p class="nrtit"><?php echo ($content["title"]); ?>&nbsp;</p>
+            <p class="nrpos"><a href="/agent/index.php/Index/index">首页</a> &gt; <a href="#"><?php echo ($topname); ?></a>&gt; <a><?php echo ($content["title"]); ?></a></p>
+        </div>
+        <div class="nrm">
+        	<p class="jg20"></p>
+            <div class="single">
+                <!---------------------------内容部分----------------------------------->
+                    <?php echo ($c); ?>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<p class="jg50"></p>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="好运行" />
+	<meta name="description" content="好运行" />
+	<title>好运行</title>
+	<link href="/agent/Public/css/style.css" rel="stylesheet" type="text/css" />
+	<script language="javascript" type="text/javascript" src="/agent/Public/js/jquery.js"></script>
+</head>
+
+<body>
+<div class="top">
+	<div class="top1">
+		<p class="top1_txt">欢迎光临好运行官方网站</p>
+		<p class="top1_tel">028-85163999&nbsp;&nbsp;028-85163777</p>
+	</div>
+	<div class="tmenubox">
+		<a href="./" class="logo"><img src="/agent/Public/images/logo.jpg" /></a>
+		<div class="tmenu" id="tmenu">
+			<ul>
+				<li style="width:70px;"><a href="/agent/index.php/Index/index" class="one">首页</a></li>
+				<li><a href="/agent/index.php/Index/single/id/14" class="one">关于我们</a>
+					<p>
+						<?php if(is_array($about)): $i = 0; $__LIST__ = $about;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><a href="/agent/index.php/Index/single/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+					</p>
+				</li>
+				<li><a href="single.html" class="one">租车服务</a>
+					<p>
+						<a href="#">会议接待</a><a href="#">商务租车</a><a href="#">自驾租车</a>
+					</p>
+				</li>
+				<li><a href="/agent/index.php/Index/carAll" class="one">车型展示</a>
+					<p>
+						<!--<a href="#">轿车系列</a><a href="#">跑车系列</a><a href="#">商务系列</a><a href="#">越野系列</a><a href="#">客车系列</a><a href="#">特价优惠车</a>-->
+						<?php if(is_array($carN)): $i = 0; $__LIST__ = $carN;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><a href="/agent/index.php/Index/car/id/<?php echo ($v["id"]); ?>"><?php echo ($v["title"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+					</p>
+				</li>
+				<li><a href="list.html" class="one">新闻动态</a>
+					<p>
+						<a href="#">公司动态</a><a href="#">最新优惠</a>
+					</p>
+				</li>
+				<li><a href="single.html" class="one">租车须知</a></li>
+				<li><a href="single.html" class="one">在线预订</a></li>
+				<li><a href="single.html" class="one">联系我们</a></li>
+			</ul>
+		</div>
+		<script>
+			$("#tmenu ul li").mousemove(function(){
+				$(this).find('p').addClass('hover');
+				$(this).addClass('hover');
+			}).mouseleave(function(){
+				$(this).find('p').removeClass('hover');
+				$(this).removeClass('hover');
+			})
+		</script>
+
+	</div>
+</div>

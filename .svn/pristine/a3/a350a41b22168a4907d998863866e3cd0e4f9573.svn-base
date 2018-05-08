@@ -1,0 +1,190 @@
+[ 2017-09-01T09:31:20+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000638s ]
+
+[ 2017-09-01T09:31:20+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002565s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-01T09:31:20+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001654s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-01T09:31:20+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000952s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001548s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-01T09:31:20+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001085s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002914s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003045s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-01T09:32:13+08:00 ] 127.0.0.1 /agent/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000649s ]
+
+[ 2017-09-01T10:31:53+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001033s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001254s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001339s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0098s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:36:34+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000695s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002667s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0076s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:38:19+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000693s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001883s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001964s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0065s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:42:19+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000677s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001796s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001859s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0083s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:43:17+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000719s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001823s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001898s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0070s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:43:59+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000706s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001889s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001962s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0095s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:45:37+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000818s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001835s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001931s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0071s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:51:40+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000752s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001914s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001993s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0087s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:55:01+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000722s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001900s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001976s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0129s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T10:56:23+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000693s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001830s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001892s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0131s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T11:31:47+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000704s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001337s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0126s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-09-01T11:35:29+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000838s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001524s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001630s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0197s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+

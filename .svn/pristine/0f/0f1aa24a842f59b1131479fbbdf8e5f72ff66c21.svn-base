@@ -1,0 +1,271 @@
+[ 2017-09-07T09:45:40+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000826s ]
+
+[ 2017-09-07T09:45:40+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000728s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001128s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001230s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T09:45:40+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000878s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001438s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T09:45:40+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000921s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001520s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T09:45:40+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000961s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001742s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001861s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T09:45:52+08:00 ] 127.0.0.1 /agent/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000555s ]
+
+[ 2017-09-07T16:28:04+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001857s ]
+
+[ 2017-09-07T16:28:04+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000819s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002577s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:28:04+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000931s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001908s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:28:04+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001666s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:28:04+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001360s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001666s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:28:27+08:00 ] 127.0.0.1 /agent/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000578s ]
+
+[ 2017-09-07T16:32:56+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000807s ]
+
+[ 2017-09-07T16:32:57+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000793s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000968s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001055s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:32:57+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001333s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001953s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002081s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:32:57+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000987s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002672s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002905s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:32:57+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000893s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001397s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:36:32+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001251s ]
+
+[ 2017-09-07T16:36:32+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002626s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001688s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001802s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:36:32+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001182s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001668s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001769s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:36:32+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001120s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001710s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T16:36:32+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001452s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T19:01:33+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000747s ]
+
+[ 2017-09-07T19:01:33+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000846s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001047s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001191s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T19:01:33+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001146s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001679s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001796s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T19:01:33+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000906s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002541s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T19:01:33+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001165s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001599s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-07T20:50:36+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001619s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002084s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002199s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0112s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2017-09-07T21:01:07+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002177s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002385s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0114s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0095s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2017-09-07T21:01:36+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000924s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002188s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002321s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0106s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2017-09-07T21:10:23+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000989s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001879s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002021s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0085s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+

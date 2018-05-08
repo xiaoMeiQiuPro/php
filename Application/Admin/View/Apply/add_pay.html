@@ -1,0 +1,99 @@
+<include file="Public/_header" title=""/>
+<article class="cl pd-20">
+    <form action="__CONTROLLER__/add_pay" method="post"  enctype="multipart/form-data" class="form form-horizontal" id="form-admin-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>提现方式：</label>
+            <div class="formControls col-xs-8 col-sm-6">
+                <input type="text" class="input-text" value="{$list.pay_type}" required placeholder="" id="name" name="pay_type">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>提现帐号：</label>
+            <div class="formControls col-xs-8 col-sm-6">
+                <input type="text"  class="input-text" autocomplete="off" value="{$list.pay_account}" required    name="pay_account">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>提现用户名：</label>
+            <div class="formControls col-xs-8 col-sm-6">
+                <input type="text"  class="input-text" autocomplete="off" value="{$list.pay_name}" required    name="pay_name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>可用提现金额：</label>
+            <div class="formControls col-xs-8 col-sm-6">
+                <input type="number"  class="input-text" readonly autocomplete="off" value="{$list.pay_price}" required    name="pay_price">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>申请提现金额：</label>
+            <div class="formControls col-xs-8 col-sm-6">
+                <input type="number"  class="input-text" max="{$list.pay_price}" name="price" min="200" autocomplete="off"   value="{$list.price}" required    >
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" id="ab" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+
+<script type="text/javascript">
+
+
+    $(function() {
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#ab").click(function(){
+            var flag = 0 ;
+             $("input").each(function(){
+             if($(this).val() == ''){
+             flag+= 1;
+             return false;
+             }
+             });
+             if(flag){
+             layer.msg('请完善信息',{icon: 2, time: 2000});
+             return false;
+             }
+            if($("input[name=price]").val()>=$("input[name=pay_price]").val()){
+                layer.msg('提现额度超出额度',{icon: 2, time: 2000});
+                return false;
+            }
+
+            $.ajax({
+                // cache: true,
+                type: "POST",
+                url:"__CONTROLLER__/add_pay",
+                data:$('form').serialize(),// 你的formid
+                async: false,
+                success: function(data) {
+                    if(data == 1){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.location.reload();
+                        layer.msg("申请成功,请等待审核", {icon: 1, time: 2000});
+                        //  parent.location.href="__CONTROLLER__";
+                        setTimeout(function(){
+                            parent.layer.close(index);
+                        },2000);
+                    }
+                    else{
+                        layer.msg(data, {icon: 2, time: 2000});
+                    }
+                },
+                error: function(request) {
+                    layer.msg('服务器异常', {icon: 2, time: 2000});
+                }
+            });
+        })
+    });
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

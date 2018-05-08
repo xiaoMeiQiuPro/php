@@ -1,0 +1,896 @@
+[ 2017-09-22T11:17:39+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003817s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003183s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003590s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000074s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016625s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016740s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001738s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001822s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001647s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001717s ]
+
+[ 2017-09-22T11:20:02+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000737s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001495s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010615s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010709s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000698s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000749s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001091s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001153s ]
+
+[ 2017-09-22T11:20:05+08:00 ] 127.0.0.1 /agent/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000813s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001491s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0251s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2 AND `status` = 1  [ RunTime:0.0027s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `admin_notice` WHERE `is_top` = 1 LIMIT 1   [ RunTime:0.0013s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 210 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0025s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0176s ]
+SQL: SELECT appointment.status,appointment.user_id,a.china_name agent_name,a.img_url,b.china_name project_name,c.china_name user_name FROM `appointment` LEFT JOIN user a ON appointment.agent_user_id=a.user_id LEFT JOIN user c ON appointment.user_id=c.user_id LEFT JOIN project b ON appointment.project_id=b.project_id  WHERE `pid` = 0 ORDER BY appointment_id desc LIMIT 10   [ RunTime:0.0135s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0087s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `status` = 1 ORDER BY  hot_num LIMIT 6   [ RunTime:0.0013s ]
+
+[ 2017-09-22T11:20:15+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000736s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002671s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002773s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+
+[ 2017-09-22T11:21:27+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000846s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002172s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002284s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+
+[ 2017-09-22T11:21:29+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003467s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000064s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016811s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016905s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001771s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002061s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003275s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003436s ]
+
+[ 2017-09-22T11:21:43+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000574s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000895s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000969s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 446 行.
+SQL: SHOW COLUMNS FROM `agent_examine` [ RunTime:0.0095s ]
+SQL: INSERT INTO `agent_examine` (`type`,`business_card`,`time`) VALUES ('2','/agent/Uploads/agent/2017-09-22/59c481c6f2e3a.png','2017-09-22 11:21:43') [ RunTime:0.0044s ]
+
+[ 2017-09-22T11:23:33+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000713s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003004s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003094s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000147s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013889s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002204s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002271s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002051s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002179s ]
+
+[ 2017-09-22T11:23:47+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001243s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001650s ]
+
+[ 2017-09-22T11:23:59+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000931s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002672s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000138s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000226s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018713s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018957s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003068s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003151s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001887s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001957s ]
+
+[ 2017-09-22T11:25:58+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001610s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001964s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002073s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019138s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019265s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001456s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001523s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001881s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001949s ]
+
+[ 2017-09-22T11:26:10+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000953s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003154s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003312s ]
+
+[ 2017-09-22T11:27:57+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001869s ]
+
+[ 2017-09-22T11:28:05+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000866s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002474s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002625s ]
+NOTIC: [8] Undefined index: type D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 418 行.
+NOTIC: [8] Undefined index: type D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 421 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002492s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002592s ]
+
+[ 2017-09-22T11:28:06+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000839s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001680s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013890s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013996s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001168s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001222s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001519s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001581s ]
+
+[ 2017-09-22T11:28:13+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001303s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001553s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001635s ]
+
+[ 2017-09-22T11:28:56+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001168s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002789s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000077s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000186s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037713s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037898s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002666s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002781s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003470s ]
+
+[ 2017-09-22T11:29:11+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000886s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001719s ]
+
+[ 2017-09-22T11:29:28+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000678s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001322s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000063s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014681s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014772s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000813s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000873s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001683s ]
+
+[ 2017-09-22T11:29:33+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000567s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001454s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001571s ]
+
+[ 2017-09-22T11:29:49+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002781s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001010s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001115s ]
+
+[ 2017-09-22T11:36:33+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001169s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001719s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001838s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000130s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000215s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011381s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011484s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000813s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000874s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001216s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001278s ]
+
+[ 2017-09-22T11:36:43+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000811s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001722s ]
+
+[ 2017-09-22T11:41:46+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000902s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001707s ]
+
+[ 2017-09-22T13:15:45+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000751s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001549s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001660s ]
+
+[ 2017-09-22T13:21:32+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001530s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001492s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001600s ]
+NOTIC: [8] Undefined index: type D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 418 行.
+NOTIC: [8] Undefined index: type D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 421 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003752s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003845s ]
+
+[ 2017-09-22T13:21:33+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001165s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001510s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001610s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000075s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016895s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002762s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002854s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001316s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001410s ]
+
+[ 2017-09-22T13:21:48+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000693s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001250s ]
+
+[ 2017-09-22T13:22:49+08:00 ] 127.0.0.1 /agent/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000825s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001531s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0201s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2 AND `status` = 1  [ RunTime:0.0027s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0087s ]
+SQL: SELECT * FROM `admin_notice` WHERE `is_top` = 1 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 210 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0117s ]
+SQL: SELECT appointment.status,appointment.user_id,a.china_name agent_name,a.img_url,b.china_name project_name,c.china_name user_name FROM `appointment` LEFT JOIN user a ON appointment.agent_user_id=a.user_id LEFT JOIN user c ON appointment.user_id=c.user_id LEFT JOIN project b ON appointment.project_id=b.project_id  WHERE `pid` = 0 ORDER BY appointment_id desc LIMIT 10   [ RunTime:0.0095s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `status` = 1 ORDER BY  hot_num LIMIT 6   [ RunTime:0.0009s ]
+
+[ 2017-09-22T13:23:29+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000901s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000804s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000885s ]
+
+[ 2017-09-22T13:23:49+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000751s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001912s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002027s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 448 行.
+SQL: SHOW COLUMNS FROM `agent_examine` [ RunTime:0.0093s ]
+SQL: INSERT INTO `agent_examine` (`type`,`business_card`,`time`) VALUES ('2','/agent/Uploads/agent/2017-09-22/59c49e65884d4.png','2017-09-22 13:23:49') [ RunTime:0.0036s ]
+
+[ 2017-09-22T13:26:17+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000987s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001452s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+
+[ 2017-09-22T13:32:14+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001098s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002040s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002131s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000064s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000159s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015451s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015567s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002097s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002184s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002185s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002246s ]
+
+[ 2017-09-22T13:32:34+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002053s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002142s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+SQL: SHOW COLUMNS FROM `agent_examine` [ RunTime:0.0081s ]
+SQL: INSERT INTO `agent_examine` (`type`,`business_card`,`license_plate`,`time`) VALUES ('2','/agent/Uploads/agent/2017-09-22/59c4a072ca34f.png','/agent/Uploads/agent/2017-09-22/59c4a072d047a.png','2017-09-22 13:32:34') [ RunTime:0.0011s ]
+
+[ 2017-09-22T14:45:27+08:00 ] 127.0.0.1 /agent/index.php/Index/agent_examine
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002136s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003463s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+SQL: SHOW COLUMNS FROM `agent_examine` [ RunTime:0.0098s ]
+SQL: INSERT INTO `agent_examine` (`type`,`business_card`,`license_plate`,`time`) VALUES ('2','/agent/Uploads/agent/2017-09-22/59c4b1873bd63.png','/agent/Uploads/agent/2017-09-22/59c4b187439b2.png','2017-09-22 14:45:27') [ RunTime:0.0023s ]
+
+[ 2017-09-22T14:45:35+08:00 ] 127.0.0.1 /agent/index.php/Index/text
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000897s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005071s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005204s ]
+ERR: 非法操作:text
+
+[ 2017-09-22T14:45:37+08:00 ] 127.0.0.1 /agent/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000827s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002082s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002175s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2 AND `status` = 1  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0098s ]
+SQL: SELECT * FROM `admin_notice` WHERE `is_top` = 1 LIMIT 1   [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 210 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0087s ]
+SQL: SELECT appointment.status,appointment.user_id,a.china_name agent_name,a.img_url,b.china_name project_name,c.china_name user_name FROM `appointment` LEFT JOIN user a ON appointment.agent_user_id=a.user_id LEFT JOIN user c ON appointment.user_id=c.user_id LEFT JOIN project b ON appointment.project_id=b.project_id  WHERE `pid` = 0 ORDER BY appointment_id desc LIMIT 10   [ RunTime:0.0058s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0084s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `status` = 1 ORDER BY  hot_num LIMIT 6   [ RunTime:0.0003s ]
+
+[ 2017-09-22T14:45:39+08:00 ] 127.0.0.1 /agent/index.php/Index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001064s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002447s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000069s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000163s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020186s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020316s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003435s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003525s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002764s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002845s ]
+
+[ 2017-09-22T14:45:51+08:00 ] 127.0.0.1 /agent/index.php/Index/up_agent_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000992s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001346s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001432s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [8] Undefined index: img_url D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 690 行.
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0093s ]
+SQL: INSERT INTO `user_notice` (`content`,`user_id`,`img_url`) VALUES ('小煤球V587','2','/agent/Uploads/agent_notice/2017-09-22/59c4b19f7afdf.png,/agent/Uploads/agent_notice/2017-09-22/59c4b19f81879.png,') [ RunTime:0.0022s ]
+
+[ 2017-09-22T14:54:03+08:00 ] 127.0.0.1 /agent/index.php/Index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000732s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001511s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000060s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000136s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011931s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012113s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004803s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004904s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002336s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002417s ]
+
+[ 2017-09-22T14:54:16+08:00 ] 127.0.0.1 /agent/index.php/Index/up_agent_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001050s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002626s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002742s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [8] Undefined index: img_url D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 690 行.
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0081s ]
+SQL: INSERT INTO `user_notice` (`content`,`user_id`,`img_url`) VALUES ('小煤球V587','2','/agent/Uploads/agent_notice/2017-09-22/59c4b3986e6c9.png,/agent/Uploads/agent_notice/2017-09-22/59c4b39874d2f.png,') [ RunTime:0.0009s ]
+
+[ 2017-09-22T14:55:46+08:00 ] 127.0.0.1 /agent/index.php/Index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000734s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002337s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002447s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000063s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000158s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014596s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014691s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001559s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001615s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001951s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002024s ]
+
+[ 2017-09-22T14:55:57+08:00 ] 127.0.0.1 /agent/index.php/Index/up_agent_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002158s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002257s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [8] Undefined index: img_url D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 690 行.
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0094s ]
+SQL: INSERT INTO `user_notice` (`content`,`user_id`,`img_url`) VALUES ('小煤球V587','2','/agent/Uploads/agent_notice/2017-09-22/59c4b3fd4ea38.png,/agent/Uploads/agent_notice/2017-09-22/59c4b3fd543df.png') [ RunTime:0.0010s ]
+
+[ 2017-09-22T15:27:45+08:00 ] 127.0.0.1 /agent/index.php/Index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001233s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003410s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003536s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000255s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000559s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019763s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019890s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002495s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002576s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002676s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002753s ]
+
+[ 2017-09-22T15:28:41+08:00 ] 127.0.0.1 /agent/index.php/Index/up_agent_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000825s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002011s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002100s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+NOTIC: [8] Undefined index: img_url D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 690 行.
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0111s ]
+SQL: INSERT INTO `user_notice` (`content`,`user_id`,`img_url`) VALUES ('小煤球V587','2','/agent/Uploads/agent_notice/2017-09-22/59c4bba94d044.png,/agent/Uploads/agent_notice/2017-09-22/59c4bba9501da.jpg') [ RunTime:0.0010s ]
+
+[ 2017-09-22T15:30:37+08:00 ] 127.0.0.1 /agent/index.php/Index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002179s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004501s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000165s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027093s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027225s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002143s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002221s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002390s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002494s ]
+
+[ 2017-09-22T15:30:49+08:00 ] 127.0.0.1 /agent/index.php/Index/up_agent_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000895s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003998s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004148s ]
+
+[ 2017-09-22T15:52:11+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000109s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006335s ]
+
+[ 2017-09-22T15:52:12+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001116s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010271s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-22T15:52:12+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001643s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.011199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011327s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-22T15:52:12+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000136s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004775s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003928s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004068s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-22T15:52:12+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000453s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003830s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005930s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-22T15:52:20+08:00 ] 127.0.0.1 /agent/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000109s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001797s ]
+
+[ 2017-09-22T18:01:18+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004590s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003002s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003221s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000369s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021258s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021373s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002623s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002695s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002490s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002563s ]
+
+[ 2017-09-22T18:01:42+08:00 ] 127.0.0.1 /agent/index.php/Index/up_agent_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000943s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001676s ]
+NOTIC: [8] Undefined index: img_url D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 667 行.
+
+[ 2017-09-22T18:01:50+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000613s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000788s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000857s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000063s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013280s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013372s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000813s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000868s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001499s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001591s ]
+
+[ 2017-09-22T18:01:59+08:00 ] 127.0.0.1 /agent/index.php/Index/save_user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000790s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000990s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001708s ]
+NOTIC: [8] Undefined index: type D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 383 行.
+NOTIC: [8] Undefined index: type D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 387 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001060s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001170s ]
+
+[ 2017-09-22T18:02:49+08:00 ] 127.0.0.1 /agent/index.php/Index/save_user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001632s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001040s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001147s ]
+
+[ 2017-09-22T18:02:50+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001077s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001894s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001999s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000165s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017802s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017923s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002355s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002473s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002251s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002332s ]
+
+[ 2017-09-22T18:02:52+08:00 ] 127.0.0.1 /agent/index.php/Index/save_user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001924s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002752s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002917s ]
+
+[ 2017-09-22T18:03:47+08:00 ] 127.0.0.1 /agent/index.php/Index/save_user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000941s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003474s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003664s ]
+
+[ 2017-09-22T18:03:49+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000749s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002400s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000069s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000161s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015964s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016051s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001709s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001769s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.006135s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006435s ]
+
+[ 2017-09-22T18:03:53+08:00 ] 127.0.0.1 /agent/index.php/Index/save_user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001037s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002380s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002481s ]
+
+[ 2017-09-22T18:04:12+08:00 ] 127.0.0.1 /agent/index.php/Index/save_user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000827s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002501s ]
+
+[ 2017-09-22T18:04:43+08:00 ] 127.0.0.1 /agent/index.php/Index/save_user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000955s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004102s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004299s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0093s ]
+ERR: Think\Model:update方法不存在！
+
+[ 2017-09-22T18:05:30+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000757s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002188s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000338s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015089s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015195s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002270s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002359s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003854s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003952s ]
+
+[ 2017-09-22T18:05:41+08:00 ] 127.0.0.1 /agent/index.php/Index/save_user
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000731s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002399s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given D:\qiu\agent\ThinkPHP\Library\Think\Upload.class.php 第 170 行.
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0086s ]
+SQL: UPDATE `user` SET `type`='2',`china_name`='小煤球V587',`user_id`='2',`img_url`='/agent/Uploads/user_img/2017-09-22/59c4e0753419f.jpg' WHERE `user_id` = 2 [ RunTime:0.0021s ]
+

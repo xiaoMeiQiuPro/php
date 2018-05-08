@@ -1,0 +1,51 @@
+<include file="Public/header" />
+
+<p class="jg20"></p>
+<div class="ncen">
+	<div class="nleft">
+    	<div class="nlt">
+            {$nve}
+        </div>
+        <div class="nlmenu">
+        	<ul>
+                <volist name="list" id="v" >
+                    <li><a href="__CONTROLLER__/single/id/{$v.id}">{$v.title}</a></li>
+                </volist>
+            </ul>
+        </div>
+        <p class="jg25"></p>
+        <p><img src="images/tb13.jpg" /></p>
+        <p class="nlcont">
+        	电话：028-85163999   028-85163777 <br />
+传真:028-85057788 <br />
+网址：WWW.CDHYX.CN<br />
+地址：<br />
+成都市二环路南四段19号檀香山4栋3单元903室<br />
+成都市高新区益州大道与天府一街交汇处两江国际B座2302 
+
+
+        </p>
+      	<div class="nlqq">
+            <p><a href="#"><img src="images/tb15.jpg" /></a>&nbsp;&nbsp;<a href="#"><img src="images/tb15.jpg" /></a></p>
+        </div>  
+    </div>
+    
+    <div class="nright">
+    	<div class="nrt">
+        	<p class="nrtit">{$content.title}&nbsp;</p>
+            <p class="nrpos"><a href="__CONTROLLER__/index">首页</a> &gt; <a href="#">{$topname}</a>&gt; <a>{$content.title}</a></p>
+        </div>
+        <div class="nrm">
+        	<p class="jg20"></p>
+            <div class="single">
+                <!---------------------------内容部分----------------------------------->
+                    {$c}
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<p class="jg50"></p>
+
+
+<include file="Public/header"/>

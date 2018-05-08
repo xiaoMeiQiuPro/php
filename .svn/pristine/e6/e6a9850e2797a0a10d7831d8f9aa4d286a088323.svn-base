@@ -1,0 +1,200 @@
+<include file="Public/_header" title="屋苑項目-添加"/>
+
+
+<article class="cl pd-20">
+    <form action="__CONTROLLER__/update" method="post"  enctype="multipart/form-data" class="form form-horizontal" id="form-admin-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>項目中文名：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$list.china_name}" required placeholder=""  name="china_name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>項目英文名：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$list.english_name}"  placeholder="" name="english_name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>項目網站：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text"  class="input-text" autocomplete="off" value="{$list.url}" required    name="url">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>項目簡介：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <textarea required class="textarea radius" name="des" >{$list.des}</textarea>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>項目區域：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <select class="select " id="area1_id"  size="1" name="area_id1">
+                    <foreach name="area1" item="vo">
+                        <option  value="{$vo.area_id}" <?php if($vo['area_id'] == $list['area_id1']){echo 'selected';}  ?> >{$vo.name}</option>
+                    </foreach>
+                </select>
+            </div>
+            <div class="formControls col-xs-8 col-sm-4">
+                <select class="select " name="area_id2" id="area2_id">
+                    <foreach name="area2" item="vo">
+                        <option  value="{$vo.area_id}" <?php if($vo['area_id'] == $list['area_id2']){echo 'selected';}  ?> >{$vo.name}</option>
+                    </foreach>
+                </select>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>項目類型：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <select class="select " size="1" name="cat_id">
+                    <foreach name="cat"  item="vo">
+                        <option value="{$vo.cat_id}" <?php if($vo['cat_id'] == $list['cat_id']){echo 'selected';}  ?> >{$vo.name}</option>
+                    </foreach>
+                </select>
+            </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>項目頭像：</label>
+            <div class="formControls col-xs-8 col-sm-9">&nbsp;&nbsp;&nbsp;
+       <span class="btn-upload form-group">
+      <input class="input-text upload-url radius" value="{$list.head_img}" type="text"  name="head_img" id="uploadfile-1" readonly><a href="javascript:void();" class="btn btn-primary radius"> 浏览文件</a>
+      <input type="file"   name="file-1" class="input-file">
+</span>   </div>
+        </div>
+
+        <div class="row cl">
+            <div style="overflow: auto;">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>專屬代理：</label>
+                <div class="formControls col-xs-8 col-sm-4" >
+                    <input type="text" readonly class="input-text"  placeholder="" id="agent_id" value="{$list.agent_id}" name="agent_id">
+                </div>
+                <div class="formControls col-xs-8 col-sm-3" >
+                    <a id="agent" onclick="layer_show('添加專屬代理','__CONTROLLER__/add_agent','800','500')" class="btn btn-secondary">點擊選擇</a>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>項目地點：</label>
+                <div class="formControls col-xs-8 col-sm-4">
+                    <input type="text" required value="{$list.address}" class="input-text"   placeholder="" id="address" name="address"></div>
+                <div class="formControls col-xs-8 col-sm-3" >
+                    <a  class="btn btn-secondary">確定</a>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地圖位置：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <div id="map" style=" width: 80%;height: 350px;" class="map_show" >
+                    </div>
+                </div>
+            </div>
+            <input   type="hidden"  value="{$list.project_id}"  name="project_id" />
+            <div class="row cl">
+                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                    <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                </div>
+            </div>
+    </form>
+</article>
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7gVI5sfN98ZhqSzlksqmZ-mH5CGBZSbQ&sensor=false">
+</script>
+<script>
+    $(function () {
+        $("form").submit(function(){
+
+            if($("#area2_id").val()<=0){
+                layer.msg('請選擇二級區域',{'icon':2,'time':2000});return false;
+            }
+
+        });
+        $("#area1_id").change(function(){
+            var id = $(this).val();
+            // alert(id);
+            if(id>0){
+                $.ajax({
+                    type: "POST",
+                    url: "__CONTROLLER__/ajax",
+                    dataType:"json",
+                    data: {pid:id},
+
+                    //    async: false,
+                    success: function(msg){
+                        var h = '';
+                        $(msg).each(function () {
+                            h+="<option value= "+this.area_id +"> "+this.name+"</option>";
+                        });
+                        $("#area2_id").html(h);
+                    },
+                    error:function(){
+                        alert("網絡異常,請稍後重試");
+                    }
+                });
+            }
+            else{
+                h ='<option value="0" >---請先選擇一級區域---</option>';
+                $("#area2_id").html(h);
+            }
+
+        })
+    });
+
+    function initialize()
+    {
+        var   b = '';
+        var    a = '';
+        var address = '';
+        //-------------------------------------------------\
+        $("#address").change(function(){
+            address = $(this).val();
+            if(address!=""){
+                $.ajax({
+                    type: "get",
+                    url: "__CONTROLLER__/add",
+                    dataType:"json",
+                    data: {address:address},
+                    //    async: false,
+                    success: function(msg){
+                        a = msg.lat;
+                        b = msg.lng;
+                        var   myCenter=new google.maps.LatLng(a,b);
+                        var marker;
+                        var mapProp = {
+                            center: myCenter,
+                            zoom:15,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+                        var map = new google.maps.Map(document.getElementById("map"),mapProp);
+                        marker=new google.maps.Marker({
+                            position:myCenter,
+                            animation:google.maps.Animation.BOUNCE
+                        });
+                        marker.setMap(map);
+                        return false;
+                    },
+                    error:function(){
+                        alert("網絡異常,請稍後重試");
+                    }
+                });
+            }
+        });
+        var myCenter=new google.maps.LatLng("{$list.lat}","{$list.lon}");
+        var marker;
+        var mapProp = {
+            center: myCenter,
+            zoom:17,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"),mapProp);
+        marker=new google.maps.Marker({
+            position:myCenter,
+            animation:google.maps.Animation.BOUNCE
+        });
+        marker.setMap(map);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

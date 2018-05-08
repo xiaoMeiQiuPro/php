@@ -1,0 +1,98 @@
+[ 2017-09-26T10:37:15+08:00 ] 127.0.0.1 /agent/index/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003181s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002130s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002249s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0205s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2 AND `status` = 1  [ RunTime:0.0022s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0094s ]
+SQL: SELECT * FROM `admin_notice` ORDER BY is_top desc LIMIT 1   [ RunTime:0.0016s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0158s ]
+SQL: SELECT appointment.status,appointment.user_id,a.china_name agent_name,a.img_url,b.china_name project_name,c.china_name user_name FROM `appointment` LEFT JOIN user a ON appointment.agent_user_id=a.user_id LEFT JOIN user c ON appointment.user_id=c.user_id LEFT JOIN project b ON appointment.project_id=b.project_id  WHERE `pid` = 0 ORDER BY appointment_id desc LIMIT 10   [ RunTime:0.0112s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0071s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `project` WHERE `status` = 1 ORDER BY  hot_num LIMIT 6   [ RunTime:0.0003s ]
+
+[ 2017-09-26T10:37:34+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000698s ]
+
+[ 2017-09-26T10:37:34+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000993s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000901s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000991s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-26T10:37:34+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000825s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001438s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001547s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-26T10:37:34+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000803s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001598s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001789s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-26T10:37:34+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001078s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001821s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001926s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-26T10:37:44+08:00 ] 127.0.0.1 /agent/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000079s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001597s ]
+
+[ 2017-09-26T15:29:22+08:00 ] 127.0.0.1 /agent/index/agent_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001178s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002682s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002794s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0099s ]
+SQL: SELECT `password`,`register_time`,`last_time`,`out_time`,`is_check`,`type` FROM `user` WHERE `user_id` = 26 LIMIT 1   [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: score D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 937 行.
+NOTIC: [8] Undefined index: score_num D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 937 行.
+NOTIC: [2] Division by zero D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 937 行.
+SQL: SHOW COLUMNS FROM `prize_examine` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `prize_examine` WHERE `user_id` = 26 AND `prize_status` = 1  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `user_comment` [ RunTime:0.0089s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'user_id' in where clause is ambiguous
+
+[ 2017-09-26T15:29:53+08:00 ] 127.0.0.1 /agent/index/agent_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001064s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001184s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001313s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0109s ]
+SQL: SELECT `password`,`register_time`,`last_time`,`out_time`,`is_check`,`type` FROM `user` WHERE `user_id` = 26 LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: score D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 937 行.
+NOTIC: [8] Undefined index: score_num D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 937 行.
+NOTIC: [2] Division by zero D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 937 行.
+SQL: SHOW COLUMNS FROM `prize_examine` [ RunTime:0.0067s ]
+SQL: SELECT * FROM `prize_examine` WHERE `user_id` = 26 AND `prize_status` = 1  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `user_comment` [ RunTime:0.0071s ]
+SQL: SELECT user_comment.*,user.china_name,user.english_name,user.img_url FROM `user_comment` LEFT JOIN user ON user.user_id=user_comment.user_id  WHERE user.user_id = 26  [ RunTime:0.0004s ]
+

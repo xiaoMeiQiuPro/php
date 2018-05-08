@@ -1,0 +1,235 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="Bookmark" href="favicon.ico" >
+    <link rel="Shortcut Icon" href="favicon.ico" />
+    <script type="text/javascript" src="/agent/Public/lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/agent/Public/lib/layer/2.4/layer.js"></script>
+
+    <link href="/agent/Application/Admin/View//Public/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/agent/Public/lib/layer/2.4/skin/layer.css" rel="stylesheet">
+    <!-- Add custom CSS here -->
+    <link href="/agent/Application/Admin/View//Public/static/css/sb-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="/agent/Application/Admin/View//Public/static/font-awesome/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+
+    <script type="text/javascript" src="/agent/Public/lib/html5.js"></script>
+    <script type="text/javascript" src="/agent/Public/lib/respond.min.js"></script>
+    <!--[時間插件]>-->
+    <script type="text/javascript" src="/agent/Public/jeDate/jedate.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/agent/Public/static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/agent/Public/static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="/agent/Public/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/agent/Public/static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="/agent/Public/static/h-ui.admin/css/style.css" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <!--/meta 作为公共模版分离出去-->
+    <title>[title]</title>
+</head>
+
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> <a href="/agent/admin.php/index" class="maincolor">首頁</a>
+    <span class="c-gray en">&gt;</span>
+
+    <span class="c-gray en">&gt;</span>
+    協同代理會員列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+<div class="Hui-article" >
+    <article class="cl pd-20">
+
+        <div class="cl pd-5 bg-1 bk-gray mt-20">
+            <span class="r">共有数据：<strong><?php echo ($count); ?></strong> 条</span>
+        </div>
+        <table class="table table-border table-bordered table-bg">
+            <thead>
+            <tr>
+                <th scope="col" colspan="12">協同代理會員列表</th>
+            </tr>
+            <tr class="text-c">
+              <th>ID</th>
+                <th >手機號</th>
+                <th>郵箱</th>
+                <th>中文名</th>
+                <th>英文名</th>
+                <th>代理級別</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr class="text-c">
+                    <td><?php echo ($vo["user_id"]); ?></td>
+                    <td><?php echo ($vo["phone"]); ?></td>
+                    <td><?php echo ($vo["email"]); ?></td>
+                    <td><?php echo ($vo["china_name"]); ?></td>
+                    <td><?php echo ($vo["english_name"]); ?></td>
+                    <td><?php echo ($vo["name"]); ?></td>
+                </tr><?php endforeach; endif; ?>
+            </tbody>
+        </table>
+    </article>
+    <?php echo ($page); ?>
+</div>
+<script>
+
+</script>
+
+
+<script type="text/javascript" src="/agent/Public/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="/agent/Public/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="/agent/Public/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="/agent/Public/static/h-ui/js/H-ui.js"></script>
+<script type="text/javascript" src="/agent/Public/static/h-ui.admin/js/H-ui.admin.page.js"></script>
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/agent/Public/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/agent/Public/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/agent/Public/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+    var con = "/agent/admin.php/Appointment";
+    //多選刪除
+function  del(act){
+    if(!act){
+        act = 'del';
+    }
+    var trueLeng;
+    var id ='' ;
+    trueLeng = $('input[name=box]:checked').length;
+    if(2>trueLeng){
+        layer.msg('請至少選擇兩項進行刪除',{icon:2,time:2000})
+    }
+    else{
+        layer.confirm('確定要刪除嗎?刪除后不可恢復!', {
+            btn: ['確定','取消'] //按钮
+        }, function(){
+            $('input[name=box]:checked').each(function(){
+                    id+=$(this).val()+",";
+
+            });
+             id=id.slice(0,-1);
+            window.location.href=con+"/"+act+"/id/"+id;
+        }, function(){
+
+        });
+
+    }
+}
+    //單刪
+function  del2(id,act){
+if(!act){
+    act = 'del';
+}
+        layer.confirm('确定要删除吗?删除之后不可恢复!', {
+            btn: ['確定','取消'] //按钮
+        }, function(){
+            window.location.href=con+"/"+act+"/id/"+id;
+        }, function(){
+
+        });
+}
+    /*
+     参数解释：
+     title	标题
+     url		请求的url
+     id		需要操作的数据id
+     w		弹出层宽度（缺省调默认值）
+     h		弹出层高度（缺省调默认值）
+     */
+    /*管理员-增加*/
+    /*function admin_add(title,url,w,h){
+        layer_show(title,url,w,h);
+    }
+
+    /!*管理员-删除*!/
+    function admin_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            //此处请求后台程序，下方是成功后的前台处理……
+            $(obj).parents("tr").remove();
+            layer.msg('已删除!',{icon:1,time:1000});
+        });
+    }
+    /!*管理员-编辑*!/
+    function admin_edit(title,url,id,w,h){
+        layer_show(title,url,w,h);
+    }*/
+    /*管理员-停用*/
+    function admin_stop(obj,id){
+        layer.confirm('确认要停用吗？',function(index){
+            //此处请求后台程序，下方是成功后的前台处理……
+            /*$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,id)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
+            $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
+            $(obj).remove();*/
+            $.ajax({
+                type: 'post',
+                url: $(obj).attr('data-url'),
+                data : {id:id,status:0},
+                dataType: 'json',
+                success: function (data) {
+                    if (data == 1) {
+                       // layer.closeAll();
+                       // layer.msg('已停用!',{icon: 5,time:2000});
+                        location.reload();
+                    } else {
+                        layer.alert('失败', {icon: 2});  //alert('删除失败');
+                      //  console.log(data);
+                    }
+                }
+            })
+
+        });
+    }
+    /*管理员-启用*/
+    function admin_start(obj,id) {
+        layer.confirm('确认要启用吗？', function (index) {
+            //此处请求后台程序，下方是成功后的前台处理……
+            /*$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,id)" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
+            $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
+            $(obj).remove();*/
+
+            $.ajax({
+                type: 'post',
+                url: $(obj).attr('data-url'),
+                data : {id: id, status:1},
+                dataType: 'json',
+                success: function (data) {
+
+                    if (data ==1) {
+                        // layer.closeAll();
+                        // layer.msg('已启用!',{icon: 5,time:2000});
+                        location.reload();
+                    } else {
+                        layer.alert('失败', {icon: 2});  //alert('删除失败');
+                        // console.log(data);
+                    }
+                }
+            })
+        })
+        }
+        //置頂
+        function is_top(obj,id) {
+            layer.confirm('确认要置頂吗？', function (index) {
+                $.ajax({
+                    type: 'post',
+                    url: $(obj).attr('data-url'),
+                    data: {id: id, is_top: 1},
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data == 1) {
+                            // layer.closeAll();
+                            // layer.msg('已启用!',{icon: 5,time:2000});
+                            location.reload();
+                        } else {
+                            layer.alert('失败', {icon: 2});  //alert('删除失败');
+                            // console.log(data);
+                        }
+                    }
+                })
+            });
+    }
+</script>
+<!--/请在上方写此页面业务相关的脚本-->

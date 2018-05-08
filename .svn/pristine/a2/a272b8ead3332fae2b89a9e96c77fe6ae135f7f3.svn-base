@@ -1,0 +1,232 @@
+[ 2017-09-28T18:21:55+08:00 ] 127.0.0.1 /agent/index/add_appointment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002894s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002460s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002592s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0147s ]
+SQL: INSERT INTO `appointment` (`user_id`,`project_id`,`liaison`,`look_type`,`time`,`add_time`) VALUES ('2','3','123','1234','1506594115','2017-09-28 18:21:55') [ RunTime:0.0026s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0115s ]
+SQL: SELECT * FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0016s ]
+SQL: SHOW COLUMNS FROM `user_log` [ RunTime:0.0117s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null
+
+[ 2017-09-28T18:22:23+08:00 ] 127.0.0.1 /agent/index/add_appointment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000667s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000925s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0098s ]
+SQL: INSERT INTO `appointment` (`user_id`,`project_id`,`liaison`,`look_type`,`time`,`add_time`) VALUES ('25','3','123','1234','1506594143','2017-09-28 18:22:23') [ RunTime:0.0014s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0073s ]
+SQL: SELECT * FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `user_log` [ RunTime:0.0069s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null
+
+[ 2017-09-28T18:22:25+08:00 ] 127.0.0.1 /agent/index/add_appointment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000655s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000959s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001047s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0102s ]
+SQL: INSERT INTO `appointment` (`user_id`,`project_id`,`liaison`,`look_type`,`time`,`add_time`) VALUES ('25','3','123','1234','1506594145','2017-09-28 18:22:25') [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0083s ]
+SQL: SELECT * FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `user_log` [ RunTime:0.0072s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null
+
+[ 2017-09-28T18:22:25+08:00 ] 127.0.0.1 /agent/index/add_appointment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000705s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001113s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0104s ]
+SQL: INSERT INTO `appointment` (`user_id`,`project_id`,`liaison`,`look_type`,`time`,`add_time`) VALUES ('25','3','123','1234','1506594145','2017-09-28 18:22:25') [ RunTime:0.0072s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0144s ]
+SQL: SELECT * FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `user_log` [ RunTime:0.0121s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null
+
+[ 2017-09-28T18:22:26+08:00 ] 127.0.0.1 /agent/index/add_appointment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000778s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001321s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001561s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0118s ]
+SQL: INSERT INTO `appointment` (`user_id`,`project_id`,`liaison`,`look_type`,`time`,`add_time`) VALUES ('25','3','123','1234','1506594146','2017-09-28 18:22:26') [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0088s ]
+SQL: SELECT * FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `user_log` [ RunTime:0.0088s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null
+
+[ 2017-09-28T18:22:26+08:00 ] 127.0.0.1 /agent/index/add_appointment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000641s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001054s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001155s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0110s ]
+SQL: INSERT INTO `appointment` (`user_id`,`project_id`,`liaison`,`look_type`,`time`,`add_time`) VALUES ('25','3','123','1234','1506594146','2017-09-28 18:22:26') [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0088s ]
+SQL: SELECT * FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `user_log` [ RunTime:0.0079s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null
+
+[ 2017-09-28T18:22:26+08:00 ] 127.0.0.1 /agent/index/add_appointment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000652s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001058s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001160s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0107s ]
+SQL: INSERT INTO `appointment` (`user_id`,`project_id`,`liaison`,`look_type`,`time`,`add_time`) VALUES ('25','3','123','1234','1506594146','2017-09-28 18:22:26') [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0077s ]
+SQL: SELECT * FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `user_log` [ RunTime:0.0080s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null
+
+[ 2017-09-28T18:22:27+08:00 ] 127.0.0.1 /agent/index/add_appointment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000675s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001495s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0103s ]
+SQL: INSERT INTO `appointment` (`user_id`,`project_id`,`liaison`,`look_type`,`time`,`add_time`) VALUES ('25','3','123','1234','1506594147','2017-09-28 18:22:27') [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0099s ]
+SQL: SELECT * FROM `project` WHERE `project_id` = 3 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `user_log` [ RunTime:0.0079s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null
+
+[ 2017-09-28T18:24:28+08:00 ] 127.0.0.1 /agent/index/test2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001107s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001854s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002020s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0145s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\qiu\agent\ThinkPHP\Library\Think\Model.class.php 第 267 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\qiu\agent\ThinkPHP\Library\Think\Db\Driver.class.php 第 791 行.
+SQL: INSERT INTO `user` () VALUES () [ RunTime:0.0015s ]
+NOTIC: [2] Illegal string offset 'user_id' D:\qiu\agent\ThinkPHP\Library\Think\Model.class.php 第 328 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001796s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001869s ]
+
+[ 2017-09-28T18:25:57+08:00 ] 127.0.0.1 /agent/index/test2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000669s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001152s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001263s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0089s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\qiu\agent\ThinkPHP\Library\Think\Model.class.php 第 267 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\qiu\agent\ThinkPHP\Library\Think\Db\Driver.class.php 第 791 行.
+SQL: INSERT INTO `appointment` () VALUES () [ RunTime:0.0009s ]
+NOTIC: [2] Illegal string offset 'appointment_id' D:\qiu\agent\ThinkPHP\Library\Think\Model.class.php 第 328 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001058s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001123s ]
+
+[ 2017-09-28T18:26:00+08:00 ] 127.0.0.1 /agent/index/test2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000705s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002049s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002222s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0095s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\qiu\agent\ThinkPHP\Library\Think\Model.class.php 第 267 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\qiu\agent\ThinkPHP\Library\Think\Db\Driver.class.php 第 791 行.
+SQL: INSERT INTO `appointment` () VALUES () [ RunTime:0.0013s ]
+NOTIC: [2] Illegal string offset 'appointment_id' D:\qiu\agent\ThinkPHP\Library\Think\Model.class.php 第 328 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001555s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001633s ]
+
+[ 2017-09-28T19:55:57+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001157s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002041s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002146s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002178s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002295s ]
+
+[ 2017-09-28T19:57:20+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001666s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001811s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001953s ]
+
+[ 2017-09-28T19:57:21+08:00 ] 127.0.0.1 /agent/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000714s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002974s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003077s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2 AND `status` = 1  [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0093s ]
+SQL: SELECT * FROM `admin_notice` ORDER BY is_top desc LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0079s ]
+SQL: SELECT appointment.status,appointment.user_id,a.china_name agent_name,a.img_url,b.china_name project_name,c.china_name user_name FROM `appointment` LEFT JOIN user a ON appointment.agent_user_id=a.user_id LEFT JOIN user c ON appointment.user_id=c.user_id LEFT JOIN project b ON appointment.project_id=b.project_id  WHERE `pid` = 0 ORDER BY appointment_id desc LIMIT 10   [ RunTime:0.0045s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0091s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `status` = 1 ORDER BY  hot_num LIMIT 6   [ RunTime:0.0004s ]
+
+[ 2017-09-28T19:57:46+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000957s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001055s ]
+
+[ 2017-09-28T19:58:25+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001463s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001565s ]
+
+[ 2017-09-28T19:59:08+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000699s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000917s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001002s ]
+
+[ 2017-09-28T20:01:05+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000986s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001574s ]
+

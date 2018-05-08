@@ -1,0 +1,127 @@
+<include file="Public/_header" />
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理中心 <span class="c-gray en">&gt;</span> 商品列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+    <form method="get" action="__CONTROLLER__/index">
+        <div class="text-c">
+            <input type="text" class="input-text" style="width:250px" placeholder="请输入商品名字丶货号关键字" id="" name="key">
+            <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+        </div>
+    </form>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+                <span class="l">
+                    <!--<a href="javascript:;" onclick="del()"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a>-->
+                    <a href="javascript:;" onclick="layer_show_max('添加','__CONTROLLER__/add')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加商品</a> </span>
+        <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+    </div>
+    <table class="table table-border table-bordered table-bg table-hover">
+        <thead>
+        <tr>
+            <th scope="col" colspan="12">商品列表</th>
+        </tr>
+        <tr class="text-c">
+            <!--<th width="25"><input class="checkAll" type="checkbox" name="" value="0"></th>-->
+            <th width="">ID</th>
+            <th width="">商品名</th>
+            <th width="">货号</th>
+            <th width="">商品图片</th>
+            <th>商品分类</th>
+            <th>价格</th>
+            <th>运费</th>
+            <th>库存</th>
+            <th>销量</th>
+            <th width="">是否上架</th>
+            <th width="" class="recommend">是否推荐</th>
+
+            <th width="">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="list" item="vo" >
+            <tr class="text-c">
+                <!--<td><input <eq name="vo.admin_id" value="1" >disabled</eq> type="checkbox" class="box" value="{$vo.admin_id}" name="box"></td>-->
+                <td>{$vo.goods_id}</td>
+                <td>{$vo.goods_name}</td>
+                <td>{$vo.goods_sn}</td>
+                <td  data-lightbox="gallery"><img class="img" src="{$vo.original_img} " width="40px" height="35px" /></td>
+                <td>{$vo.name}</td>
+                <td>{$vo.shop_price}  </td>
+                <td>{$vo.freight}  </td>
+                <td>{$vo.store_count}</td>
+                <td>{$vo.sales_sum}</td>
+                <td class="recommend"><eq  name="vo['is_on_sale']" value="1" ><span onclick="status('{$vo.goods_id}',0,'__CONTROLLER__/ajax_status','goods_id','is_on_sale')" style="color: #1BBC9D;font-size: 14px;cursor:pointer"><i  class="Hui-iconfont
+">&#xe615;</i> 是</span><else/><span onclick="status('{$vo.goods_id}',1,'__CONTROLLER__/ajax_status','goods_id','is_on_sale')" style="color: #999;font-size: 14px;cursor:pointer"><i  class="Hui-iconfont
+">&#xe706;</i> 否</span></eq></td>
+                <td class="recommend"><eq  name="vo['is_recommend']" value="1" ><span onclick="status('{$vo.goods_id}',0,'__CONTROLLER__/ajax_status','goods_id','is_recommend')" style="color: #1BBC9D;font-size: 14px;cursor:pointer"><i  class="Hui-iconfont
+">&#xe615;</i> 是</span><else/><span onclick="status('{$vo.goods_id}',1,'__CONTROLLER__/ajax_status','goods_id','is_recommend')" style="color: #999;font-size: 14px;cursor:pointer"><i  class="Hui-iconfont
+">&#xe706;</i> 否</span></eq></td>
+                <td class="td-manage"><a title="编辑"  onclick="admin_update('{$vo.goods_id}','__CONTROLLER__/update','{$vo.goods_id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a> <a title="删除"  onclick="admin_del('{$vo.goods_id}','__CONTROLLER__/del','goods_id')" class="ml-5" style="text-decoration:none;color: red;"><i class="Hui-iconfont">&#xe6e2;</i>删除</a></td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+    {$page}
+</div>
+<script>
+    //管理员禁用
+    $(function(){
+
+    })
+    function layer_show_max(title,url){
+        layer.open({
+            title:title,
+            type: 2,
+            content: url,
+            area: ['100%', '100%'],
+            maxmin: true
+        });
+        layer.full(index);
+    }
+
+    //管理员删除
+    function  admin_del(id,url,id_key){
+        if(!id_key){
+            id_key = "id";
+        }
+        layer.confirm('确定要删除吗?删除之后不可恢复!', {
+            btn: ['確定','取消'] //按钮
+        }, function(){
+            $.ajax({
+                type: 'post',
+                url: url,
+                data : {id:id,id_key:id_key},
+                dataType: 'json',
+                async: true,
+                success: function (data) {
+                    if (data == 1) {
+                        layer.msg('已删除!',{icon: 1,time:2000});
+                        location.reload();
+                    } else if (data == 3){
+                        layer.msg("此商品在订单中,请先删除关联订单", {icon: 2});
+                    }
+                    else{
+                        layer.msg("网络异常,删除失败", {icon: 2});
+                    }
+                }
+            })
+        }, function(){
+
+        });
+    }
+    //管理员修改
+    function  admin_update(id,url,id_key){
+
+            layer_show_max('编辑',url+"?id="+id+"&id_key="+id_key);
+    }
+
+    /*$(function(){
+        $(".img").hover(function(){
+            $(this).attr('height','400px');
+            $(this).attr('width','');
+        },function(){
+            $(this).attr('height','35px');
+            $(this).attr('width','40px');
+        });
+    });*/
+</script>
+
+<include file="Public/_footer"  />

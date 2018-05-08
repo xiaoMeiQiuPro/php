@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form  method="post" action="__CONTROLLER__/save_user"  enctype="multipart/form-data"  >
+    <input  type="file" name="img"   />
+    <input  type="text" name="type" value="20"  />
+    <input  type="text" name="china_name"  value="小煤球V587"  />
+    <input  type="hidden" name="user_id"  value="2"  />
+    <input  type="submit" name="value" value="提交"  />
+</form>
+</body>
+</html>

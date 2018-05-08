@@ -1,0 +1,97 @@
+
+<style>
+
+    .cl div{
+        margin-top: 20px;
+    }
+    .title{
+        font-size: 16px;
+    }
+    .arrow{
+        width: 20%;
+        margin-left: 10px;
+        float: left;
+        background: green!important;
+        height: 45px;
+        font-size: 16px;
+        cursor: pointer;
+        color: #fff;
+        border: 1px solid #ddd;
+    }
+    .refuse{
+        color: #fff;
+        float: left;
+        height: 45px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 20%;
+        background: #FF4040;
+        border: 1px solid #ddd;
+        margin-left: 50px;
+    }
+
+    .imgh_sc img{width: 50%;overflow: auto;}
+    .imgh_sc ul li img{
+        width: 300px;
+        height: 300px;
+    }
+
+    .all_sor{padding:10px;width: 98%;border: 1px solid #ddd;height: auto;overflow: atuo;box-shadow: 5px 5px 25px 5px #ddd;}
+</style>
+<include file="Public/_header" title="代理會員獎項-審核"/>
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a> <span class="c-999 en">&gt;</span><span class="c-666">代理會員獎項-審核</span></nav>
+    <div class="Hui-article">
+        <article class="cl pd-20" >
+            <div>
+                <span class="title">简介：</span>
+                <div class="all_sor">
+                    {$list.prize_desc}
+                </div>
+            </div>
+            <div class="imgh_sc">
+                <div>獎項圖片</div>
+                <div><img src="{$list.img}"></div>
+            </div>
+
+            <form  method="post" action="__CONTROLLER__/prize_sh">
+                <div>
+                    <span class="title">審核備註：</span>
+                    <textarea name="remark" style="min-height: 100px;min-width: 500px;"></textarea>
+
+                    <input type="hidden" name="id" value="{$list.id}">
+                    <div style="margin-top: 30px;">
+                        <input type="submit" name="yes" class="arrow" value="通过"/>
+                        <input type="submit" name="no" class="refuse" value="拒绝" />
+                    </div>
+                </div>
+            </form>
+        </article>
+</section>
+
+
+<script type="text/javascript">
+
+
+    $(function() {
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#form-admin-add").validate({
+            rules:{
+                name:{
+                    required:true,
+                }
+
+            },
+            onkeyup:false,
+            focusCleanup:true,
+            success:"valid"
+        });
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

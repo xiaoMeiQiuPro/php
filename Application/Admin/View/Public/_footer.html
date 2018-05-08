@@ -1,0 +1,160 @@
+
+<!--_footer 作为公共模版分离出去-->
+
+
+<script type="text/javascript">
+    var con = "__CONTROLLER__";
+    //多選刪除
+/*function  del(act){
+     if(!act){
+     act = 'del';
+     }
+     var trueLeng;
+     var id ='' ;
+     trueLeng = $('input[name=box]:checked').length;
+     if(2>trueLeng){
+     layer.msg('請至少選擇兩項進行刪除',{icon:2,time:2000})
+     }
+     else{
+     layer.confirm('確定要刪除嗎?刪除后不可恢復!', {
+     btn: ['確定','取消'] //按钮
+     }, function(){
+     $('input[name=box]:checked').each(function(){
+     id+=$(this).val()+",";
+     });
+     id=id.slice(0,-1);
+     window.location.href=con+"/"+act+"/id/"+id;
+     }, function(){
+
+     });
+
+     }
+     }*/
+    //單刪
+function  ajax_del(id,act){
+if(!act){
+    act = 'del';
+}
+    if(id == 1){
+        layer.msg('超级管理员禁止删除!',{icon: 2,time:2000});
+    }
+    else{
+        layer.confirm('确定要删除吗?删除之后不可恢复!', {
+            btn: ['確定','取消'] //按钮
+        }, function(){
+            window.location.href=con+"/"+act+"/id/"+id;
+        }, function(){
+
+        });
+    }
+}
+    //删除
+    function  del(id,url,id_key){
+        if(!id_key){
+            id_key = "id";
+        }
+        layer.confirm('确定要删除吗?删除之后不可恢复!', {
+            btn: ['確定','取消'] //按钮
+        }, function(){
+            $.ajax({
+                type: 'post',
+                url: url,
+                data : {id:id,id_key:id_key},
+                dataType: 'json',
+                async: true,
+                success: function (data) {
+                    if (data == 1) {
+                        layer.msg('已删除!',{icon: 1,time:2000});
+                        location.reload();
+                    } else {
+                        layer.msg('异常,删除失败', {icon: 2});
+                    }
+                }
+            })
+        }, function(){
+
+        });
+    }
+    /*管理员-停用*/
+
+    function admin_stop(obj,id){
+        layer.confirm('确认要停用吗？',function(index){
+            $.ajax({
+                type: 'post',
+                url: $(obj).attr('data-url'),
+                data : {id:id,status:0},
+                dataType: 'json',
+                success: function (data) {
+                    if (data == 1) {
+                       // layer.closeAll();
+
+                        location.reload();
+                    } else {
+                        layer.alert('失败', {icon: 2});  //alert('删除失败');
+                      //  console.log(data);
+                    }
+                }
+            })
+
+        });
+    }
+    //修改状态
+    function  status(id,status,url,id_key,status_key,hint){
+        if(!id_key){
+            id_key = "id";
+        }
+        if(!hint){
+            hint = "确认要修改吗？";
+        }
+        if(!status_key){
+            status_key = "status";
+        }
+            layer.confirm(hint,function(){
+                $.ajax({
+                    type: 'post',
+                    url: url,
+                    data : {id:id,status:status,id_key:id_key,status_key:status_key},
+                    dataType: 'json',
+                    async: true,
+                    success: function (data) {
+                        if (data == 1) {
+                            layer.msg('已修改!',{icon: 1,time:2000});
+                            location.reload();
+                        } else {
+                            layer.msg('修改失败', {icon: 2,time:2000});  //alert('删除失败');
+                            //  console.log(data);
+                        }
+                    }
+                })
+            })
+    }
+        //置頂
+        function is_top(obj,id) {
+            layer.confirm('确认要置頂吗？', function (index) {
+                $.ajax({
+                    type: 'post',
+                    url: $(obj).attr('data-url'),
+                    data: {id: id, is_top: 1},
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data == 1) {
+                            // layer.closeAll();
+                            // layer.msg('已启用!',{icon: 5,time:2000});
+                            location.reload();
+                        } else {
+                            layer.alert('失败', {icon: 2});  //alert('删除失败');
+                            // console.log(data);
+                        }
+                    }
+                })
+            });
+    }
+
+    //修改
+    function  update(id,url,id_key){
+            layer_show('编辑',url+"?id="+id+"&id_key="+id_key,800,600);
+    }
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

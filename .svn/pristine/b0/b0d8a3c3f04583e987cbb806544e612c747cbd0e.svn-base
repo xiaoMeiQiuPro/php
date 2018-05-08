@@ -1,0 +1,143 @@
+[ 2017-09-26T10:37:33+08:00 ] 127.0.0.1 /agent/admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000716s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000968s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001066s ]
+
+[ 2017-09-26T10:37:34+08:00 ] 127.0.0.1 /agent/admin.php?m=Admin&c=Login&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000784s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000878s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000966s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015305s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015403s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001587s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001658s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002713s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002798s ]
+
+[ 2017-09-26T10:37:37+08:00 ] 127.0.0.1 /agent/admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001565s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003650s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003731s ]
+
+[ 2017-09-26T10:37:42+08:00 ] 127.0.0.1 /agent/admin.php/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000598s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001418s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0097s ]
+SQL: SELECT * FROM `admin` INNER JOIN admin_role ON admin.role_id=admin_role.role_id  WHERE ( name = 'qqq' and password= 'e10adc3949ba59abbe56e057f20f883e' ) LIMIT 1   [ RunTime:0.0036s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\qiu\agent\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `admin` SET `last_time`='2017-09-26 10:37:42',`login_ip`='127.0.0.1' WHERE ( admin_id =1 ) [ RunTime:0.0059s ]
+SQL: SHOW COLUMNS FROM `system_module` [ RunTime:0.0088s ]
+SQL: SELECT * FROM `system_module` WHERE `visible` = 1 ORDER BY orderby  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `admin_log` [ RunTime:0.0091s ]
+SQL: INSERT INTO `admin_log` (`admin_id`,`record`,`ip`) VALUES ('1','qqq登陸後臺','127.0.0.1') [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000131s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012613s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012707s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000753s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000801s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001074s ]
+
+[ 2017-09-26T10:37:43+08:00 ] 127.0.0.1 /agent/admin.php?m=Admin&c=Index&a=index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000786s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000812s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000894s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0078s ]
+SQL: SELECT * FROM `admin` LEFT JOIN admin_role ON admin.admin_id=admin_role.role_id  WHERE `admin_id` = '1' LIMIT 1   [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000339s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000415s ]
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\b595b808c2ebeeeb0478ffc30bb4e87a.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024550s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024642s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000727s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000786s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001280s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001373s ]
+
+[ 2017-09-26T10:37:48+08:00 ] 127.0.0.1 /agent/admin.php/System/jf
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003875s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003975s ]
+SQL: SHOW COLUMNS FROM `config` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `config` WHERE `module` = 'jf'  [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000226s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000308s ]
+NOTIC: [8] Undefined index: role_name D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 63 行.
+NOTIC: [8] Undefined index: china_name D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 64 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+NOTIC: [8] Use of undefined constant child - assumed 'child' D:\qiu\agent\Application\Runtime\Cache\Admin\6d580e04b40a056a3b711e5514fce6d4.php 第 93 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036617s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036758s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004294s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004372s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005512s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005594s ]
+
+[ 2017-09-26T10:37:48+08:00 ] 127.0.0.1 /agent/admin.php/System/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012616s ]
+

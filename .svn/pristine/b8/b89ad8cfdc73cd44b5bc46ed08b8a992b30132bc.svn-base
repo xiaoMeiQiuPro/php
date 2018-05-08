@@ -1,0 +1,75 @@
+[ 2017-09-29T10:40:29+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000098s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003419s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002674s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002786s ]
+
+[ 2017-09-29T10:41:04+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.016759s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016926s ]
+
+[ 2017-09-29T10:41:29+08:00 ] 127.0.0.1 /agent/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000726s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002101s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002323s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0143s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2 AND `status` = 1  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0104s ]
+SQL: SELECT * FROM `admin_notice` ORDER BY is_top desc LIMIT 1   [ RunTime:0.0032s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0111s ]
+SQL: SELECT appointment.status,appointment.user_id,a.china_name agent_name,a.img_url,b.china_name project_name,c.china_name user_name FROM `appointment` LEFT JOIN user a ON appointment.agent_user_id=a.user_id LEFT JOIN user c ON appointment.user_id=c.user_id LEFT JOIN project b ON appointment.project_id=b.project_id  WHERE `pid` = 0 ORDER BY appointment_id desc LIMIT 10   [ RunTime:0.0118s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0086s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `project` WHERE `status` = 1 ORDER BY  hot_num LIMIT 6   [ RunTime:0.0003s ]
+
+[ 2017-09-29T10:42:33+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001089s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001109s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001209s ]
+
+[ 2017-09-29T10:42:55+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001261s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001664s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001848s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003457s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003573s ]
+
+[ 2017-09-29T10:43:50+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000886s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001674s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001267s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001379s ]
+
+[ 2017-09-29T10:44:14+08:00 ] 127.0.0.1 /agent/index/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001031s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001118s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001227s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001464s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001598s ]
+

@@ -1,0 +1,93 @@
+<include file="Public/_header" title="預約單管理"/>
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> <a href="__MODULE__/index" class="maincolor">首頁</a>
+        <span class="c-gray en">&gt;</span>
+        <span class="c-gray en">&gt;</span>
+        預約單列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+    <div class="Hui-article">
+        <article class="cl pd-20">
+            <form method="post" action="__CONTROLLER__/index">
+            <div class="text-c">
+                <input type="text" class="input-text" style="width:250px" placeholder="輸入屋苑項目名丶發佈人或接單人關鍵字" id="" name="key">
+                <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20">
+            <!--    <span class="l"> &lt;!&ndash;<a href="javascript:;" onclick="del()"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a>&ndash;&gt; <a href="javascript:;" onclick="javascript:location.href='__CONTROLLER__/add'" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加屋苑項目</a> </span>
+            -->    <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+            </div>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="9">預約單列表</th>
+                </tr>
+                <tr class="text-c">
+                    <th width=""><input class="checkAll" type="checkbox" name="" value="0"></th>
+                    <th width="">ID</th>
+                    <th width="">接單人名字</th>
+                    <th>項目名字</th>
+                    <th>是否協同</th>
+                    <th>協同人</th>
+                    <th>看房類型</th>
+                    <th>預約單狀態</th>
+                    <th width="">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="list" item="vo" >
+                <tr class="text-c">
+                    <td><input  type="checkbox" class="box" value="{$vo.appointment_id}" name="box"></td>
+                    <td>{$vo.appointment_id}</td>
+                    <td>{$vo.user_name}</td>
+                    <td>{$vo.project_name}</td>
+                    <td><eq name="vo['is_union']" value="1" >是<else/>否</eq></td>
+                    <td><a  onclick="layer_show('協同代理列表','__CONTROLLER__/look_agent/id/{$vo.union_user_id}','800','500')"   >點擊查看</a></td>
+                    <td><switch name="vo.look_type">
+                        <case value="1">示例單位</case>
+                        <case value="2">項目現場</case>
+                        <case value="3">項目周邊</case>
+                        <default />
+                    </switch></td>
+                    <td><select onchange="change_status(this,'{$vo.appointment_id}')">
+                        <option value="0" <?php if($vo['status'] == 0){echo 'selected';}  ?> >未安排</option>
+                        <option value="1" <?php if($vo['status'] == 1){echo 'selected';}  ?> >已安排</option>
+                        <option value="2" <?php if($vo['status'] == 2){echo 'selected';}  ?> >已完成</option>
+                        <option value="3" <?php if($vo['status'] == 3){echo 'selected';}  ?> >已取消</option>
+                    </select>
+                    </td>
+                    <td class="td-manage">
+                    <a title="删除" href="javascript:;"   onclick="del2('{$vo.appointment_id}')" class="ml-5 " style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </article>
+        {$page}
+    </div>
+</section>
+<script>
+ function   change_status(obj,a_id){
+
+     layer.confirm('确认要修改狀態嗎？', function (index) {
+         var status = $(obj).val();
+         var id = a_id;
+         $.ajax({
+             type: 'post',
+             url: "__CONTROLLER__/ajax_status",
+             data: {status: status,id:id},
+             dataType: 'json',
+             success: function (data) {
+                 if (data == 1) {
+                     // layer.closeAll();
+                      layer.msg('已更改!',{icon: 1,time:2000});
+                    // location.reload();
+                 } else {
+                     layer.alert('失败', {icon: 2});  //alert('删除失败');
+                     // console.log(data);
+                 }
+             }
+         })
+     });
+ }
+</script>
+<include file="Public/_footer"  />

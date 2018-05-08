@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="好运行" />
+<meta name="description" content="好运行" />
+<title>好运行</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+<div class="top">
+	<div class="top1">
+    	<p class="top1_txt">欢迎光临好运行官方网站</p>
+      <p class="top1_tel">028-85163999&nbsp;&nbsp;028-85163777</p>
+    </div>
+	<div class="tmenubox">
+    	<a href="./" class="logo"><img src="images/logo.jpg" /></a>
+    	<div class="tmenu" id="tmenu">
+        	<ul>
+            	<li style="width:70px;"><a href="./" class="one">首页</a></li>
+                <li><a href="single.html" class="one">关于我们</a>
+                	<p>
+                    	<a href="#">企业简介</a><a href="#">荣誉资质</a><a href="#">人才招聘</a><a href="#">联系方式</a>
+                    </p>
+                </li>
+                <li><a href="single.html" class="one">租车服务</a>
+                	<p>
+                    	<a href="#">会议接待</a><a href="#">商务租车</a><a href="#">自驾租车</a>
+                    </p>
+                </li>
+                <li><a href="list.html" class="one">车型展示</a>
+                	<p>
+                    	<a href="#">轿车系列</a><a href="#">跑车系列</a><a href="#">商务系列</a><a href="#">越野系列</a><a href="#">客车系列</a><a href="#">特价优惠车</a>
+                    </p>
+                </li>
+                <li><a href="list.html" class="one">新闻动态</a>
+                	<p>
+                    	<a href="#">公司动态</a><a href="#">最新优惠</a>
+                    </p>
+                </li>
+                <li><a href="single.html" class="one">租车须知</a></li>
+                <li><a href="single.html" class="one">在线预订</a></li>
+                <li><a href="single.html" class="one">联系我们</a></li>
+            </ul>
+    	</div>
+        <script>
+			$("#tmenu ul li").mousemove(function(){
+				$(this).find('p').addClass('hover');
+				$(this).addClass('hover');
+			}).mouseleave(function(){
+				$(this).find('p').removeClass('hover');
+				$(this).removeClass('hover');
+			})
+		</script>
+
+    </div>
+</div>
+
+<div style="width:100%; height:280px; background:url(images/tb11.jpg) no-repeat center top;"></div>
+
+<p class="jg20"></p>
+<div class="ncen">
+	<div class="nleft">
+    	<div class="nlt">
+        	<p>About Us<br />关于我们</p>
+        </div>
+        <div class="nlmenu">
+        	<ul>
+            	<li><a href="#" class="hover">公司介绍</a></li>
+                <li><a href="#">荣誉资质</a></li>
+                <li><a href="#">人才招聘</a></li>
+                <li><a href="#">联系方式</a></li>
+            </ul>
+        </div>
+        <p class="jg25"></p>
+        <p><img src="images/tb13.jpg" /></p>
+        <p class="nlcont">
+        	电话：028-85163999   028-85163777 <br />
+传真:028-85057788 <br />
+网址：WWW.CDHYX.CN<br />
+地址：<br />
+成都市二环路南四段19号檀香山4栋3单元903室<br />
+成都市高新区益州大道与天府一街交汇处两江国际B座2302 
+
+
+        </p>
+      	<div class="nlqq">
+            <p><a href="#"><img src="images/tb15.jpg" /></a>&nbsp;&nbsp;<a href="#"><img src="images/tb15.jpg" /></a></p>
+        </div>  
+    </div>
+    
+    <div class="nright">
+    	<div class="nrt">
+        	<p class="nrtit">企业介绍&nbsp;<span>Position information</span></p>
+            <p class="nrpos"><a href="./">首页</a> &gt; <a href="#">关于我们</a> &gt; 企业介绍</p>
+        </div>
+        <div class="nrm">
+        	<p class="jg10"></p>
+            
+            <div class="nnews">
+                <ul>
+                <li>
+                <a href="view.php?bsort=386&id=1635" class="img"><img src="/images/tb10.jpg" width="230" height="140"/></a>
+                <div>
+                <p class="t"><a href="view.php?bsort=386&id=1635" title="中国干洗店排行榜洗衣店的服务理念">中国干洗店排行榜洗衣店的服务理</a><span>2016-03-24</span></p>
+                <p class="d">1、你就是企业　　即使你所在的公司有庞杂的分支机构和几千名职工，但对于顾客来讲，公司就是你，同他直接接触的是你。顾客把你的公司看作一个仅为满足你就是企业　　即使你所在的公司有庞杂的分支机构和几千名职工，但对于顾客来讲，公司就是你，同他直接接触的是你。顾客把你的公司看作一个仅为满足...</p>
+                <p><a href="view.php?bsort=386&id=1635"><img src="images/tb34.jpg"/></a></p>
+                </div>
+                </li>
+                <li>
+                <a href="view.php?bsort=386&id=1640" class="img"><img src="images/default.gif" width="230" height="140"/></a>
+                <div>
+                <p class="t"><a href="view.php?bsort=386&id=1640" title="中国洗衣店排行榜加盟如何防止欺诈">中国洗衣店排行榜加盟如何防止欺</a></p>
+                <p class="d">　洗衣店作为传统的服务行业，在中国经历了多年的发展，其形式也逐渐地向以连锁店的模式为主进行演变，比如从改革开放前的集体企业、上世纪90年代的小...</p>
+                <p><a href="view.php?bsort=386&id=1640"><img src="images/tb34.jpg"/></a></p>
+                </div>
+                </li>
+                <li>
+                <a href="view.php?bsort=386&id=1639" class="img"><img src="images/default.gif" width="230" height="140"/></a>
+                <div>
+                <p class="t"><a href="view.php?bsort=386&id=1639" title="送洗时未向洗衣店告知价值 高档西裤被洗坏难赔原价">送洗时未向洗衣店告知价值 高档西</a></p>
+                <p class="d">　　为打理一条价值8900元的高档西裤，女主人特意将其送至专业洗衣店，照价付费8元委托洗涤，不料取回后竟发现西裤发生褪色。围绕着“洗坏服装该赔多少...</p>
+                <p><a href="view.php?bsort=386&id=1639"><img src="images/tb34.jpg"/></a></p>
+                </div>
+                </li>
+                <li>
+                <a href="view.php?bsort=386&id=1638" class="img"><img src="images/default.gif" width="230" height="140"/></a>
+                <div>
+                <p class="t"><a href="view.php?bsort=386&id=1638" title="干洗店十大品牌排名干洗店也要打假">干洗店十大品牌排名干洗店也要打</a></p>
+                <p class="d">名为干洗，实际完全水洗。洗后的水下次接着用，洗过的衣服堆放在一块，任由细菌交叉感染。这是记者日前在暗访中了解到的干洗业内幕。米白色洗成浅黄色...</p>
+                <p><a href="view.php?bsort=386&id=1638"><img src="images/tb34.jpg"/></a></p>
+                </div>
+                </li>
+                <li>
+                <a href="view.php?bsort=386&id=1637" class="img"><img src="images/default.gif" width="230" height="140"/></a>
+                <div>
+                <p class="t"><a href="view.php?bsort=386&id=1637" title="干洗店名不副实 小型洗衣店干洗机大多是摆设">干洗店名不副实 小型洗衣店干洗机</a></p>
+                <p class="d">打着干洗的招牌，却做着水洗的业务。记者昨日从市消委获悉，与干洗店十大品牌排名大型干洗店不同的是，市内小型干洗店大多名不副实，暗地里把干洗机当...</p>
+                <p><a href="view.php?bsort=386&id=1637"><img src="images/tb34.jpg"/></a></p>
+                </div>
+                </li>
+
+                <div style="clear:both;"></div>
+                </ul>
+            </div>
+        	
+            <p class="jg30"></p>
+            
+            <div class="page">
+                <a href="javascript:;" onclick="return false;" class="no">首页</a>&nbsp;
+                <a href="javascript:;" onclick="return false;" class="no">上一页</a>&nbsp;
+                <b>1</b>&nbsp;<a href="#">2</a>&nbsp;
+                <a href="/list.php?bsort=386&page=2">下一页</a>&nbsp;
+                <a href="/list.php?bsort=386&page=2">末页</a>
+            </div>
+            
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<p class="jg50"></p>
+
+
+<div class="bottom">
+	<div class="bottom1">
+    	<div class="bfastlink">
+        	<p><img src="images/tb8.jpg" /></p>
+            <p class="jg10"></p>
+        	<ul>
+            	<li>
+                	<a href="#" class="one">关于我们</a><br />
+                    <a href="#">企业介绍</a><br />
+                    <a href="#">资质荣誉</a><br />
+                    <a href="#">联系我们</a>
+                </li>
+                <li>
+                	<a href="#" class="one">租车服务</a><br />
+                    <a href="#">会议租车</a><br />
+                    <a href="#">商务租车</a><br />
+                    <a href="#">自驾租车</a>
+                </li>
+                <li>
+                	<a href="#" class="one">车型展示</a><br />
+                    <a href="#">轿车系列</a><br />
+                    <a href="#">商务系列</a><br />
+                    <a href="#">越野系列</a>
+                </li>
+                <li>
+                	<a href="#" class="one">新闻动态</a><br />
+                    <a href="#">公司新闻</a><br />
+                    <a href="#">最新优惠</a><br />
+                </li>
+            </ul>
+        </div>
+        <div class="ftelbox">
+            <p style="float:right"><img src="images/tb10.jpg" /></p>
+            <p class="ftel">
+            	<span class="tel">028-85163999<br />028-85163777</span>
+                <span class="txt">7x24小时全国客服热线，全年无休</span>
+            </p>
+        </div>
+        <div style="clear:both;"></div>
+        <p class="jg10"></p>
+        <div class="flink">
+        	<strong>友情链接：</strong><a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;
+        </div>
+        <p class="copyr">Copyright © cdhyx.cn Inc.All Rights Reserved.    地址:成都市二环路南四段19号檀香山4栋3单元903室    蜀ICP备08008591号-1  技术支持：成都网站建设</p>
+    </div>
+</div>
+</body>
+</html>

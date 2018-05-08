@@ -1,0 +1,315 @@
+[ 2017-08-28T15:44:02+08:00 ] 192.168.0.142 /agent/index/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001042s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001636s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `user` WHERE `phone` = '13435' LIMIT 1   [ RunTime:0.0009s ]
+
+[ 2017-08-28T15:44:03+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000901s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001662s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001768s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0090s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-08-28T15:47:59+08:00 ] 192.168.0.142 /agent/index/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000975s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001451s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001546s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0135s ]
+SQL: SELECT * FROM `user` WHERE `phone` = '13435' LIMIT 1   [ RunTime:0.0008s ]
+
+[ 2017-08-28T15:47:59+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000752s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001090s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001195s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0092s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-08-28T15:49:18+08:00 ] 192.168.0.142 /agent/index/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000872s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001121s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001235s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0123s ]
+SQL: SELECT * FROM `user` WHERE `phone` = '13435' LIMIT 1   [ RunTime:0.0012s ]
+
+[ 2017-08-28T15:49:18+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001514s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002715s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0113s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-08-28T16:13:02+08:00 ] 192.168.0.142 /agent/index/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001077s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001383s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001490s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `user` WHERE `phone` = '13435' LIMIT 1   [ RunTime:0.0008s ]
+
+[ 2017-08-28T16:13:04+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000672s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000772s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000838s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0130s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-08-28T16:15:47+08:00 ] 192.168.0.142 /agent/index/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000677s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001181s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001257s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0129s ]
+SQL: SELECT * FROM `user` WHERE `phone` = '13435' LIMIT 1   [ RunTime:0.0006s ]
+
+[ 2017-08-28T16:15:49+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000549s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000765s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000833s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0102s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-08-28T16:58:21+08:00 ] 192.168.0.142 /agent/index/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000982s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001458s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001544s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0127s ]
+SQL: SELECT * FROM `user` WHERE `phone` = '13435' LIMIT 1   [ RunTime:0.0008s ]
+
+[ 2017-08-28T16:58:22+08:00 ] 192.168.0.142 /agent/index/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000609s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001143s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001254s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0083s ]
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+NOTIC: [8] Undefined index: account D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 122 行.
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_del' in 'field list'
+
+[ 2017-08-28T17:12:37+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001045s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001518s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0142s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0036s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 144 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+ERR: Think\Controller:json方法不存在！
+
+[ 2017-08-28T17:14:58+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000836s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001145s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001250s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0108s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0073s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2017-08-28T17:15:18+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001038s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001407s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0097s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0075s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2017-08-28T17:27:41+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000749s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001742s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001845s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0077s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2017-08-28T17:27:46+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000751s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000929s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001016s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0087s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0082s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2017-08-28T17:27:46+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000691s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001215s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001347s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0082s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2017-08-28T17:27:47+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000640s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001188s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001311s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0079s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0091s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2017-08-28T17:27:47+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000566s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001052s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001199s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0091s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0079s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2017-08-28T17:27:47+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000716s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000945s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001025s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0094s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2017-08-28T17:27:47+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000650s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000983s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0075s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0081s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2017-08-28T17:27:48+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000822s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000924s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001005s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0091s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2017-08-28T17:27:48+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001154s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001226s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001350s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0077s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2017-08-28T17:27:48+08:00 ] 127.0.0.1 /agent/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000608s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001087s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001310s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0071s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0077s ]
+SQL: SELECT * FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 143 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0001s ]
+

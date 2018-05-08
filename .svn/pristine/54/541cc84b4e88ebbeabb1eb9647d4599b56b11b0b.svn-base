@@ -1,0 +1,59 @@
+<include file="Public/_header" title="廣告管理"/>
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> <a href="__MODULE__/index" class="maincolor">首頁</a>
+        <span class="c-gray en">&gt;</span>
+
+        <span class="c-gray en">&gt;</span>
+        廣告列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+    <div class="Hui-article">
+        <article class="cl pd-20">
+            <form method="post" action="__CONTROLLER__/index">
+            <div class="text-c">
+                <input type="text" class="input-text" style="width:250px" placeholder="輸入廣告名關鍵字" id="" name="key">
+                <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </div>
+            </form>
+            <div class="cl pd-5 bg-1 bk-gray mt-20">
+                <span class="l"> <!--<a href="javascript:;" onclick="del()"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a>--> <a href="javascript:;" onclick="javascript:location.href='__CONTROLLER__/add'" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加廣告</a> </span>
+                <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+            </div>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="9">廣告列表</th>
+                </tr>
+                <tr class="text-c">
+                    <th width="25"><input class="checkAll" type="checkbox" name="" value="0"></th>
+                    <th width="40">ID</th>
+                    <th width="150">廣告名</th>
+                    <th width="110">廣告圖片</th>
+                    <th>跳轉地址</th>
+                    <th>廣告類型</th>
+                    <th>排序</th>
+                    <th width="100">是否啟用</th>
+                    <th width="100">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="list" item="vo" >
+                <tr class="text-c">
+                    <td><input  type="checkbox" class="box" value="{$vo.ad_id}" name="box"></td>
+                    <td>{$vo.ad_id}</td>
+                    <td>{$vo.ad_name}</td>
+                    <td><img src="{$vo.img_url}" width="40px;"/></td>
+                    <!--<td>{$vo.email}</td>-->
+                    <td>{$vo.skip_url}</td>
+                    <td><eq name="vo['type']" value="1" ><span >啟動頁</span><else/><span >banner</span></eq></td>
+                    <td>{$vo.sort}</td>
+                    <td class="td-status"><eq name="vo['status']" value="1" ><span class="label label-success radius">已启用</span><else/><span class="label label-default radius">已禁用</span></eq></td>
+                    <td class="td-manage"><eq name="vo['status']" value="1" ><a style="text-decoration:none" onClick="admin_stop(this,'{$vo.ad_id}')" data-url="__CONTROLLER__/ajax_status" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <else/><a onClick="admin_start(this,'{$vo.ad_id}')" href="javascript:;" title="启用" data-url="__CONTROLLER__/ajax_status" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a></eq><a title="编辑" href="javascript:location.href='__CONTROLLER__/update/id/{$vo.ad_id}';" onclick="" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;"   onclick="del2('{$vo.ad_id}')" class="ml-5 " style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </article>
+        {$page}
+    </div>
+</section>
+
+<include file="Public/_footer"  />

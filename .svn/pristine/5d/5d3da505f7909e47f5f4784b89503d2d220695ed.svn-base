@@ -1,0 +1,138 @@
+<include file="Public/_header" title="管理員-添加"/>
+<article class="cl pd-20">
+    <form action="__MODULE__/Admin/add" method="post" enctype="multipart/form-data" class="form form-horizontal" id="form-admin-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理員登陸帳號：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" minlength="3"  maxlength="16" value="" required placeholder="" id="name" name="name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手機號：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" required class="input-text" value="" placeholder="" id="phone" name="phone">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>中文名：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" required maxlength="16" class="input-text" value="{$list.china_name}" placeholder=""  name="china_name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>英文名：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" required maxlength="16" class="input-text" value="{$list.english_name}" placeholder="" name="english_name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>頭像圖片：</label>
+            <div class="formControls col-xs-8 col-sm-9">&nbsp;&nbsp;&nbsp;
+       <span class="btn-upload form-group">
+      <input class="input-text upload-url radius" type="text" required  id="uploadfile-1" readonly><a href="javascript:void();" class="btn btn-primary radius"> 浏览文件</a>
+      <input type="file" required  multiple name="file-1" class="input-file">
+</span>   </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始密碼：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="password" minlength="4" maxlength="16" class="input-text" autocomplete="off" value="" required  placeholder="新密碼" id="password" name="password">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>確認密碼：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="password" required class="input-text" autocomplete="off"  placeholder="確認密碼" id="password2" name="password2">
+            </div>
+        </div>
+<!--        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="sex" type="radio" id="sex-1" checked>
+                    <label for="sex-1">男</label>
+                </div>
+                <div class="radio-box">
+                    <input type="radio" id="sex-2" name="sex">
+                    <label for="sex-2">女</label>
+                </div>
+            </div>
+        </div>-->
+
+ <!--       <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" placeholder="@" name="email" id="email">
+            </div>
+        </div>-->
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">角色：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+				<select class="select" name="role_id" size="1">
+                    <foreach name="role" item="vo" >
+                        <option value="{$vo.role_id}">{$vo.role_name}</option>
+                    </foreach>
+                </select>
+				</span> </div>
+        </div>
+<!--        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">备注：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="textarealength(this,100)"></textarea>
+                <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+            </div>
+        </div>-->
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+
+<script type="text/javascript">
+
+
+    $(function() {
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#form-admin-add").validate({
+            rules:{
+                name:{
+                    required:true,
+                    minlength:3,
+                    maxlength:16
+                },
+                password:{
+                    minlength:4,
+                    maxlength:16,
+                    required:true,
+                },
+                password2:{
+                    required:true,
+                    equalTo: "#password"
+                },
+                phone:{
+                    required:true,
+                }/*,
+                 email:{
+                 required:true,
+                 email:true,
+                 },
+                 adminRole:{
+                 required:true,
+                 },*/
+            },
+            onkeyup:false,
+            focusCleanup:true,
+            success:"valid"
+        });
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

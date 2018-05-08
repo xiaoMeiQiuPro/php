@@ -1,0 +1,45 @@
+<include file="Public/header"/>
+
+
+    <article class="cl pd-20">
+
+      <!--  <div class="cl pd-5 bg-1 bk-gray mt-20">
+            <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+        </div>-->
+        <table class="table table-border table-bordered table-bg">
+            <thead>
+            <tr>
+                <th scope="col" colspan="12">亲子列表</th>
+            </tr>
+            <tr class="text-c">
+                <!--<th>ID</th>-->
+                <th >名字</th>
+                <th>生日</th>
+                <th>性别</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="list" item="vo" >
+                <tr class="text-c">
+                    <!--<td>{$vo.user_id}</td>-->
+                    <td>{$vo.children_name}</td>
+                    <td>{$vo.children_birthday|date='Y-m-d',###}</td>
+                    <td><switch name="vo.sex">
+                        <case name="0">保密</case>
+                        <case name="1">男</case>
+                        <default />男
+                    </switch></td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </article>
+</div>
+<script>
+
+</script>
+
+
+<include file="Public/_footer"  />

@@ -1,0 +1,150 @@
+
+
+<include file="Public/_header" />
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员中心 <span class="c-gray en">&gt;</span> 管理员日志 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+    <form method="get" action="__CONTROLLER__/log_index">
+        <div class="text-c">时间搜索: &nbsp;
+            <input name="start" style="width: 160px;" type="text" id="datemin" onClick="jeDate({dateCell:'#datemin',isTime:true,format:'YYYY-MM-DD hh:mm:ss'})"  class="input-text Wdate" style="width:120px;">
+            -
+            <input style="width: 160px;" name="end" type="text" onClick="jeDate({dateCell:'#datemax',isTime:true,format:'YYYY-MM-DD hh:mm:ss'})" id="datemax" class="input-text Wdate" style="width:120px;">
+            <button type="submit" class="btn btn-success" id="" name="search"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+        </div>
+    </form>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+               <!-- <span class="l">
+                    <a href="javascript:;" onclick="del()"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a>
+                    <a href="javascript:;" onclick="layer_show('添加','__CONTROLLER__/add',800,600)" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加管理员</a> </span>
+        --><span class="r">共有数据：<strong>{$count}</strong> 条</span>
+    </div>
+    <table class="table table-border table-bordered table-bg table-hover">
+        <thead>
+        <tr>
+            <th scope="col" colspan="12">日志列表</th>
+        </tr>
+        <tr class="text-c">
+            <!--<th width="25"><input class="checkAll" type="checkbox" name="" value="0"></th>-->
+            <th width="">ID</th>
+            <th width="">操作记录</th>
+            <th width="">管理员电话</th>
+            <th width="">管理员名称</th>
+            <th width="">操作时间</th>
+            <th width="">IP地址</th>
+            <!--<th width="">操作</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="list" item="vo" >
+            <tr class="text-c">
+                <!--<td><input <eq name="vo.admin_id" value="1" >disabled</eq> type="checkbox" class="box" value="{$vo.admin_id}" name="box"></td>-->
+                <td>{$vo.admin_log_id}</td>
+                <td>{$vo.record}</td>
+                <td>{$vo.phone}</td>
+                <td>{$vo.admin_name}</td>
+                <td>{$vo.date}</td>
+                <td>{$vo.ip}</td>
+
+                <!--<td class="td-manage"><a title="编辑"  onclick="admin_update('{$vo.admin_id}','__CONTROLLER__/update','admin_id')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a> <a title="删除"  onclick="admin_del('{$vo.admin_id}','__CONTROLLER__/del','admin_id')" class="ml-5" style="text-decoration:none;color: red;"><i class="Hui-iconfont">&#xe6e2;</i>删除</a></td>-->
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+    {$page}
+</div>
+<script>
+    //管理员禁用
+    function  admin_status(id,status,url,id_key,status_key){
+        if(!id_key){
+            id_key = "id";
+        }
+        if(!status_key){
+            status_key = "status";
+        }
+        if(id == 1){
+            layer.msg('超级管理员禁止修改!',{icon: 2,time:2000})
+        }
+        else{
+            layer.confirm('确认要修改吗？',function(){
+                $.ajax({
+                    type: 'post',
+                    url: url,
+                    data : {id:id,status:status,id_key:id_key,status_key:status_key},
+                    dataType: 'json',
+                    async: true,
+                    success: function (data) {
+                        if (data == 1) {
+                            layer.msg('已修改!',{icon: 1,time:2000});
+                            location.reload();
+                        } else {
+                            layer.msg('修改失败', {icon: 2,time:2000});  //alert('删除失败');
+                            //  console.log(data);
+                        }
+                    }
+                })
+            })
+        }
+    }
+    //管理员删除
+    function  admin_del(id,url,id_key){
+        if(id == 1){
+            layer.msg('超级管理员禁止删除!',{icon: 2,time:2000});
+            return false;
+        }
+        if(!id_key){
+            id_key = "id";
+        }
+        layer.confirm('确定要删除吗?删除之后不可恢复!', {
+            btn: ['確定','取消'] //按钮
+        }, function(){
+            $.ajax({
+                type: 'post',
+                url: url,
+                data : {id:id,id_key:id_key},
+                dataType: 'json',
+                async: true,
+                success: function (data) {
+                    if (data == 1) {
+                        layer.msg('已删除!',{icon: 1,time:2000});
+                        location.reload();
+                    } else {
+                        layer.msg('异常,删除失败', {icon: 2});
+                    }
+                }
+            })
+        }, function(){
+
+        });
+    }
+    //管理员修改
+    function  admin_update(id,url,id_key){
+        var admin_id = "{$Think.session.adminId}";
+        if(id == 1 &&  admin_id!=1){
+            layer.msg('超级管理员只有自己能修改!',{icon: 2,time:2000});
+            return false;
+        }
+        else{
+            layer_show('编辑',url+"?id="+id+"&id_key="+id_key,800,600);
+        }
+
+        /*if(!id_key){
+         id_key = "id";
+         }
+         $.ajax({
+         type: 'post',
+         url: url,
+         data : {id:id,id_key:id_key},
+         dataType: 'json',
+         async: true,
+         success: function (data) {
+         if (data == 1) {
+         layer.msg('已删除!',{icon: 1,time:2000});
+         location.reload();
+         } else {
+         layer.msg('异常,删除失败', {icon: 2});
+         }
+         }
+         })*/
+    }
+</script>
+
+<include file="Public/_footer"  />

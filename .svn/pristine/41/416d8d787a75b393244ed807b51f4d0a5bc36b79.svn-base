@@ -1,0 +1,31 @@
+<include file="Public/_header" title="類型-編輯"/>
+<article class="cl pd-20">
+    <form action="__MODULE__/Cat/update" method="post" class="form form-horizontal" id="form-admin-role-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>類型名字：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$data.name}" placeholder="" id="roleName" name="name" required >
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">排序：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="number" class="input-text" value="{$data.sort}" placeholder="" id="" name="sort">
+            </div>
+        </div>
+        <input type="hidden" value="{$data.cat_id} " name='cat_id'  />
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
+            </div>
+        </div>
+    </form>
+</article>
+
+
+<script type="text/javascript">
+    $(function() {
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

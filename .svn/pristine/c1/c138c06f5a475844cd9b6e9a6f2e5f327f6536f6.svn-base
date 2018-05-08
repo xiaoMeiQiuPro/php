@@ -1,0 +1,15 @@
+<?php
+namespace Admin\Controller;
+use Admin\Controller;
+
+class IndexController extends BaseController{
+
+    public function index(){
+       $list = M('admin')->
+       join('admin_role ON admin.admin_id=admin_role.role_id', 'LEFT')->
+       where(array('admin_id'=>$_SESSION['adminId']))->find();
+        $this->assign('list',$list);
+        $this->assign('act_list',session('act_list'));
+        $this->display();
+    }
+}

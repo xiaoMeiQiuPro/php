@@ -1,0 +1,16 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form  method="post" action="/agent/index.php/Index/save_user"  enctype="multipart/form-data"  >
+    <input  type="file" name="img"   />
+    <input  type="text" name="type" value="2"  />
+    <input  type="text" name="china_name"  value="小煤球V587"  />
+    <input  type="hidden" name="user_id"  value="2"  />
+    <input  type="submit" name="value" value="提交"  />
+</form>
+</body>
+</html>

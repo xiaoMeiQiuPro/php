@@ -1,0 +1,16 @@
+// JavaScript Document
+//var swf_width=300;
+//var swf_height=180;
+//var swf_url='images/bcastr3.swf';
+//var swf_config="0xff0000|0|0x0066ff|60|0xffffff|0x000000|0x000033|3|0|1|_blank";
+//var files="images/pic1.jpg|images/index_pic1.jpg|images/index_pic2.jpg";
+//var links="http://www.baidu.com|http://www.g.cn|http://www.qq.com";
+//var texts="百度|谷歌|腾讯网";
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ swf_width +'" height="'+ swf_height +'">');
+document.write('<param name="movie" value="'+swf_url+'"><param name="quality" value="high">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'&bcastr_config='+swf_config+'">');
+document.write('<embed src="'+swf_url+'" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'&bcastr_config='+swf_config+'&menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+document.write('</object>');
+// bcastr_config说明：
+	//0xffffff：文字颜色| 2：文字位置| 0xff6600：文字背景颜色| 60：文字背景透明度| 0xffffff：按键文字颜色| 0xff6600：按键默认颜色| 0x000033：按键当前颜色| 8：自动播放时间(秒)| 2：图片过渡效果| 1：是否显示按钮| _blank：打开新窗口

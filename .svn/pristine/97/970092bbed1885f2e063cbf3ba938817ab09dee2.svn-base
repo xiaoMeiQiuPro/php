@@ -1,0 +1,1204 @@
+[ 2017-09-11T10:06:08+08:00 ] 127.0.0.1 /agent/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002100s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002212s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0108s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2 AND `status` = 1  [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `admin_notice` WHERE `is_top` = 1 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0099s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` WHERE `notice_id` = 2 LIMIT 1   [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 182 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0099s ]
+SQL: SELECT appointment.status,a.china_name agent_name,b.china_name project_name,c.china_name user_name FROM `appointment` LEFT JOIN user a ON appointment.agent_user_id=a.user_id LEFT JOIN user c ON appointment.user_id=c.user_id LEFT JOIN project b ON appointment.project_id=b.project_id  WHERE `pid` = 0 ORDER BY appointment_id desc LIMIT 10   [ RunTime:0.0049s ]
+
+[ 2017-09-11T10:16:29+08:00 ] 127.0.0.1 /agent/resources/images/logo-gray.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000719s ]
+
+[ 2017-09-11T10:16:29+08:00 ] 127.0.0.1 /agent/Public/resources/style/commons.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000604s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000932s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001023s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-11T10:16:29+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery.ui.selectmenu.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004197s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001910s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002042s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-11T10:16:29+08:00 ] 127.0.0.1 /agent/Public/resources/style/jquery-ui-1.10.3.custom.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001138s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001622s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001725s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-11T10:16:29+08:00 ] 127.0.0.1 /agent/Public/resources/style/date.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000165s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001421s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002471s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002609s ]
+ERR: 无法加载控制器:Public
+
+[ 2017-09-11T10:16:37+08:00 ] 127.0.0.1 /agent/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000573s ]
+
+[ 2017-09-11T14:08:38+08:00 ] 127.0.0.1 /agent/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003034s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002886s ]
+SQL: SHOW COLUMNS FROM `ad` [ RunTime:0.0223s ]
+SQL: SELECT * FROM `ad` WHERE `type` = 2 AND `status` = 1  [ RunTime:0.0018s ]
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0157s ]
+SQL: SELECT * FROM `admin_notice` WHERE `is_top` = 1 LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 181 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `appointment` [ RunTime:0.0188s ]
+SQL: SELECT appointment.status,a.china_name agent_name,b.china_name project_name,c.china_name user_name FROM `appointment` LEFT JOIN user a ON appointment.agent_user_id=a.user_id LEFT JOIN user c ON appointment.user_id=c.user_id LEFT JOIN project b ON appointment.project_id=b.project_id  WHERE `pid` = 0 ORDER BY appointment_id desc LIMIT 10   [ RunTime:0.0113s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0145s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0008s ]
+SQL: SELECT * FROM `project` WHERE `status` = 1 ORDER BY  hot_num LIMIT 6   [ RunTime:0.0017s ]
+
+[ 2017-09-11T14:08:49+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000745s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000879s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000953s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0089s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0021s ]
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-15,15' at line 1
+
+[ 2017-09-11T14:11:11+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001386s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004547s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0102s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0048s ]
+
+[ 2017-09-11T14:16:22+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001209s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006849s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007136s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0006s ]
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*,admin.china_name,admin.english_name FROM `admin_notice` LEFT JOIN admin ON adm' at line 1
+
+[ 2017-09-11T14:17:11+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002028s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001527s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0076s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0003s ]
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  L' at line 1
+
+[ 2017-09-11T14:18:10+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000801s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001135s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001241s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0078s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT admin_notice.* FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0004s ]
+
+[ 2017-09-11T14:19:45+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000061s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001641s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002420s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0081s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT admin_notice.*,admin.china_name,admin.english_name FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0012s ]
+
+[ 2017-09-11T14:24:15+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000735s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001487s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001590s ]
+
+[ 2017-09-11T14:24:26+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000771s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001159s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001265s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0118s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT admin_notice.*,admin.china_name,admin.english_name FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0024s ]
+
+[ 2017-09-11T14:32:18+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000951s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001406s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0108s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT admin_notice.*,admin.china_name,admin.english_name FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0007s ]
+
+[ 2017-09-11T14:32:32+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000122s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001371s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002291s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002462s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0094s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT admin_notice.*,admin.china_name,admin.english_name FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0010s ]
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'agent.admin_notice_id' doesn't exist
+
+[ 2017-09-11T14:33:05+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000582s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001712s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0104s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT admin_notice.*,admin.china_name,admin.english_name FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0114s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` WHERE `notice_id` = 1 LIMIT 1   [ RunTime:0.0039s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` WHERE `notice_id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2017-09-11T14:33:35+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001867s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001942s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002127s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0095s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT admin_notice.*,admin.china_name,admin.english_name FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0088s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` WHERE `notice_id` = 1 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` WHERE `notice_id` = 2 LIMIT 1   [ RunTime:0.0005s ]
+
+[ 2017-09-11T14:44:19+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005218s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005378s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0138s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 220 行.
+SQL: SELECT * FROM `admin_notice_comment` WHERE `notice_id` = null  [ RunTime:0.0005s ]
+
+[ 2017-09-11T14:45:10+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001733s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005596s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006434s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0119s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 220 行.
+SQL: SELECT * FROM `admin_notice_comment` WHERE `notice_id` = null  [ RunTime:0.0004s ]
+
+[ 2017-09-11T14:45:16+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000584s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001929s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008367s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0119s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 220 行.
+SQL: SELECT * FROM `admin_notice_comment` WHERE `notice_id` = null  [ RunTime:0.0006s ]
+
+[ 2017-09-11T14:45:37+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005163s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000955s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001047s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0109s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 220 行.
+SQL: SELECT * FROM `admin_notice_comment` WHERE `notice_id` = null  [ RunTime:0.0004s ]
+
+[ 2017-09-11T14:46:38+08:00 ] 127.0.0.1 /agent/index/admin_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001365s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001877s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 205 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0095s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT admin_notice.*,admin.china_name,admin.english_name FROM `admin_notice` LEFT JOIN admin ON admin.admin_id=admin_notice.admin_id  LIMIT 0,15   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0085s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` WHERE `notice_id` = 1 LIMIT 1   [ RunTime:0.0014s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` WHERE `notice_id` = 2 LIMIT 1   [ RunTime:0.0012s ]
+
+[ 2017-09-11T14:46:48+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001123s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001444s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001589s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0112s ]
+SQL: SELECT * FROM `admin_notice_comment` WHERE `notice_id` = 2  [ RunTime:0.0006s ]
+
+[ 2017-09-11T14:59:07+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000982s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002676s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002811s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2  [ RunTime:0.0042s ]
+
+[ 2017-09-11T15:02:45+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001449s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001648s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001764s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0296s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0098s ]
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'admin.english_name' in 'field list'
+
+[ 2017-09-11T15:03:00+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000576s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002527s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0100s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0090s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2  [ RunTime:0.0012s ]
+
+[ 2017-09-11T15:03:46+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001376s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002555s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002717s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0064s ]
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'field list'
+
+[ 2017-09-11T15:04:43+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001567s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001643s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0145s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0136s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2  [ RunTime:0.0014s ]
+
+[ 2017-09-11T15:06:03+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003214s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002821s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002970s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice` [ RunTime:0.0114s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice` LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0107s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2  [ RunTime:0.0012s ]
+
+[ 2017-09-11T15:08:44+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000714s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001633s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001752s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0104s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0004s ]
+
+[ 2017-09-11T15:08:45+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000871s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001648s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0067s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0004s ]
+
+[ 2017-09-11T15:08:46+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002433s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0009s ]
+
+[ 2017-09-11T15:08:46+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000615s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001597s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0089s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0006s ]
+
+[ 2017-09-11T15:08:46+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001920s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0093s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0009s ]
+
+[ 2017-09-11T15:08:47+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001451s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000997s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001126s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0096s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0009s ]
+
+[ 2017-09-11T15:08:47+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001144s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001823s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002179s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0099s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0006s ]
+
+[ 2017-09-11T15:08:55+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001408s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001633s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001790s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0097s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,1   [ RunTime:0.0006s ]
+
+[ 2017-09-11T15:09:08+08:00 ] 127.0.0.1 /agent/index/admin_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001241s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002570s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 223 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0130s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0005s ]
+
+[ 2017-09-11T15:43:26+08:00 ] 127.0.0.1 /agent/index/agent_notice
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001180s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001872s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001988s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 239 行.
+SQL: SHOW COLUMNS FROM `user_notice` [ RunTime:0.0087s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice` LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT user_notice.*,user.china_name,user.english_name FROM `user_notice` LEFT JOIN user ON user.user_id=user_notice.user_id  ORDER BY is_top desc,user_notice_id desc LIMIT 0,15   [ RunTime:0.0017s ]
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0086s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` WHERE `notice_id` = 1 LIMIT 1   [ RunTime:0.0006s ]
+
+[ 2017-09-11T15:43:56+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001153s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001205s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001321s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `admin_notice_comment` [ RunTime:0.0118s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `admin_notice_comment` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT admin_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `admin_notice_comment` LEFT JOIN user ON user.user_id=admin_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0004s ]
+
+[ 2017-09-11T15:45:27+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000972s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002640s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002809s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0094s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0006s ]
+
+[ 2017-09-11T15:45:28+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000651s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000904s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001140s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0086s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0004s ]
+
+[ 2017-09-11T15:45:28+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000771s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001158s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0105s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0007s ]
+
+[ 2017-09-11T15:45:29+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000596s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000842s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000922s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0096s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0008s ]
+
+[ 2017-09-11T15:45:29+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000645s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000951s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001033s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0086s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0005s ]
+
+[ 2017-09-11T15:45:29+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000843s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001046s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001154s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0109s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0015s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0008s ]
+
+[ 2017-09-11T15:45:29+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000612s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000876s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000946s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0102s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0007s ]
+
+[ 2017-09-11T15:45:54+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001043s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001954s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002087s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 258 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0091s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = 1 LIMIT 0,15   [ RunTime:0.0004s ]
+
+[ 2017-09-11T15:46:07+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000878s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000947s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001031s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 258 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = 2 LIMIT 0,15   [ RunTime:0.0007s ]
+
+[ 2017-09-11T15:46:45+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000749s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004057s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004590s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 257 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0101s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: notice_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 263 行.
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = null LIMIT 0,15   [ RunTime:0.0006s ]
+
+[ 2017-09-11T15:46:56+08:00 ] 127.0.0.1 /agent/index/agent_notice_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000696s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001004s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001101s ]
+NOTIC: [8] Undefined index: page D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 258 行.
+SQL: SHOW COLUMNS FROM `user_notice_comment` [ RunTime:0.0082s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `user_notice_comment` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT user_notice_comment.*,user.china_name,user.english_name,user.img_url FROM `user_notice_comment` LEFT JOIN user ON user.user_id=user_notice_comment.user_id  WHERE `notice_id` = 1 LIMIT 0,15   [ RunTime:0.0005s ]
+
+[ 2017-09-11T16:13:23+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001516s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002172s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002273s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0208s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0009s ]
+
+[ 2017-09-11T16:14:13+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000622s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001547s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001662s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0095s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+
+[ 2017-09-11T16:29:26+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001820s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005993s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006163s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0115s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0130s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area`  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area`  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area`  [ RunTime:0.0004s ]
+
+[ 2017-09-11T16:30:56+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000921s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001505s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001625s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0106s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0070s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0004s ]
+
+[ 2017-09-11T16:49:21+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000993s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002877s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003019s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0079s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0075s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0007s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0123s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0  [ RunTime:0.0010s ]
+
+[ 2017-09-11T16:49:57+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000621s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001750s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001870s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0125s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0096s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0007s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0008s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0113s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0  [ RunTime:0.0006s ]
+
+[ 2017-09-11T16:49:57+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000707s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000975s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001071s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0105s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0101s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0 LIMIT 1   [ RunTime:0.0011s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0  [ RunTime:0.0005s ]
+
+[ 2017-09-11T16:49:58+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000669s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001407s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0082s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0087s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0095s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0  [ RunTime:0.0006s ]
+
+[ 2017-09-11T16:49:58+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000084s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001508s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001128s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001260s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0104s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0081s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0096s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0  [ RunTime:0.0006s ]
+
+[ 2017-09-11T16:49:58+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001190s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000905s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000990s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0085s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0075s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0007s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0101s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0  [ RunTime:0.0004s ]
+
+[ 2017-09-11T16:49:59+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001364s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001192s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0101s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0077s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0086s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0 LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 0 AND `area_id2` = 0  [ RunTime:0.0007s ]
+
+[ 2017-09-11T17:00:54+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000985s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002185s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002319s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 276 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0095s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0102s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0108s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0004s ]
+
+[ 2017-09-11T17:01:27+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001744s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001865s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0099s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0094s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0082s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0005s ]
+
+[ 2017-09-11T17:01:28+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001551s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 274 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0073s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0077s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0087s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0004s ]
+
+[ 2017-09-11T17:01:44+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000989s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000992s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001085s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0089s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0019s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0102s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0086s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0016s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0007s ]
+
+[ 2017-09-11T17:02:05+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000794s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001132s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001236s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0111s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0004s ]
+
+[ 2017-09-11T17:02:06+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000871s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001186s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001297s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0094s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0082s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0007s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0007s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0094s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0003s ]
+
+[ 2017-09-11T17:02:06+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000715s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001365s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0106s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0090s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0119s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0005s ]
+
+[ 2017-09-11T17:02:06+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000742s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001109s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001212s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0094s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0007s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0105s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0007s ]
+
+[ 2017-09-11T17:02:07+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000870s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001246s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001354s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0121s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0097s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0099s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0007s ]
+
+[ 2017-09-11T17:02:07+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001700s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001610s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001738s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0087s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0088s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0009s ]
+
+[ 2017-09-11T17:02:07+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000676s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001030s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001120s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0083s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0081s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0004s ]
+
+[ 2017-09-11T17:02:07+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000705s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001155s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001314s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0093s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0110s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0007s ]
+
+[ 2017-09-11T17:02:48+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001635s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000951s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001049s ]
+NOTIC: [8] Undefined index: cat D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 275 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0097s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0070s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0007s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0100s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = null  [ RunTime:0.0007s ]
+
+[ 2017-09-11T17:03:06+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000584s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001012s ]
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0085s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0066s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0073s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 2 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 2  [ RunTime:0.0004s ]
+
+[ 2017-09-11T17:03:15+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001881s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001951s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002072s ]
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 277 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0083s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0080s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0003s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0002s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 3 LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1 AND `cat_id` = 3  [ RunTime:0.0003s ]
+
+[ 2017-09-11T17:06:41+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000968s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002668s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002781s ]
+NOTIC: [8] Undefined index: cat_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 276 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0102s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0101s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0015s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0103s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0008s ]
+
+[ 2017-09-11T17:07:33+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000974s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001884s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002012s ]
+NOTIC: [8] Undefined index: cat_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 276 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0091s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0084s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0006s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0093s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0005s ]
+
+[ 2017-09-11T17:07:34+08:00 ] 127.0.0.1 /agent/index/new_project
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001409s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001742s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001880s ]
+NOTIC: [8] Undefined index: cat_id D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 273 行.
+NOTIC: [8] Undefined index: area D:\qiu\agent\Application\Home\Controller\IndexController.class.php 第 276 行.
+SQL: SHOW COLUMNS FROM `area` [ RunTime:0.0094s ]
+SQL: SELECT * FROM `area`  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.0104s ]
+SQL: SELECT `cat_id`,`name` FROM `cat`  [ RunTime:0.0007s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 1  [ RunTime:0.0004s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 2  [ RunTime:0.0005s ]
+SQL: SELECT `area_id`,`name` FROM `area` WHERE `pid` = 7  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.0096s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE `is_new` = 1 AND `status` = 1 LIMIT 1   [ RunTime:0.0006s ]
+SQL: SELECT * FROM `project` WHERE `is_new` = 1 AND `status` = 1  [ RunTime:0.0004s ]
+

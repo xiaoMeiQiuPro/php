@@ -1,0 +1,100 @@
+<include file="Public/header"/>
+
+<div style="width:100%; height:280px; background:url("__PUBLIC__"/images/tb11.jpg) no-repeat center top;"></div>
+
+
+<p class="jg30"></p>
+<div class="icar_sort">
+	<p id="icarSortW">
+        <a href="__CONTROLLER__/carAll">全部车型</a>
+        <volist name="carN" id="v" >
+            <a href="__CONTROLLER__/car/id/{$v.id}">{$v.title}</a>
+        </volist>
+    </p>
+</div>
+<script>
+		var winW=$(window).width();
+    	var icarSortW=$("#icarSortW").width();
+		var icarSortLeft=(winW-icarSortW)/2-10;
+		$("#icarSortW").css('left',icarSortLeft);
+</script>
+<p class="jg10"></p>
+<div class="icarlist">
+	<ul>
+        <volist name="car" id="v">
+            <li class="nomar">
+                <a href="__CONTROLLER__/single/id/{$v.id}" class="img"><img src="__PUBLIC__/{$v.img}" width="218" height="160" alt="" /></a>
+                <p class="p1"><span class="t"><a href="__CONTROLLER__/single/id/{$v.id}">{$v.title}</a></span><span class="pr"><neq name="v.price" value="价格面议">￥{$v.price}元/天<else />{$v.price}</neq></span></p>
+                <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+                <p class="p3"><a href="__CONTROLLER__/single/id/{$v.id}" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+            </li>
+        </volist>
+    	<li class="nomar">
+        	<a href="#" class="img"><img src="images/tb5.jpg" width="218" height="160" alt="" /></a>
+            <p class="p1"><span class="t"><a href="#">本田雅阁</a></span><span class="pr">￥600/日</span></p>
+            <p>自动2.0L&nbsp;&nbsp;|&nbsp;&nbsp;MVP&nbsp;&nbsp;|&nbsp;&nbsp;5座</p>
+            <p class="p3"><a href="#" class="da">查看详情</a><a href="#" class="ya">我要预约</a></p>
+        </li>
+
+        <div style="clear:both;"></div>
+    </ul>
+</div>
+<p class="jg30"></p>
+<div class="page">
+    <a href="javascript:;" onclick="return false;" class="no">首页</a>&nbsp;
+    <a href="javascript:;" onclick="return false;" class="no">上一页</a>&nbsp;
+    <b>1</b>&nbsp;<a href="#">2</a>&nbsp;
+    <a href="/list.php?bsort=386&page=2">下一页</a>&nbsp;
+    <a href="/list.php?bsort=386&page=2">末页</a>
+</div>
+<p class="jg30"></p>
+
+
+<div class="bottom">
+	<div class="bottom1">
+    	<div class="bfastlink">
+        	<p><img src="images/tb8.jpg" /></p>
+            <p class="jg10"></p>
+        	<ul>
+            	<li>
+                	<a href="#" class="one">关于我们</a><br />
+                    <a href="#">企业介绍</a><br />
+                    <a href="#">资质荣誉</a><br />
+                    <a href="#">联系我们</a>
+                </li>
+                <li>
+                	<a href="#" class="one">租车服务</a><br />
+                    <a href="#">会议租车</a><br />
+                    <a href="#">商务租车</a><br />
+                    <a href="#">自驾租车</a>
+                </li>
+                <li>
+                	<a href="#" class="one">车型展示</a><br />
+                    <a href="#">轿车系列</a><br />
+                    <a href="#">商务系列</a><br />
+                    <a href="#">越野系列</a>
+                </li>
+                <li>
+                	<a href="#" class="one">新闻动态</a><br />
+                    <a href="#">公司新闻</a><br />
+                    <a href="#">最新优惠</a><br />
+                </li>
+            </ul>
+        </div>
+        <div class="ftelbox">
+            <p style="float:right"><img src="images/tb10.jpg" /></p>
+            <p class="ftel">
+            	<span class="tel">028-85163999<br />028-85163777</span>
+                <span class="txt">7x24小时全国客服热线，全年无休</span>
+            </p>
+        </div>
+        <div style="clear:both;"></div>
+        <p class="jg10"></p>
+        <div class="flink">
+        	<strong>友情链接：</strong><a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;<a href="#">成都会议租车</a>&nbsp;&nbsp;<a href="#">成都商务租车</a>&nbsp;&nbsp;成都自驾租车&nbsp;&nbsp;成都会议租车&nbsp;&nbsp;成都会议接待&nbsp;&nbsp;
+        </div>
+        <p class="copyr">Copyright © cdhyx.cn Inc.All Rights Reserved.    地址:成都市二环路南四段19号檀香山4栋3单元903室    蜀ICP备08008591号-1  技术支持：成都网站建设</p>
+    </div>
+</div>
+</body>
+</html>

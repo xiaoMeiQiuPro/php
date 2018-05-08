@@ -1,0 +1,93 @@
+<include file="Public/_header" title="角色-編輯"/>
+<article class="cl pd-20">
+    <form action="__MODULE__/Role/add" method="post" class="form form-horizontal" id="form-admin-role-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$data.role_name}" placeholder="" id="roleName" name="role_name" required >
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">描述：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$data.desc}" placeholder="" id="" name="role_desc">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">選擇權限：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <dl class="permission-list">
+                    <!--<dt>
+                        <label>
+                            <input type="checkbox" value="" name="user-Character-0" id="user-Character-0">
+                            资讯管理</label>
+                    </dt>-->
+
+                            <foreach name="list" item="vo" >
+                                <dl class="cl permission-list2">
+                                <dt>
+                                    <label class="">
+                                        <input type="checkbox"   value="{$vo.mod_id}" name="act_list[]" id="user-Character-0-0">
+                                        {$vo.title}</label>
+                                </dt>
+                                <dd>
+                                <foreach name="vo[child]" item="v2">
+                                    <label class="">
+                                        <input type="checkbox" value="{$v2.mod_id}" name="act_list[]" id="user-Character-0-0-0">
+                                        {$v2.title}
+                                    </label>
+                                </foreach>
+                                </dd>
+                                </dl>
+                            </foreach>
+
+                    </dl>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
+            </div>
+        </div>
+    </form>
+</article>
+
+
+<script type="text/javascript">
+
+
+    $(function() {
+        $(".permission-list dt input:checkbox").click(function(){
+            $(this).closest("dl").find("dd input:checkbox").prop("checked",$(this).prop("checked"));
+        });
+        $(".permission-list2 dd input:checkbox").click(function(){
+            var l =$(this).parent().parent().find("input:checked").length;
+            var l2=$(this).parents(".permission-list").find(".permission-list2 dd").find("input:checked").length;
+            if($(this).prop("checked")){
+                $(this).closest("dl").find("dt input:checkbox").prop("checked",true);
+                $(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",true);
+            }
+            else{
+                if(l==0){
+                    $(this).closest("dl").find("dt input:checkbox").prop("checked",false);
+                }
+                if(l2==0){
+                    $(this).parents(".permission-list").find("dt").first().find("input:checkbox").prop("checked",false);
+                }
+            }
+        });
+        $('form').submit(function(){
+           var num = $("input[type=checkbox]:checked").length;
+            if(num>0){
+                return true;
+            }
+            else{
+                layer.msg('至少選擇一個權限',{icon:2,time:2000});
+                return  false;
+            }
+
+        })
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

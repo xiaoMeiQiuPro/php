@@ -1,0 +1,29 @@
+
+
+<include file="Public/_header" title="積分管理"/>
+<article class="cl pd-20" style="margin-left: 20%;">
+    <form action="__CONTROLLER__/jf" method="post" class="form form-horizontal" id="form-admin-add">
+
+        <foreach name="list" item="vo">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>{$vo.desc}：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input style="width: 200px;" type="number" class="input-text"    value="{$vo.value}" required placeholder="" id="name" name="{$vo.name}">
+                </div>
+            </div>
+        </foreach>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+
+    </form>
+</article>
+
+
+<script type="text/javascript">
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

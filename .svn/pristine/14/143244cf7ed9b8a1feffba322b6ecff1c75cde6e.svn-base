@@ -1,0 +1,100 @@
+<include file="Public/_header" title="代理會員審核"/>
+<section class="Hui-article-box">
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> <a href="__MODULE__/index" class="maincolor">首頁</a>
+        <span class="c-gray en">&gt;</span>
+        <span class="c-gray en">&gt;</span>
+        代理會員審核 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a> </nav>
+    <div class="Hui-article">
+        <article class="cl pd-20">
+            <!--<form method="post" action="__CONTROLLER__/vip_index">
+            <div class="text-c">
+                <input type="text" class="input-text" style="width:250px" placeholder="輸入代理等級名字關鍵字" id="" name="key">
+                <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </div>
+            </form>-->
+            <div class="cl pd-5 bg-1 bk-gray mt-20">
+                <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+            </div>
+            <table class="table table-border table-bordered table-bg">
+                <thead>
+                <tr>
+                    <th scope="col" colspan="12">代理會員審核</th>
+                </tr>
+                <tr class="text-c">
+                    <th>ID</th>
+                    <th >申請人中文名</th>
+                    <th>申請代理會員等級</th>
+                    <th>公司英文名</th>
+                    <th>公司中文名</th>
+                    <th>申請日期</th>
+                    <th >操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="list" item="vo" >
+                <tr class="text-c">
+                    <td>{$vo.id}</td>
+                    <td>{$vo.china_name}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.english1_name}</td>
+                    <td>{$vo.chinese_name}</td>
+                    <td>{$vo.time}</td>
+                <td class="td-manage"><a href="__CONTROLLER__/user_sh/id/{$vo.id}"  class="ml-5" >審核</a></td>
+                </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </article>
+        {$page}
+    </div>
+    <br/><br/><br/>
+
+    <div style="margin-top: 200px;" class="Hui-article">
+        <article class="cl pd-20">
+        <!--<form method="post" action="__CONTROLLER__/vip_index">
+        <div class="text-c">
+            <input type="text" class="input-text" style="width:250px" placeholder="輸入代理等級名字關鍵字" id="" name="key">
+            <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+        </div>
+        </form>-->
+        <div class="cl pd-5 bg-1 bk-gray mt-20">
+            <span class="r">共有数据：<strong>{$count1}</strong> 条</span>
+        </div>
+        <table class="table table-border table-bordered table-bg">
+            <thead>
+            <tr>
+                <th scope="col" colspan="12">代理會員審核記錄</th>
+            </tr>
+            <tr class="text-c">
+                <th>ID</th>
+                <th >申請人電話</th>
+                <th>申請代理會員等級</th>
+                <th>公司英文名</th>
+                <th>公司中文名</th>
+                <th>申請日期</th>
+                <th>審核狀態</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="list1" item="vo" >
+                <tr class="text-c">
+                    <td>{$vo.id}</td>
+                    <td>{$vo.phone}</td>
+                    <td>{$vo.name}</td>
+                    <td>{$vo.english1_name}</td>
+                    <td>{$vo.chinese_name}</td>
+                    <td>{$vo.time}</td>
+                    <td class="td-status"><eq name="vo['agent_status']" value="1" ><span class="label label-success radius">已通過</span><else/><span class="label label-default radius">未通過</span></eq></td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+        </article>
+        {$page}
+
+    </div>
+
+</section>
+
+
+<include file="Public/_footer"  />

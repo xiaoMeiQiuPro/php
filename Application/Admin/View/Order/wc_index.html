@@ -1,0 +1,83 @@
+<include file="Public/_header" />
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span class="c-gray en">&gt;</span> 完成订单列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+    <form method="get" action="__CONTROLLER__/wc_index">
+        <div class="text-c">
+            <div class="text-c">时间搜索: &nbsp;
+                <input name="start" style="width: 160px;" type="text" id="datemin" onClick="jeDate({dateCell:'#datemin',isTime:true,format:'YYYY-MM-DD hh:mm:ss'})"  class="input-text Wdate" style="width:120px;">
+                -
+                <input style="width: 160px;" name="end" type="text" onClick="jeDate({dateCell:'#datemax',isTime:true,format:'YYYY-MM-DD hh:mm:ss'})" id="datemax" class="input-text Wdate" style="width:120px;">
+                <button type="submit" class="btn btn-success" id="" name="search"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </div>
+            <!--<input type="text" class="input-text" style="width:250px" placeholder="输入店铺名称关键字" id="" name="key">-->
+        </div>
+    </form>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+  <!--              <span class="l">
+                    &lt;!&ndash;<a href="javascript:;" onclick="del()"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a>&ndash;&gt;
+                    <a href="javascript:;" onclick="layer_show('添加','__CONTROLLER__/add',800,600)" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加广告</a> </span>
+  -->      <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+    </div>
+    <table class="table table-border table-bordered table-bg table-hover">
+        <thead>
+        <tr>
+            <th scope="col" colspan="12">订单列表</th>
+        </tr>
+        <tr class="text-c">
+            <!--<th width="25"><input class="checkAll" type="checkbox" name="" value="0"></th>-->
+            <th width="">ID</th>
+            <th width="">商品名字</th>
+            <th width="">商品价格</th>
+            <th width="">商品数量</th>
+            <th width="">运费</th>
+            <th width="">总价</th>
+            <th width="">收货人</th>
+            <th width="">收货地址</th>
+            <th width="">收货时间</th>
+           <!-- <th width="">操作</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="list" item="vo" >
+            <tr class="text-c">
+                <!--<td><input <eq name="vo.admin_id" value="1" >disabled</eq> type="checkbox" class="box" value="{$vo.admin_id}" name="box"></td>-->
+                <td>{$vo.order_id}</td>
+                <td>{$vo.goods_name}</td>
+                <td>{$vo.goods_price}</td>
+                <td>{$vo.goods_num}</td>
+                <td  >{$vo.shipping_price}</td>
+                <th width="">{$vo.total_amount}</th>
+                <td>{$vo.consignee} | {$vo.mobile}</td>
+                <td>{$vo.address}</td>
+                <th width="">{$vo.confirm_time|date="Y-m-d H:i:s",###}</th>
+          <!--      <td class="td-manage"> <a title=""  onclick="status('{$vo.order_id}',3,'__CONTROLLER__/status','order_id','order_status','确认要发货吗?')" class="ml-5" style="text-decoration:none;">发货</a></td>
+          -->  </tr>
+        </foreach>
+        </tbody>
+    </table>
+    {$page}
+</div>
+<script>
+    /*$(function(){
+        $(".img").hover(function(){
+            $(this).attr('height','400px');
+            $(this).attr('width','');
+        },function(){
+            $(this).attr('height','35px');
+            $(this).attr('width','40px');
+        });
+    });*/
+    //管理员修改
+    /*function  update(id,url,id_key){
+        var admin_id = "{$Think.session.adminId}";
+        if(id == 1 &&  admin_id!=1){
+            layer.msg('自营只有超级管理员才能修改!',{icon: 2,time:2000});
+            return false;
+        }
+        else{
+            layer_show('编辑',url+"?id="+id+"&id_key="+id_key,800,600);
+        }
+    }*/
+</script>
+
+<include file="Public/_footer"  />

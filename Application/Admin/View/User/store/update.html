@@ -1,0 +1,147 @@
+<include file="Public/_header" />
+<form action=""  method="post" enctype="multipart/form-data" class="form form-horizontal" id="abc">
+
+
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><span style="color: red;">*</span> 店铺名字：</label>
+        <div class="formControls col-xs-8 col-sm-6">
+            <input type="text" class="input-text" value="{$list.store_name}" required maxlength="16" name="store_name" autocomplete="off" placeholder="店铺名字">
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3">店铺描述：</label>
+        <div class="formControls col-xs-8 col-sm-6">
+            <textarea class="textarea" placeholder="说点什么..." rows="" cols="" name="store_desc">{$list.store_desc}</textarea>
+        </div>
+    </div>
+    <div class="row cl">
+        <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>店铺头像：</label>
+        <div class="formControls col-xs-8 col-sm-6">&nbsp;&nbsp;&nbsp;
+       <span class="btn-upload form-group">
+
+      <a id="btn" href="javascript:void();" class="btn btn-primary radius"> 浏览文件</a>
+      <input type="hidden" required value="{$list.store_pic}" multiple name="store_pic" class="input-file">
+</span>   </div>
+        <center> <div style="height: 200px" class="formControls col-xs-8 col-sm-6">
+            <img id="imgBox" height="200px" src="{$list.store_pic}">
+        </div></center>
+    </div>
+
+<input type="hidden" name="store_id" value="{$list.store_id}"     />
+
+    <div class="row cl">
+        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            <input class="btn btn-primary radius" id="ab" type="button" value="提交">
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(function() {
+
+        $('input[type=radio]').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        var uploader = new plupload.Uploader({
+            runtimes: 'html5,flash,silverlight,html4', //上传插件初始化选用那种方式的优先级顺序
+            browse_button: 'btn', // 上传按钮
+            url: "__MODULE__/User/upload", //远程上传地址
+            flash_swf_url: '__PUBLIC__/plupload/Moxie.swf', //flash文件地址
+            silverlight_xap_url: '__PUBLIC__/plupload/Moxie.xap', //silverlight文件地址
+            filters: {
+                max_file_size: '10mb', //最大上传文件大小（格式100b, 10kb, 10mb, 1gb）
+                mime_types:[{
+                    title: "files", extensions: "jpg,png,jpeg"
+                }]
+                //允许文件上传类型
+            },
+            multi_selection: false, //true:ctrl多文件上传, false 单文件上传
+            init:{
+                //文件上传前
+                FilesAdded: function(up, files) {
+                    /* if ($("#ul_pics").children("li").length > 1) {
+                     alert("您上传的图片太多了！");
+                     uploader.destroy();
+                     } else {
+                     var li = '';
+                     //遍历文件
+                     plupload.each(files, function(file) {
+                     li += "<li class='close_pic' id='" + file['id'] + "'>   <div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+                     });
+                     $("#ul_pics").append(li);
+                     uploader.start();
+                     }*/
+                    uploader.start();
+                },
+                //上传中，显示进度条
+                /*UploadProgress: function(up, file) {
+                 var percent = file.percent;
+                 $("#" + file.id
+
+                 ).find('.bar').css({"width": percent + "%"});
+                 $("#" + file.id
+
+                 ).find(".percent").text(percent + "%");
+                 },*/
+                //文件上传成功的时候触发
+                FileUploaded: function(up, file, info) {
+                    console.log(info);
+                    // var data = eval( info.response );
+                    $("#" + file.id
+                    ).html("<div class='img'><a class='close Hui-iconfont' style='text-decoration:none;font-size: 16px;font-weight:300!important;color: #fff!important;opacity: 1' onclick='del_img(this)'>&#xe60b;</a> <img src='" + info.response + "'/><input value='" + info.response + "'  name='ad_url' type='hidden' /></div>" );
+                    $("#imgBox").attr("src",info.response);
+                    $("input[name=store_pic]").val(info.response);
+                },
+                //上传出错的时候触发
+                Error: function(up, err) {
+                    layer.msg(err.message);
+                }
+            }
+        });
+        uploader.init();
+        $("#ab").click(function(){
+
+            var store_name = $("input[name=store_name]").val();
+            var store_pic = $("input[name=store_pic]").val();
+            if(!store_name){
+                layer.msg('店铺名不能为空', {icon: 2, time: 2000});
+                return false;
+            }
+            if(!store_pic){
+                layer.msg('店铺头像不能为空', {icon: 2, time: 2000});
+                return false;
+            }
+            else{
+                $.ajax({
+                    // cache: true,
+                    type: "POST",
+                    url:"__CONTROLLER__/store_update",
+                    data:$('form').serialize(),// 你的formid
+                    async: false,
+                    success: function(data) {
+                        if(data == 1){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.location.reload();
+                            layer.msg("修改成功", {icon: 1, time: 2000});
+                            //  parent.location.href="__CONTROLLER__";
+                            setTimeout(function(){
+                                parent.layer.close(index);
+                            },2000);
+                        }
+                        else{
+                            layer.msg(data, {icon: 2, time: 2000});
+                        }
+
+                    },
+                    error: function(request) {
+                        layer.msg('服务器异常', {icon: 2, time: 2000});
+                    }
+                });
+            }
+        })
+    })
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />

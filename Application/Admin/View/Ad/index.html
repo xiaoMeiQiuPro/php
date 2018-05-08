@@ -1,0 +1,73 @@
+<include file="Public/_header" />
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 系统管理 <span class="c-gray en">&gt;</span> 广告管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+   <!-- <form method="get" action="__CONTROLLER__/index">
+        <div class="text-c">
+            <input type="text" class="input-text" style="width:250px" placeholder="输入店铺名称关键字" id="" name="key">
+            <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+        </div>
+    </form>-->
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+                <span class="l">
+                    <!--<a href="javascript:;" onclick="del()"  class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a>-->
+                    <a href="javascript:;" onclick="layer_show('添加','__CONTROLLER__/add',800,600)" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加广告</a> </span>
+        <span class="r">共有数据：<strong>{$count}</strong> 条</span>
+    </div>
+    <table class="table table-border table-bordered table-bg table-hover">
+        <thead>
+        <tr>
+            <th scope="col" colspan="12">店铺列表</th>
+        </tr>
+        <tr class="text-c">
+            <!--<th width="25"><input class="checkAll" type="checkbox" name="" value="0"></th>-->
+            <th width="">ID</th>
+            <th width="">广告名</th>
+            <th width="">广告图片</th>
+            <th width="">跳转地址</th>
+            <!--<th width="">是否启用</th>-->
+            <th width="">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <foreach name="list" item="vo" >
+            <tr class="text-c">
+                <!--<td><input <eq name="vo.admin_id" value="1" >disabled</eq> type="checkbox" class="box" value="{$vo.admin_id}" name="box"></td>-->
+                <td>{$vo.ad_id}</td>
+                <td>{$vo.ad_name}</td>
+                <td  data-lightbox="gallery"><img class="img" src="{$vo.ad_code} " width="40px" height="35px" /></td>
+                <td>{$vo.ad_link}</td>
+                <!--<td><eq name="vo['store_status']" value="1" ><span onclick="status('{$vo.store_id}',0,'__CONTROLLER__/store_status','store_id','store_status')" style="color: #1BBC9D;font-size: 14px;cursor:pointer"><i  class="Hui-iconfont
+">&#xe615;</i> 是</span><else/><span onclick="status('{$vo.store_id}',1,'__CONTROLLER__/store_status','store_id','store_status')" style="color: #999;font-size: 14px;cursor:pointer"><i  class="Hui-iconfont
+">&#xe706;</i> 否</span></eq></td>-->
+                <td class="td-manage"><a title="编辑"  onclick="update('{$vo.ad_id}','__CONTROLLER__/update','ad_id')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i>编辑</a> <a title="删除"  onclick="del('{$vo.ad_id}','__CONTROLLER__/del','ad_id')" class="ml-5" style="text-decoration:none;color: red;"><i class="Hui-iconfont">&#xe6e2;</i>删除</a></td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+    {$page}
+</div>
+<script>
+    $(function(){
+        $(".img").hover(function(){
+            $(this).attr('height','400px');
+            $(this).attr('width','');
+        },function(){
+            $(this).attr('height','35px');
+            $(this).attr('width','40px');
+        });
+    });
+    //管理员修改
+    function  update(id,url,id_key){
+        var admin_id = "{$Think.session.adminId}";
+        if(id == 1 &&  admin_id!=1){
+            layer.msg('自营只有超级管理员才能修改!',{icon: 2,time:2000});
+            return false;
+        }
+        else{
+            layer_show('编辑',url+"?id="+id+"&id_key="+id_key,800,600);
+        }
+
+    }
+</script>
+
+<include file="Public/_footer"  />

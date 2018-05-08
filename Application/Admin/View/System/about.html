@@ -1,0 +1,31 @@
+<include file="Public/_header" title="關於我們"/>
+<article class="cl pd-20" >
+    <form action="__CONTROLLER__/about" method="post" class="form form-horizontal" id="form-admin-add">
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">內容：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <script id="editor" name="value"   type="text/plain" style="width:100%;height:400px;" >{$list}</script>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input id="sb" class="btn btn-primary radius"   type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+<script type="text/javascript" src="__PUBLIC__/ueditor/1.4.3/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/1.4.3/ueditor.all.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        var editor= UE.getEditor('editor');
+        $("#sb").click(function(){
+            $("#form-admin-add").submit();
+        })
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<include file="Public/_footer"  />
