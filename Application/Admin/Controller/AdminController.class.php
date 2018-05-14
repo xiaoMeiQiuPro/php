@@ -145,7 +145,7 @@ class AdminController extends BaseController
     public function log_index()
     {
         if($_GET['start'] && $_GET['end']){
-            $where['date'] = array(array('egt',$_GET['start']),array('elt',$_GET['end'])) ;
+            $where['date'] = array(array('egt',$_GET['start']),array('elt',$_GET['end']));
         }
         else{
             $where=array();

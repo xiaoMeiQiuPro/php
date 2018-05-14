@@ -9,7 +9,7 @@ function dd($data)
 }
 function get_ip(){
 
-	return "http://".$_SERVER["HTTP_HOST"];
+	return "https://".$_SERVER["HTTP_HOST"];
 }
 
 
@@ -144,4 +144,38 @@ function getSettingValueFieldByKey($key,$field)
 function get_date(){
 	return date('Y-m-d H:i:s',time());
 }
+//curl
+function send_curl($url,$re){
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	if (stripos($url, "https://") !== FALSE) {
+		curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+	} else {
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);//严格校验
+	}
+//设置header
+	// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+	curl_setopt($ch, CURLOPT_HEADER, FALSE);
+//要求结果为字符串且输出到屏幕上
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//设置超时
+	curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+	curl_setopt($ch, CURLOPT_POST, TRUE);
+//传输文件
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $re);
+//运行curl
+	$data = curl_exec($ch);
 
+	curl_close($ch);
+	if($data){
+		$data = json_decode($data,true);
+	}
+	else{
+		echo "请求失败";
+	}
+	return $data;
+}

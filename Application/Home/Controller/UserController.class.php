@@ -31,12 +31,27 @@
 //                                                    不见满街漂亮妹，哪个归得程序员？ 
 namespace Home\Controller;
 use Think\Controller;
+header('Content-Type: text/html; charset=utf-8'); //网页编码
 class UserController extends Controller
 {
     public function __construct()
     {
         parent::__construct();
+    }
 
+    //获取open_id
+    function  get_openid(){
+        $code = I("post.code");
+        $appid = "wx9f42cbf90f7c0f51";
+        $secret = "58bb4162459c69fea05d55ba9360f4ba";
+        if (!$code) {
+            json(407, '参数错误');
+        }
+        else{
+            $url = "https://api.weixin.qq.com/sns/jscode2session?appid=$appid&secret=$secret&js_code=$code&grant_type=authorization_code";
+             $data =  send_curl($url,'');
+            json(200,'success',$data['openid']);
+        }
     }
 
     function jiekou()
@@ -68,26 +83,36 @@ class UserController extends Controller
     //登录
     function login()
     {
-        $account = I('account');
-        $nick_name = I('name');
-        $head_url = I('head_pic');
+        $account = I('post.account');
+        $nick_name = I('post.name');
+        $head_url = I('post.head_pic');
         if(!$account || !$nick_name || !$head_url){
             json(407,'参数异常');
         }
         //如果用户存在 则修改资料
-        if($id = M('users')->where(['account'=>$account])->find()){
-            $re = M('users')->where(['user_id'=>$id['user_id']])->save(I('post.'));
+        if($user = M('users')->where(['account'=>$account])->find()){
+            $address = M("address")->where(['address_id'=>$user['address_id']])->find();
+            $address['user_id'] = $user['user_id'];
+            $_POST['last_login'] = time();
+            $re = M('users')->where(['user_id'=>$user['user_id']])->save(I('post.'));
         }   //不存在则添加资料
         else{
+            $address = array();
+            $_POST['reg_time'] = time();
+            $_POST['last_login'] = time();
             $re =  M('users')->add(I('post.'));
+            $address['user_id'] = $re;
         }
-        if($re){
-            json(200,'登陆成功');
+        $data = array(
+            'name' => $nick_name,
+            'head_pic' => $head_url,
+        );
+        if($re !== false){
+            json(200,'登陆成功',$address);
         }
         else{
             json(201,'数据异常,登陆失败');
         }
-
     }
 
     //首页
@@ -95,7 +120,6 @@ class UserController extends Controller
     {
         //轮播图
         $re['ad'] = M('ad')->where(array('enabled' => '1'))->field('ad_code,ad_link')->select();
-
         if(!empty($re['ad'])){
             foreach($re['ad'] as $k=>$v){
                 $re['ad'][$k]['ad_code'] = get_ip().$v['ad_code'];
@@ -104,7 +128,7 @@ class UserController extends Controller
         //商品
         /*$where['start_time'] = array('elt',get_date());
         $where['end_time'] = array('egt',get_date());*/
-        $where['is_recommend'] = 1;
+        $where['is_on_sale'] = 1;
         $re['goods'] = M('goods')->where($where)->order("is_recommend desc")->field('goods_id,original_img,goods_name')->select();
         if(!empty($re['goods'])){
             foreach($re['goods'] as $k=>$v){
@@ -117,8 +141,8 @@ class UserController extends Controller
     //商品详情
     function goods_info()
     {
-        $id = I('goods_id');
-        $user_id = I('user_id');
+        $id = I('post.goods_id');
+        $user_id = I('post.user_id');
        // $id = 183 ;
         if (!$id||!$user_id) {
             json(407, '参数异常', '');
@@ -139,9 +163,7 @@ class UserController extends Controller
             }
             json(200, 'success', $goods);
         }
-
     }
-
     //加入购物车
     function add_cart()
     {
@@ -185,13 +207,13 @@ class UserController extends Controller
     }
     //操作收货地址  增 / 删 / 改
     function operation_address(){
+
         $user_id = I("post.user_id");
         $type  = I('post.type');
-
         if(!$user_id||!$type){
-            json(407, '参数错误');
+            json(407, '参数异常');
         }
-        if($type !== 1 ){
+        if($type != 1 ){
             $address_id = I('post.address_id');
             if(!$address_id){
                 json(407, '参数错误');
@@ -218,419 +240,204 @@ class UserController extends Controller
         else{ json(201,'操作失败,服务器异常'); }
     }
 
-    //下单
+    //商品直接下单
     function add_order()
     {
-        if (empty($_POST['goods_id'])) {
-            json(201, '商品不存在', '');
+        $goods_id  = I("post.goods_id");
+        $user_id  = I("post.user_id");
+        $goods_num = I('post.goods_num');
+        $address_id = I('post.address_id');
+        /*$goods_id = 183;
+        $user_id = 27;
+        $goods_num = 1;
+        $address_id = 861;*/
+        if (!$goods_id || !$user_id || !$goods_num || !$address_id) {
+            json(407, '参数错误', '');
         }
-        if (empty($_POST['user_id'])) {
-            json(202, '用户未登录', '');
-        }
-        $res = M('spec_goods_price')->where(array('key' => $_POST['key'], 'goods_id' => $_POST['goods_id']))->find();
+        //查询库存
+        $res = M('goods')->where(array( 'goods_id' => $goods_id))->find();
         if ($res['store_count'] <= 0 || $_POST['goods_num'] > $res['store_count']) {
             json(203, '库存不足', '');
         }
-
-        $goods = M('goods')->where(array('goods_id' => $_POST['goods_id']))->find();
-
-        if ($goods['prom_type'] != 0) {
-            if ($_POST['goods_num'] > $goods['activity_stock']) {
-                json(204, '活动库存不足', '');
-            }
-            //限时秒杀
-            if ($goods['prom_type'] == 6) {
-                $seckill = M('goods_seckill')->where(array('id' => $goods['seckill_id']))->find();
-                if ($seckill['type'] == 0) {
-                    $shu = $seckill['expression'] / 100;
-                    $prom_price = $res['price'] * $shu;
-                } else if ($seckill['type'] == 1) {
-                    $prom_price = $res['price'] - $seckill['expression'];
-                } else if ($seckill['type'] == 3) {
-                    $prom_price = $res['price'];
-                }
-                // $goods['prom_id'] = $goods['seckill_id'];
-            } else {
-                //活动
-                $seckill = M('prom_goods')->where(array('id' => $goods['prom_id']))->find();
-                if ($seckill['type'] == 0) {
-                    $shu = $seckill['expression'] / 100;
-                    $prom_price = $res['price'] * $shu;
-                } else if ($seckill['type'] == 1) {
-                    $prom_price = $res['price'] - $seckill['expression'];
-                } else if ($seckill['type'] == 3) {
-                    $prom_price = $res['price'];
-                }
-            }
-
-
-        } else {
-            //普通
-            $prom_price = $res['price'];
-        }
+        //商品价格  //运费  //市场价
+            $goods_price = $res['shop_price'];
+            $freight = $res['freight'];
         //最终支付价格
-        $prom_price = $prom_price * $_POST['goods_num'];
-        // echo $prom_price;die;
-        if (!empty($_POST['coupon_id'])) {
-            $list = M('coupon_list')->where(array('id' => $_POST['coupon_id'], 'status' => '0'))->field('cid')->find();
-            $cou = M('coupon')->where(array('id' => $list['cid']))->find();
-            if ($cou['condition'] <= $prom_price && $cou['use_start_time'] <= time() && $cou['use_end_time'] >= time()) {
-                $prom_price = $prom_price - $cou['money'];
-                $coupon_id = $_POST['coupon_id'];
-                $coupon_price = $cou['money'];
-            } else {
-                $coupon_id = 0;
-                $coupon_price = 0;
-            }
-        } else {
-            $coupon_id = 0;
-            $coupon_price = 0;
-        }
-
-        $a = substr(str_shuffle(time()), 1) * 99;
-        $sn = 'Angel' . $a;
+        $price = $goods_price * $goods_num + $freight;
+        $sn = time().mt_rand(100000,999999);
+        //订单数据
+        //查询地址数据
+        $address = M('address')->where(['address_id'=>$address_id])->find();
+        //修改用户默认地址
+        M('users')->where(['user_id'=>$user_id])->save(['address_id'=>$address_id]);
         $arr = array(
             'order_sn' => $sn,
-            'user_id' => $_POST['user_id'],
-            'consignee' => $_POST['consignee'],
-            'country' => $_POST['country'],
-            'province' => $_POST['province'],
-            'city' => $_POST['city'],
-            'district' => $_POST['district'],
-            'twon' => $_POST['twon'],
-            'address' => $_POST['address'],
-            'zipcode' => $_POST['zipcode'],
-            'mobile' => $_POST['mobile'],
-            'goods_price' => $prom_price,
-            'shipping_price' => '0',
-            'total_amount' => $prom_price,
-            'order_amount' => $prom_price,
+            'user_id' => $user_id,
+            'consignee' => $address['consignee'], //收货人
+            'province' => $address['province'], //省份
+            'city' => $address['city'],   //成熟
+            'district' => $address['district'],  // 县区
+            'address' => $address['address'],   //详情地址
+            'mobile' => $address['mobile'],    //手机号
+            'shipping_price' => $freight,    //运费
+            'order_amount' => $price,       //订单价格
             'add_time' => time(),
-            'store_id' => $goods['store_id'],
-            'cart_order_sn' => time(),
-            'order_prom_type' => $goods['prom_type'],
-            'coupon_id' => $coupon_id,
-            'coupon_price' => $coupon_price
         );
-        $order_id = M('order')->add($arr);
-        if (!empty($_POST['coupon_id'])) {
-            if ($order_id) {
-                $up_list_cou = M('coupon_list')->where(array('id' => $_POST['coupon_id']))->save(array(
-                    'order_id' => $order_id,
-                    'use_time' => time(),
-                    'status' => '1'
-                ));
+        //开启事务   添加订单  和  订单商品
+        $order = M('order');
+        $order->startTrans();
+        // 进行相关的业务逻辑操作
+           $re1 = $order->add($arr); // 保存订单信息
+         //订单商品信息
+           $arr2 = array(
+               'order_id' => $re1,
+               'goods_id' => $goods_id,
+               'goods_sn' => $res['goods_sn'],
+               'goods_name' => $res['goods_name'],
+               'goods_num' => $goods_num,
+               'market_price' => $res['market_price'],
+               'goods_price' => $goods_price,
+               'freight' => $freight,
+               'goods_img' => $res['original_img']
+           );
+           $re2 = M('order_goods')->add($arr2);
+        if ($re2 && $re1){
+            // 提交事务
+            $order->commit();
+            //下单数据
+            $this->wx_pay(array(
+                'order_sn' => $sn,
+                'order_amount' => $price
+            ));
+        }else{
+
+            $order->rollback();
+            json(201,'数据异常,下单失败');
+        }
+    }
+    //购物车购买
+    function cart_pay()
+    {
+        $cart_id = I('post.cart_id');
+        $user_id = I('post.user_id');
+        /*$cart_id = "4047,4048";
+        $user_id = 26;*/
+        if(!$cart_id || !$user_id || !I('post.address_id')){
+            json(407,'参数错误');
+        }
+        $map['id']  = array('in',$cart_id);
+        $re =  M('cart')->where($map)->alias("a")->join("__GOODS__ b ON a.goods_id = b.goods_id","LEFT")->
+        field("a.goods_num,b.goods_id,b.original_img,b.shop_price,b.freight,b.goods_name,b.goods_sn,b.market_price,b.is_on_sale")->
+        select();
+        //判断商品是否下架 , 是否库存充足
+        foreach($re as $k=>$v){
+            $goods = M('goods')->where(array( 'goods_id' => $v['goods_id']))->find();
+            if ( $v['goods_num'] > $goods['store_count']) {
+                json(203, '订单中有商品库存不足', '');
+            }
+            if(!$goods['is_on_sale']){
+                json(204, '订单中有商品已下架', '');
             }
         }
-
-        if ($goods['exchange_integral'] != 0) {
-            $jifen = $goods['give_integral'];
-        } else {
-            $jifen = 0;
+        //dd($re);
+        //获取商品价格,添加订单
+        $freight = 0 ;  //运费
+        $goods_price = 0;  //商品价格
+        foreach($re as $k=>$v){
+            $freight += $v['freight'];
+            $goods_price += $v['shop_price']*$v['goods_num'];
         }
-        $order_goods = M('order_goods')->add(array(
-            'order_id' => $order_id,
-            'goods_id' => $_POST['goods_id'],
-            'goods_name' => $goods['goods_name'],
-            'goods_sn' => $goods['goods_sn'],
-            'goods_num' => $_POST['goods_num'],
-            'market_price' => $goods['market_price'],
-            'goods_price' => $goods['shop_price'],
-            'cost_price' => $goods['cost_price'],
-            'spec_key' => $_POST['key'],
-            'spec_key_name' => $res['key_name'],
-            'member_goods_price' => $prom_price,
-            'prom_type' => $goods['prom_type'],
-            'prom_id' => $goods['prom_id'],
-            'give_integral' => $jifen
-        ));
-        $this->pay($order_id);
+        $price = $freight + $goods_price;
+        $sn = time().mt_rand(100000,999999);
+        //查询地址数据
+        $address = M('address')->where(['address_id'=>I("post.address_id")])->find();
+        //修改用户默认地址
+        M('users')->where(['user_id'=>$user_id])->save(['address_id'=>I("post.address_id")]);
+        $arr = array(
+            'order_sn' => $sn,
+            'user_id' => $user_id,
+            'consignee' => $address['consignee'], //收货人
+            'province' => $address['province'], //省份
+            'city' => $address['city'],   //成熟
+            'district' => $address['district'],  // 县区
+            'address' => $address['address'],   //详情地址
+            'mobile' => $address['mobile'],    //手机号
+            'shipping_price' => $freight,    //运费
+            'order_amount' => $price,       //订单价格
+            'add_time' => time(),
+        );
+        //开启事务   添加订单  和  订单商品
+        $order = M('order');
+        $order->startTrans();
+        // 进行相关的业务逻辑操作
+        // 保存订单信息
+        $re1 = $order->add($arr);
+        //添加订单商品信息
+        foreach($re as $k=>$v){
+            $arr2 = array(
+                'order_id' => $re1,
+                'goods_id' => $v['goods_id'],
+                'goods_sn' => $v['goods_sn'],
+                'goods_name' => $v['goods_name'],
+                'goods_num' => $v['goods_num'],
+                'market_price' => $v['market_price'],
+                'goods_price' => $v['shop_price'],
+                'freight' => $v['freight'],
+                'goods_img' => $v['original_img']
+            );
+            $re2 = M('order_goods')->add($arr2);
+            if(!$re2){
+                $order->rollback();
+                json(201,'数据异常,下单失败');
+            }
+        }
+        //删除购物车信息
+        $re3 =  M('cart')->where($map)->delete();
+        if ($re3 && $re1){
+            // 提交事务
+            $order->commit();
+            //下单数据
+            $this->wx_pay(array(
+                'order_sn' => $sn,
+                'order_amount' => $price
+            ));
+        }else{
+            $order->rollback();
+            json(201,'数据异常,下单失败');
+        }
     }
 
     //代付款  付款
     function order_pay()
     {
-        if ($_POST['order_id']) {
-            $this->pay($_POST['order_id']);
+        $_POST['order_id'] = 14;
+        if (I('post.order_id')) {
+            $re =  M('order_goods')->where(['order_id'=>I('post.order_id')])->/*alias("a")->join("__GOODS__ b ON a.goods_id = b.goods_id","LEFT")->
+            field("a.goods_num,b.goods_id,b.original_img,b.shop_price,b.freight,b.goods_name,b.goods_sn,b.market_price,b.is_on_sale")->
+            */select();
+            //判断商品是否下架 , 是否库存充足
+            foreach($re as $k=>$v){
+                $goods = M('goods')->where(array( 'goods_id' => $v['goods_id']))->find();
+                if ( $v['goods_num'] > $goods['store_count']) {
+                    json(203, '订单有商品库存不足', '');
+                }
+                if(!$goods['is_on_sale']){
+                    json(204, '订单有商品已下架', '');
+                }
+            }
+            //
+            $this->wx_pay(M('order')->where(['order_id'=>I('post.order_id')])->find());
         } else {
             json(201, '订单不存在', '');
         }
     }
 
-    //买票  下单
-    function piao_add_order()
-    {
-        if (empty($_POST['goods_id'])) {
-            json(201, '商品不存在', '');
-        }
-        if (empty($_POST['user_id'])) {
-            json(202, '用户未登录', '');
-        }
-        $goods_id = $_POST['goods_id'];
-        $goods = M('goods')->where(array('goods_id' => $goods_id))->find();
-        if ($goods['adult_stock'] < intval($_POST['adult_number'])) {
-            json(203, '成人票库存不够', '');
-        }
-        if ($goods['children_stock'] < intval($_POST['children_number'])) {
-            json(204, '儿童票库存不够', '');
-        }
-
-        $children_price = $goods['children_price'] * $_POST['children_number'];//儿童票总价
-        $adult_price = $goods['adult_price'] * $_POST['adult_number'];//成人票总价
-        $prom_price = $children_price + $adult_price;
-
-        $a = substr(str_shuffle(time()), 1) * 99;
-        $sn = 'Angel' . $a;
-        $arr = array(
-            'order_sn' => $sn,
-            'user_id' => $_POST['user_id'],
-            // 'consignee'=>$_POST['consignee'],
-            // 'country'=>$_POST['country'],
-            // 'province'=>$_POST['province'],
-            // 'city'=>$_POST['city'],
-            // 'district'=>$_POST['district'],
-            // 'twon'=>$_POST['twon'],
-            // 'address'=>$_POST['address'],
-            // 'zipcode'=>$_POST['zipcode'],
-            // 'mobile'=>$_POST['mobile'],
-            // 'goods_price'=>$prom_price,
-            'shipping_price' => '0',
-            'total_amount' => $prom_price,
-            'order_amount' => $prom_price,
-            'add_time' => time(),
-            'store_id' => $goods['store_id'],
-            'cart_order_sn' => time(),
-            'children_price' => $children_price,
-            'children_number' => $_POST['children_number'],
-            'adult_price' => $adult_price,
-            'adult_number' => $_POST['adult_number'],
-            'set_address' => $goods['set_address'],
-            'set_time' => $goods['set_time'],
-            'route' => $goods['route']
-            // 'order_prom_type'=>$goods['prom_type'],
-            // 'coupon_id'=>$coupon_id,
-            // 'coupon_price'=>$coupon_price
-        );
-        $order_id = M('order')->add($arr);
-        if ($order_id) {
-            $this->pay($order_id);
-
-        } else {
-            json(205, '不晓得咋搞的,下单失败', '');
-        }
-
-    }
 
 
-    //pay支付
-    function pay($order_id)
-    {
-        // echo $order_id;die;
-        // $order_id = 1514;
-        $order = M('order')->where(array('order_id' => $order_id))->find();
-        // echo json_encode($order);die;
-        require_once('./pay/aop/AopClient.php');
-        $shu = srand((double)microtime() * 1000000);
-        $c = new \AopClient;
-        $dat = array(
-            'app_id' => '2017010304816030',
-            'biz_content' => json_encode(array(
-                'subject' => '欢迎下次购买',
-                'out_trade_no' => $order['order_sn'],
-                'total_amount' => $order['order_amount'],
-                'product_code' => 'QUICK_MSECURITY_PAY'
-            )),
-            'charset' => 'utf-8',
-            'method' => 'alipay.trade.app.pay',
-            'notify_url' => 'https://www.baidu.com',
-            'sign_type' => 'RSA',
-            'timestamp' => date('Y-m-d H:i:s', time()),
-            'version' => '1.0'
-        );
-        $data = $c->getSignContent($dat);
-        // echo $data;die;
-        $res = $c->sign($data);
-        // echo json_encode($res);die;
-        $i = 0;
-        $a = '';
-        foreach ($dat as $key => $value) {
-            # code...
-            if ($i == 0) {
-                $a .= $key . '=' . urlencode($value);
-            } else {
-                $a .= '&' . $key . '=' . urlencode($value);
-            }
-
-        }
-        $data = $data . '&sign=' . urlencode($res);
-
-        json(200, '签名成功', $data);
-    }
-
-    //pay回调
-    function pay_notify_url()
-    {
-        // file_put_contents("newfilea.txt",json_encode($_POST));
-        require_once('./pay/aop/AopClient.php');
-
-        // require_once('application/libraries/pay/aop/AopClient.php');
-        // $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-        // // fwrite($myfile, $_POST);
-        // file_put_contents("newfilea.txt",json_encode($_POST));
-        $shu = '{"gmt_create":"2017-06-27 16:56:02","charset":"utf-8","seller_email":"liwei_hensatuo@163.com","subject":"\u8d2d\u7269\u8f66","sign":"FxEeFYqkY9dk8jOlXyq0iNqwy27SkRUiZK3IDzVokyskl2rG2vnkAWeVLBYt+3blqTjh+q0ouRs\/73g2KxvhWww6AQyPvYhStfjj+oiWza6su3ITJqGkT7FJu43Y0lFszRAjCsnkeP98VjEkeLuy2KM9rc04A4yp+KcirrhwUsI=","buyer_id":"2088022003197619","invoice_amount":"0.08","notify_id":"6a2ace753502a3210e8ccf144795184kpi","fund_bill_list":"[{\"amount\":\"0.08\",\"fundChannel\":\"ALIPAYACCOUNT\"}]","notify_type":"trade_status_sync","trade_status":"TRADE_SUCCESS","receipt_amount":"0.08","app_id":"2017010304816030","buyer_pay_amount":"0.08","sign_type":"RSA","seller_id":"2088421735959795","gmt_payment":"2017-06-27 16:56:03","notify_time":"2017-06-27 16:56:03","version":"1.0","out_trade_no":"Angel58763475342","total_amount":"0.08","trade_no":"2017062721001004610274477954","auth_app_id":"2017010304816030","buyer_logon_id":"101***@qq.com","point_amount":"0.00"}';
-        $_POST = json_decode($shu, true);
-        // var_dump($_POST['sign']);die;
-        // $_POST =
-        $aop = new \AopClient;
-        $aop->alipayrsaPublicKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDMbDuT2JzxTsBDnFgycdKauZZlS3nEqWurKzE2V26joHAEEnqQWqkQCNe/mMJXJszQQoehiJQ3cEOsdP34XpNh2Rg5fLWN436PkoHZbyfcOBk6A3AxGA6bNcDFSpqa7Uxxo6txN3HzsGfEa+Tg1haZy6wjBQYRUrd92QWnidYDgQIDAQAB';
-        $public = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDMbDuT2JzxTsBDnFgycdKauZZlS3nEqWurKzE2V26joHAEEnqQWqkQCNe/mMJXJszQQoehiJQ3cEOsdP34XpNh2Rg5fLWN436PkoHZbyfcOBk6A3AxGA6bNcDFSpqa7Uxxo6txN3HzsGfEa+Tg1haZy6wjBQYRUrd92QWnidYDgQIDAQAB';
-        // var_dump($_POST);die;
-        $result = $aop->rsaCheckV1($_POST, $public, "RSA");
-        // var_dump($result);die;
-        // if($result) {//验证成功
-        // echo 1;die;
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //请在这里加上商户的业务逻辑程序代
 
 
-        //——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
-
-        //获取支付宝的通知返回参数，可参考技术文档中服务器异步通知参数列表
-
-        //商户订单号
-        // file_put_contents("newfile.txt",'1');die;
-
-        $out_trade_no = $_POST['out_trade_no'];
-
-        //支付宝交易号
-
-        $trade_no = $_POST['trade_no'];
-
-        //交易状态
-        $trade_status = $_POST['trade_status'];
 
 
-        if ($_POST['trade_status'] == 'TRADE_FINISHED') {
-
-            //判断该笔订单是否在商户网站中已经做过处理
-            //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
-            //请务必判断请求时的total_amount与通知时获取的total_fee为一致的
-            //如果有做过处理，不执行商户的业务程序
-
-            //注意：
-            //退款日期超过可退款期限后（如三个月可退款），支付宝系统发送该交易状态通知
-        } else if ($_POST['trade_status'] == 'TRADE_SUCCESS' && $_POST['auth_app_id'] == '2017010304816030' && $_POST['subject'] == '购物车') {
-            // file_put_contents("newfile.txt",'1');die;
-
-            //判断该笔订单是否在商户网站中已经做过处理
-            //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
-            //请务必判断请求时的total_amount与通知时获取的total_fee为一致的
-            //如果有做过处理，不执行商户的业务程序
-            //注意：
-            //付款完成后，支付宝系统发送该交易状态通知
-            $up = M('order')->where(array('cart_order_sn' => $out_trade_no))->save(array('pay_time' => time(), 'pay_status' => '1', 'pay_code' => $trade_no, 'pay_name' => '支付宝'));
-            if ($up) {
-                $order = M('order')->where(array('cart_order_sn' => $out_trade_no))->select();
-                foreach ($order as $key => $value) {
-                    # code...
-                    $pro = M('order_goods')->where(array('order_id' => $value['order_id']))->select();
-                    foreach ($pro as $k => $v) {
-                        # code...
-                        // $goods_sun = M('goods')->where(array('goods_id'=>$v['goods_id']))->
-                        if ($value['order_prom_type'] != '0') {
-                            M('goods')->where(array('goods_id' => $v['goods_id']))->setInc('activity_sell', $v['goods_num']);
-                            M('goods')->where(array('goods_id' => $v['goods_id']))->setDec('activity_stock', $v['goods_num']);
-                            M('goods')->where(array('goods_id' => $v['goods_id']))->setInc('sales_sum', $v['goods_num']);
-                            M('goods')->where(array('goods_id' => $v['goods_id']))->setDec('store_count', $v['goods_num']);
-                        } else {
-                            M('goods')->where(array('goods_id' => $v['goods_id']))->setInc('sales_sum', $v['goods_num']);
-                            M('goods')->where(array('goods_id' => $v['goods_id']))->setDec('store_count', $v['goods_num']);
-                        }
-                        // M('goods')
-                    }
-                    M('user_store')->where(array('id' => $value['store_id']))->setInc('sale', $value['order_amount']);
-                }
-                // M('user_store')->where(array('id'=>$order))
-            }
-
-
-            echo "success";
-            die;
-
-
-            //请不要修改或删除
-        } else if ($_POST['trade_status'] == 'TRADE_SUCCESS' && $_POST['auth_app_id'] == '2017010304816030' && $_POST['subject'] == '欢迎下次购买') {
-            $up = M('order')->where(array('order_sn' => $out_trade_no))->save(array('pay_time' => time(), 'pay_status' => '1', 'pay_code' => $trade_no, 'pay_name' => '支付宝'));
-
-            if ($up) {
-                $order = M('order')->where(array('order_sn' => $out_trade_no))->select();
-                // foreach ($order as $key => $value) {
-                # code...
-                $pro = M('order_goods')->where(array('order_id' => $order['order_id']))->select();
-                foreach ($pro as $k => $v) {
-                    # code...
-                    // $goods_sun = M('goods')->where(array('goods_id'=>$v['goods_id']))->
-                    if ($order['order_prom_type'] != '0') {
-                        M('goods')->where(array('goods_id' => $v['goods_id']))->setInc('activity_sell', $v['goods_num']);
-                        M('goods')->where(array('goods_id' => $v['goods_id']))->setDec('activity_stock', $v['goods_num']);
-                        M('goods')->where(array('goods_id' => $v['goods_id']))->setInc('sales_sum', $v['goods_num']);
-                        M('goods')->where(array('goods_id' => $v['goods_id']))->setDec('store_count', $v['goods_num']);
-                    } else {
-                        M('goods')->where(array('goods_id' => $v['goods_id']))->setInc('sales_sum', $v['goods_num']);
-                        M('goods')->where(array('goods_id' => $v['goods_id']))->setDec('store_count', $v['goods_num']);
-                    }
-                    // M('goods')
-                }
-                M('user_store')->where(array('id' => $order['store_id']))->setInc('sale', $order['order_amount']);
-                // }
-                // M('user_store')->where(array('id'=>$order))
-            }
-
-
-            echo "success";
-            die;
-        } else if ($_POST['trade_status'] == 'TRADE_SUCCESS' && $_POST['auth_app_id'] == '2017010304816030' && $_POST['subject'] == '报事报修') {
-
-
-            echo "success";
-            die;
-        } else if ($_POST['trade_status'] == 'TRADE_SUCCESS' && $_POST['auth_app_id'] == '2017010304816030' && $_POST['subject'] == '余额充值') {
-
-            echo "success";
-            die;
-
-        }
-        //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
-        // file_put_contents("newfile.txt",'4');die;
-
-        echo "fail";
-
-        // }else {
-        //     //验证失败
-        //     echo "fail"; //请不要修改或删除
-
-        // }
-
-    }
-
-
-    //收藏商品
-    function collection()
-    {
-        $post = array(
-            'user_id' => $_POST['user_id'],
-            'goods_id' => $_POST['goods_id']
-        );
-        $res = M('goods_collect')->where($post)->find();
-        if ($res) {
-            M('goods_collect')->where($post)->delete();
-            json(200, '取消收藏成功', '');
-        } else {
-            $post['add_time'] = time();
-            M('goods_collect')->add($post);
-            json(200, '收藏成功', '');
-        }
-    }
 
 
 
@@ -643,7 +450,7 @@ class UserController extends Controller
         }
         $goods = M("cart")->where(['user_id'=>$user_id])->
                  alias("a")->join("__GOODS__ b ON a.goods_id = b.goods_id","LEFT")->
-                 field("a.id,a.goods_num,b.goods_id,b.original_img,b.shop_price,b.freight")->
+                 field("a.id,a.goods_num,b.goods_id,b.original_img,b.shop_price,b.freight,b.goods_name")->
                  select();
         if(!empty($goods)){
             foreach($goods as $k=>$v){
@@ -674,70 +481,248 @@ class UserController extends Controller
             json(201, '服务器异常');
         }
     }
-
-    function cart_pay($cart_order, $money)
-    {
-
-        require_once('./pay/aop/AopClient.php');
-        $shu = srand((double)microtime() * 1000000);
-        $c = new \AopClient;
-        $dat = array(
-            'app_id' => '2017010304816030',
-            'biz_content' => json_encode(array(
-                'subject' => '欢迎下次购买',
-                'out_trade_no' => $cart_order,
-                'total_amount' => $money,
-                'product_code' => 'QUICK_MSECURITY_PAY'
-            )),
-            'charset' => 'utf-8',
-            'method' => 'alipay.trade.app.pay',
-            'notify_url' => 'https://www.baidu.com',
-            'sign_type' => 'RSA',
-            'timestamp' => '2014-07-24 03:07:50',
-            'version' => '1.0'
-        );
-        $data = $c->getSignContent($dat);
-        // echo $data;die;
-        $res = $c->sign($data);
-        // echo json_encode($res);die;
-        $i = 0;
-        $a = '';
-        foreach ($dat as $key => $value) {
-            # code...
-            if ($i == 0) {
-                $a .= $key . '=' . urlencode($value);
-            } else {
-                $a .= '&' . $key . '=' . urlencode($value);
-            }
-
+    /**
+     * 发送下单请求；
+     * @param  Curl   $curl 请求资源句柄
+     * @return mixed       请求返回数据
+     */
+    public function wx_pay($order) {
+        if(!$order){
+            json(202,'订单异常');
         }
-        $data = $data . '&sign=' . urlencode($res);
-        json(200, '签名成功', $data);
+      //  dd($order);
+      //  $order = M("order")->where(['order_id'=>$order_id])->find();
+        $nonce_str = $this->rand_code();        //调用随机字符串生成方法获取随机字符串
+        $data['appid'] ='wx9f42cbf90f7c0f51';   //appid
+        $data['mch_id'] = '1503869201' ;        //商户号
+        $data['body'] = "Mr 治的小商店-购物";
+        $data['spbill_create_ip'] = $_SERVER['HTTP_HOST'];   //ip地址
+        $data['total_fee'] = 1;                         //金额
+        $data['out_trade_no'] = $order['order_sn'];    //商户订单号,不能重复
+        $data['nonce_str'] = $nonce_str;                   //随机字符串
+        $data['notify_url'] = 'https://www.99youke.com/';   //回调地址,用户接收支付后的通知,必须为能直接访问的网址,不能跟参数
+        $data['trade_type'] = 'JSAPI';      //支付方式
+        //将参与签名的数据保存到数组  注意：以上几个参数是追加到$data中的，$data中应该同时包含开发文档中要求必填的剔除sign以外的所有数据
+        $data['sign'] = $this->getSign($data);        //获取签名
+       // dd($data);
+        $xml = $this->ToXml($data);            //数组转xml
+        //curl 传递给微信方
+        $url = "https://api.mch.weixin.qq.com/pay/unifiedorder";
+        //header("Content-type:text/xml");
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL, $url);
+        if(stripos($url,"https://")!==FALSE){
+            curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        }    else    {
+            curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,TRUE);
+            curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);//严格校验
+        }
+        //设置header
+        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        //要求结果为字符串且输出到屏幕上
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        //设置超时
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        //传输文件
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
+        //运行curl
+        $data = curl_exec($ch);
+        //返回结果
+        if($data){
+            curl_close($ch);
+            $re = $this->FromXml($data);
+            print($re);
+            if($re['return_code'] != 'SUCCESS'){
+                json(205,'签名失败');
+            }
+            else{
+                $arr =array(
+                    'prepayid' =>$re['prepay_id'],
+                    'appid' => 'wx9f42cbf90f7c0f51',
+                    'partnerid' => '1503869201',
+                    'package' => 'Sign=WXPay',
+                    'noncestr' => $nonce_str,
+                    'timestamp' =>time(),
+                );
+                $sign = $this->getSign($arr);
+                $arr['sign'] = $sign;
+                json(200,'签名成功',$arr);
+            }
+        } else {
+            $error = curl_errno($ch);
+            curl_close($ch);
+            json(206,"curl出错，错误码:$error");
+        }
+    }
+    private function getSign($params) {
+        ksort($params);        //将参数数组按照参数名ASCII码从小到大排序
+        foreach ($params as $key => $item) {
+            if (!empty($item)) {         //剔除参数值为空的参数
+                $newArr[] = $key.'='.$item;     // 整合新的参数数组
+            }
+        }
+        $stringA = implode("&", $newArr);         //使用 & 符号连接参数
+        $stringSignTemp = $stringA."&key="."123457abd!";        //拼接key
+        // key是在商户平台API安全里自己设置的
+        $stringSignTemp = MD5($stringSignTemp);       //将字符串进行MD5加密
+        $sign = strtoupper($stringSignTemp);      //将所有字符转换为大写
+        return $sign;
+    }
+    public function ToXml($data=array())
+    {
+        if(!is_array($data) || count($data) <= 0)
+        {
+            return '数组异常';
+        }
+
+        $xml = "<xml>";
+        foreach ($data as $key=>$val)
+        {
+            if (is_numeric($val)){
+                $xml.="<".$key.">".$val."</".$key.">";
+            }else{
+                $xml.="<".$key."><![CDATA[".$val."]]></".$key.">";
+            }
+        }
+        $xml.="</xml>";
+        return $xml;
+    }
+    //生成随机字符串
+    function rand_code(){
+        $str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';//62个字符
+        $str = str_shuffle($str);
+        $str = substr($str,0,32);
+        return  $str;
+    }
+    public function FromXml($xml)
+    {
+        if(!$xml){
+            echo "xml数据异常！";
+        }
+        //将XML转为array
+        //禁止引用外部xml实体
+        libxml_disable_entity_loader(true);
+        $data = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        return $data;
     }
 
 
-    
+
+    //微信回调
+    public function weipayverify(){
+        //写支付记录，WEB_PATH是我网站的根目录
+        $postStr = $this->postdata();//接收post数据
+        //把接受的参数转为数组
+        $arr = $this->FromXml($postStr);
+        //查看微信返回的数据 ,查看一次可删除  ,数据可拿来做测试
+        $a =  fopen("./log.txt","a+" );
+        fwrite ( $a ,  print_r($arr,true)."\n".get_date()."\r\n");
+        //验证支付
+        if($arr['return_code'] == "SUCCESS"){
+            //验证签名
+            $sign = $this->getSign($arr);
+            if($sign == $arr['sign']){//验证成功
+                //查询订单
+                $order = M("order")->where(['order_sn'=>$arr['out_trade_no']])->find();
+                $order_goods = M("order_goods")->where(['order_sn'=>$arr['out_trade_no']])->select();
+                //修改订单状态
+                $order_save = M("order")->where(['order_sn'=>$arr['out_trade_no']])->save(['order_status'=>2,'pay_time'=>time()]);
+                if($order_save !== false){
+                    //增加用户消费积分 1元等于100分
+                    $user_save = M("user")->where(['account'=>$arr['openid']])->setInc('pay_points',$arr['total_fee']);
+                    if(!$user_save){
+                        fwrite ( $a ,  "用户积分修改失败\n".get_date()."\r\n");
+                    }
+                    //减少商品库存
+                    foreach($order_goods as $k=>$v){
+                        $goods_save = M('goods')->where(['goods_id'=>$v['goods_id']])->setDec('store_count',$v['goods_num']);
+                        $goods_save2 = M('goods')->where(['goods_id'=>$v['goods_id']])->setInc('sales_sum',$v['goods_num']);
+                        if(!$goods_save){
+                            fwrite ( $a ,  "商品库存修改失败\n".get_date()."\r\n");
+                        }
+                        if(!$goods_save2){
+                            fwrite ( $a ,  "商品销修改失败\n".get_date()."\r\n");
+                        }
+                    }
+                    fclose($a);
+                    return  $this->FromXml(array('return_code'=>'SUCCESS','return_msg'=>"OK"));
+                }
+                else{
+                    fwrite ( $a ,  "订单修改失败\n".get_date()."\r\n");
+                }
+
+
+
+
+
+
+
+
+             }
+            else{
+                fwrite ( $a ,  "签名验证失败,支付失败\n".get_date()."\r\n");
+                fclose ( $a );
+            }
+        }
+        else{
+            fwrite ( $a ,  $arr['return_msg']."\n".get_date()."\r\n");
+            fclose ( $a );
+        }
+
+
+
+
+
+
+    }
+
+
+
+
+    // 接收post数据
+    /*
+    *  微信是用$GLOBALS['HTTP_RAW_POST_DATA'];这个函数接收post数据的
+    */
+    function postdata(){
+        $receipt = $_REQUEST;
+        if($receipt==null){
+            $receipt = file_get_contents("php://input");
+            if($receipt == null){
+                $receipt = $GLOBALS['HTTP_RAW_POST_DATA'];
+            }
+        }
+        return $receipt;
+    }
+
 
 
     //我的订单  未下单
     function my_order()
     {
         $user_id = I('post.user_id');
-      //  $user_id = 26;
         /*$_POST['page'] = $_POST['page'] ? $_POST['page'] : 0;
         $_POST['number'] = $_POST['number'] ? $_POST['number'] : 15;*/
         if (!$user_id) {
-            json(201, '用户不存在', '');
+            json(407, '数据异常', '');
         }
         $where['user_id'] = $user_id;
         $where['order_status'] = 1;
         $order = M("order")->where($where)->
-        alias("a")->join("__GOODS__ b ON a.goods_id = b.goods_id","LEFT")->
-        field("a.order_id,a.shipping_price,a.goods_id,order_amount,a.goods_price,a.goods_num,b.original_img")->
+        alias("a")->
+        field("order_id,order_amount,shipping_price")->
         select();
-      //  dd($order);
         foreach($order as $k=>$v){
-            $order[$k]['original_img'] = get_ip().$v['original_img'];
+            $order[$k]['goods'] = M("order_goods")->where(['order_id'=>$v['order_id']])->
+            alias("a")->join("__GOODS__ b ON a.goods_id = b.goods_id","LEFT")->
+            field("a.goods_name,b.original_img,a.goods_num,a.goods_price")->
+            select();
+            foreach($order[$k]['goods'] as $k2=>$v2){
+                $order[$k]['goods'][$k2]['original_img'] = get_ip().$v2['original_img'];
+            }
         }
         json(200, 'success', $order);
     }
@@ -746,7 +731,7 @@ class UserController extends Controller
     function dell_order()
     {
         if (M('order')->where(array('order_id' => $_POST['order_id']))->delete()) {
-           /* M('order_goods')->where(array('order_id' => $_POST['order_id']))->delete();*/
+            M('order_goods')->where(array('order_id' => $_POST['order_id']))->delete();
             json(200, '取消成功', '');
         }
         json(201, '取消失败', '');
@@ -813,8 +798,7 @@ class UserController extends Controller
         }
         if ($follow_store) {
             $user['follow_store'] = $key + 1;
-        } else {
-            $user['follow_store'] = 0;
+                $user['follow_store'] = 0;
         }
 
 
@@ -1162,11 +1146,7 @@ class UserController extends Controller
     }
 //修改资料
    function save_user(){
-       $a =  fopen("./log.txt","a+" );
- fwrite ( $a ,  print_r($_POST,true)."\n".get_date()."\n");
-       fwrite($a ,json_decode($_POST['user'],true) );
- fwrite ( $a , $_POST."\n".get_date()."\n");
- fclose ( $a );
+
 
         $_POST['user'] =   json_decode($_POST['user'],true);
         if(!$_POST['user']['user_id']){
@@ -1205,19 +1185,7 @@ class UserController extends Controller
        }
           json(200,'修改成功');
    }
-    //删除孩子信息
-    function del_children(){
-        if(!$_POST['id']){
-            json(409);
-        }
-       $re = M('children')->where(['id'=>$_POST['id']])->delete();
-        if($re) {
-            json(200,'删除成功');
-        }
-        else{
-            json(202,'数据异常');
-        }
-    }
+
 //搜索商品  商品名和店铺名
   function search_goods(){
       if(!$_POST['val']){
@@ -1234,38 +1202,6 @@ class UserController extends Controller
           json(200,'无匹配数据');
       }
   }
-
-
-    function test(){
-        $a = '[
-  {
-    "children_sex" : "1",
-    "id" : "13",
-    "children_birthday" : "1503331200",
-    "user_id" : "25",
-    "children_name" : "孩子"
-  },
-  {
-    "children_sex" : "1",
-    "id" : "12",
-    "children_birthday" : "1503331200",
-    "user_id" : "25",
-    "children_name" : "呵呵"
-  }
-]';      //  $a = '{"name":"\u79cb\u5927\u738b"}' ;
-    //    $a = '[{"name":"\U5475\U5475","id":666},{"name":"\U5475\U5475","id":666}]';
-
-     $a =  json_decode($a,true);
-
-        dd($a);
-
-    }
-    function test1(){
-        $a= array(
-            'name' => '秋大王'
-        );
-        echo json_encode($a);
-    }
 
 
 

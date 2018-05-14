@@ -3,7 +3,7 @@
 <div class="pd-20">
     <form method="get" action="__CONTROLLER__/index1">
         <div class="text-c">
-            <input type="text" class="input-text" style="width:250px" placeholder="输入手机号丶昵称关键字" id="" name="key">
+            <input type="text" class="input-text" style="width:250px" placeholder="昵称关键字" id="" name="key">
             <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
         </div>
     </form>
@@ -22,7 +22,7 @@
             <!--<th width="25"><input class="checkAll" type="checkbox" name="" value="0"></th>-->
             <th width="">ID</th>
             <th width="">昵称</th>
-            <th width="">性别</th>
+            <!--<th width="">性别</th>-->
             <th width="">消费积分</th>
             <th>注册时间</th>
             <th >上次登陆时间</th>
@@ -36,11 +36,11 @@
                 <!--<td><input <eq name="vo.admin_id" value="1" >disabled</eq> type="checkbox" class="box" value="{$vo.admin_id}" name="box"></td>-->
                 <td>{$vo.user_id}</td>
                 <td>{$vo.name}</td>
-                <td><switch name="vo.sex">
+                <!--<td><switch name="vo.sex">
                     <case name="0">保密</case>
                     <case name="1">男</case>
                     <default />女
-                </switch></td>
+                </switch></td>-->
                 <td>{$vo.pay_points}</td>
                <td>{$vo.reg_time|date="Y-m-d H:i",###}</td>
                 <td>{$vo.lst_log|date="Y-m-d H:i",###}</td>

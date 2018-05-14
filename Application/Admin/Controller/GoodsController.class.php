@@ -56,6 +56,7 @@ class GoodsController extends BaseController
             $_POST['goods_img'] = implode(',',$_POST['goods_img']);
             $_POST['info_img'] = implode(',',$_POST['info_img']);
             $_POST['goods_sn']  = time()+rand(1000,9999);
+            $_POST['on_time']  = time();
             $re =  M("goods")->add($_POST);
             if($re){
                echo 1;
